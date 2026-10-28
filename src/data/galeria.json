@@ -1,0 +1,4 @@
+{
+  "_ayuda": "Para agregar fotos: 1) copia la imagen (idealmente .webp o .jpg, de 1200–1600 px de ancho) a src/assets/img/galeria/. 2) agrega una entrada en «fotos» con src (nombre del archivo), alt (descripción para lectores de pantalla), caption (opcional), w y h (ancho y alto en píxeles). 3) ejecuta node build.mjs. Se muestran 6 y el resto queda en «Ver más fotos».",
+  "fotos": []
+}

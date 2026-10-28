@@ -1,0 +1,36 @@
+{
+  "name": "Dojo Kokoro",
+  "legalName": "Dojo Kokoro Karate-Do Shotokan",
+  "description": "Dojo de Karate-Do Shotokan en Santa Bárbara de Heredia, Costa Rica. Clases para niños, jóvenes y adultos. Primera clase gratis.",
+  "url": "https://REEMPLAZAR-DOMINIO.example",
+  "locale": "es_CR",
+  "whatsapp": "50685145922",
+  "phoneDisplay": "+506 8514-5922",
+  "phoneIntl": "+50685145922",
+  "showPending": true,
+  "ogImage": "assets/img/og-kokoro.jpg",
+  "ogImageAlt": "Dojo Kokoro, Karate-Do Shotokan en Santa Bárbara de Heredia",
+  "social": {
+    "instagram": "https://www.instagram.com/dojo_kokoro_iskf/",
+    "facebook": "https://www.facebook.com/share/1FCF8F96S4/",
+    "kataEquipo": "https://www.instagram.com/kataequipocrc/"
+  },
+  "maps": "https://maps.app.goo.gl/wjCoEnb7eMJgkQgW7",
+  "waze": "https://ul.waze.com/ul?ll=10.05705377%2C-84.13793789&navigate=yes&zoom=17&utm_campaign=live_map&utm_source=waze_website&utm_medium=lm_share_location",
+  "wazeEmbed": "https://embed.waze.com/iframe?zoom=17&lat=10.057054&lon=-84.137938&ct=livemap",
+  "geo": {
+    "lat": 10.05705377,
+    "lon": -84.13793789
+  },
+  "iskfDojoKun": "https://www.iskf.com/dojokun.html",
+  "wa": {
+    "gratis": "Hola, quiero agendar mi primera clase gratis de Karate-Do en Dojo Kokoro. ¿Me pueden indicar las próximas fechas disponibles?",
+    "ninos": "Hola, me interesa la clase de niños de 8 a 11 años en Dojo Kokoro. ¿Me pueden indicar las próximas fechas disponibles para la primera clase gratis?",
+    "adultos": "Hola, me interesa la clase de jóvenes y adultos (12 años en adelante) en Dojo Kokoro. ¿Me pueden indicar las próximas fechas disponibles para la primera clase gratis?",
+    "dojo": "Hola, quiero formar parte de Dojo Kokoro. ¿Me pueden dar información y las próximas fechas disponibles?",
+    "instituciones": "Hola, represento a una institución educativa y me gustaría recibir información sobre el Programa de Karate-Do para Formación Integral de Kokoro. ¿Podemos conversar sobre una posible colaboración?"
+  },
+  "formulario": {
+    "mensaje": "Hola, quiero agendar la primera clase gratis de Karate-Do en Dojo Kokoro.\n\nNombre de la persona que va a entrenar: {nombre}\nEdad: {edad}\n\n¿Me pueden indicar las próximas fechas disponibles? ¡Gracias!"
+  }
+}

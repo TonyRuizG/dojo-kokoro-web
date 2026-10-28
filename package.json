@@ -1,0 +1,14 @@
+{
+  "name": "dojo-kokoro-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio web oficial de Dojo Kokoro Karate-Do Shotokan (Santa Bárbara de Heredia, Costa Rica). Sitio estático de tres páginas, sin dependencias.",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "node build.mjs",
+    "build:local": "node build.mjs --local",
+    "revisar": "node build.mjs && node tools/revisar-sitio.mjs dist",
+    "start": "node build.mjs && node tools/servir.mjs dist"
+  }
+}

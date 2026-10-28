@@ -1,0 +1,109 @@
+/* ==========================================================
+   Layout compartido: contenedor, secciones, encabezados, botones
+   ========================================================== */
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding-left: var(--pad-x);
+  padding-right: var(--pad-x);
+}
+
+.sec { padding: var(--sec-y) 0; }
+.sec--cream { background: var(--cream); color: var(--ink); }
+.sec--paper { background: var(--paper); color: var(--ink); }
+.sec--ink { background: var(--ink); color: var(--cream); }
+.sec--navy { background: var(--navy); color: var(--cream); }
+.sec--red { background: var(--red); color: var(--cream); }
+
+/* Cabecera de sección: título a la izquierda, texto a la derecha */
+.sec-head {
+  display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
+  gap: 28px 80px; margin-bottom: 56px;
+}
+.sec-head__main { flex: 1 1 520px; min-width: 0; }
+.sec-head__side { flex: 0 1 380px; display: flex; flex-direction: column; gap: 10px; }
+.sec-head__side p { font-size: 16px; line-height: 1.8; }
+.sec--cream .sec-head__side p, .sec--paper .sec-head__side p { color: var(--muted); }
+.sec--ink .sec-head__side p { color: var(--on-dark); }
+.sec--navy .sec-head__side p { color: var(--on-dark-2); }
+
+.eyebrow {
+  display: flex; align-items: center; gap: 11px; margin-bottom: 28px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+}
+.eyebrow::before {
+  content: ''; display: inline-block; flex: 0 0 auto; width: 9px; height: 9px;
+  background: var(--eb, var(--red));
+}
+.sec--ink .eyebrow, .sec--navy .eyebrow, .hero .eyebrow { --eb: var(--red-hi); }
+.sec--red .eyebrow { --eb: var(--cream); }
+
+.h2 {
+  font-family: var(--f-hd); font-weight: 600; text-transform: uppercase;
+  line-height: 1.02; letter-spacing: -0.01em;
+  font-size: var(--fs, clamp(44px, 6vw, 92px));
+  overflow-wrap: break-word;
+}
+.acc { color: var(--red); }
+.sec--navy .acc { color: var(--red-soft); }
+.sec--ink .acc { color: #7e8399; }
+.acc--red { color: var(--red); }
+
+.lede { font-size: clamp(18px, 1.7vw, 22px); line-height: 1.55; font-weight: 500; }
+.copy { font-size: 14px; line-height: 1.8; color: var(--muted); }
+.copy strong { color: var(--ink); }
+
+/* ---------- Botones ---------- */
+.btn { transition: transform 0.25s, background-color 0.25s, color 0.25s, border-color 0.25s; }
+.btn:hover { transform: translateY(-3px); }
+
+.btn-main {
+  display: inline-flex; align-items: center; justify-content: space-between; gap: 22px;
+  min-height: 58px; padding: 0 10px 0 26px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+}
+.btn-main__ico {
+  display: grid; place-items: center; flex: 0 0 auto; width: 38px; height: 38px;
+  background: rgba(255, 255, 255, 0.18); font-size: 22px; font-weight: 400;
+}
+.btn-main--red { background: var(--red); color: #fff; }
+.btn-main--ink { background: var(--ink); color: var(--cream); }
+.btn-main--ink .btn-main__ico { background: rgba(255, 255, 255, 0.16); }
+.btn-main--cream { background: var(--cream); color: var(--ink); }
+.btn-main--cream .btn-main__ico { background: rgba(15, 16, 25, 0.1); }
+
+.link-arrow {
+  display: inline-flex; align-items: center; gap: 24px; padding: 12px 0;
+  border-bottom: 1px solid currentColor;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+  transition: opacity 0.2s, gap 0.25s;
+}
+.link-arrow:hover { gap: 30px; }
+.link-arrow span { font-size: 18px; letter-spacing: 0; }
+.link-arrow--soft { align-self: flex-start; }
+
+.link-under {
+  display: inline-block; padding: 12px 0; font-size: 14px; font-weight: 700;
+  color: #fff; text-decoration: underline; text-underline-offset: 3px;
+}
+
+/* ---------- Avisos de dato pendiente ----------
+   Se ocultan todos poniendo "showPending": false en src/site.json */
+.todo {
+  display: flex; align-items: flex-start; gap: 12px; margin-top: 18px; padding: 14px 16px;
+  border: 1.5px dashed currentColor; font-size: 13px; line-height: 1.6;
+  background: rgba(204, 23, 27, 0.07);
+}
+.todo b {
+  flex: 0 0 auto; padding: 2px 8px; background: var(--red); color: #fff;
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.6;
+}
+.todo > span { min-width: 0; overflow-wrap: anywhere; }
+.todo code { padding: 1px 5px; background: rgba(15, 16, 25, 0.1); font-size: 12px; overflow-wrap: anywhere; }
+.sec--ink .todo, .sec--navy .todo, .sec--red .todo, .hero .todo { background: rgba(243, 240, 232, 0.08); }
+.sec--ink .todo code, .sec--navy .todo code { background: rgba(243, 240, 232, 0.14); }
+.todo--inline { margin-top: 12px; padding: 10px 12px; font-size: 12px; }
+
+@media (max-width: 860px) {
+  .sec-head { margin-bottom: 44px; }
+}

@@ -1,0 +1,94 @@
+/* ==========================================================
+   DOJO KOKORO · Base: variables, reinicio, tipografía
+   Paleta y tipografías conservadas del diseño original.
+   ========================================================== */
+:root {
+  --red: #cc171b;
+  --red-hi: #ff4a44;
+  --red-soft: #ff6b63;
+  --navy: #1b1f55;
+  --ink: #0f1019;
+  --ink-2: #1a1c30;
+  --cream: #f3f0e8;
+  --paper: #ece8df;
+  --muted: #4f524b;
+  --muted-2: #5c5f57;
+  --line: #c9c5b8;
+  --on-dark: #b4b6ad;
+  --on-dark-2: #d6d9f0;
+
+  --pad-x: clamp(20px, 4.5vw, 64px);
+  --sec-y: clamp(80px, 10vw, 130px);
+  --maxw: 1280px;
+  --hdr-h: 84px;
+
+  --f-body: 'DM Sans', 'Inter', Arial, sans-serif;
+  --f-hd: 'Oswald', 'Roboto Condensed', 'Arial Narrow', Impact, sans-serif;
+  --f-jp: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+
+  --ease: cubic-bezier(0.3, 0.7, 0.2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--f-body);
+  color: var(--ink);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, p, figure, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; }
+button { font: inherit; color: inherit; }
+::selection { background: var(--red); color: #fff; }
+
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 3px solid var(--red-soft);
+  outline-offset: 3px;
+}
+
+.hd { font-family: var(--f-hd); }
+.jp { font-family: var(--f-jp); }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.skip {
+  position: fixed; left: 12px; top: -80px; z-index: 100;
+  padding: 12px 18px; background: var(--cream); color: var(--ink);
+  font-size: 13px; font-weight: 700; transition: top 0.2s;
+}
+.skip:focus { top: 12px; }
+
+/* Animación de entrada del hero */
+@keyframes rise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.d1 { animation-delay: 0.1s; }
+.d2 { animation-delay: 0.22s; }
+.d3 { animation-delay: 0.36s; }
+.d4 { animation-delay: 0.5s; }
+
+/* Transición suave entre páginas: fundido de entrada al cargar y de salida al navegar
+   (la salida la dispara site.js; con movimiento reducido no se aplica) */
+@keyframes page-in { from { opacity: 0; } to { opacity: 1; } }
+html.js body { animation: page-in 0.45s ease both; }
+html.leaving body { opacity: 0; transition: opacity 0.2s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rise { animation: none; }
+  html.js body { animation: none; }
+}
