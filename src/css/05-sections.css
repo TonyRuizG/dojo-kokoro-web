@@ -198,6 +198,9 @@
 .where__txt .copy { margin-bottom: 30px; font-size: 15px; }
 .where__go { display: flex; flex-wrap: wrap; gap: 14px; }
 .where__go .btn-main { flex: 1 1 200px; }
+.sede-next { margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 17px; line-height: 1.6; }
+.sede-next span { font-weight: 600; }
+.sede-next strong { font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; overflow-wrap: anywhere; }
 
 /* ---------- Contacto (WhatsApp) ---------- */
 .contact { position: relative; overflow: hidden; }

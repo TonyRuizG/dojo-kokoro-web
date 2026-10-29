@@ -1,6 +1,6 @@
 # Resumen de cambios
 
-**Versión actual: 3.2** (sobre la 3.0, el tercer rediseño de interfaz). Los paquetes siguientes se numeran 3.1, 3.2, 3.3… y cada uno se entrega como `dojo-kokoro-web-v3.X.zip`.
+**Versión actual: 3.3** (sobre la 3.0, el tercer rediseño de interfaz). Los paquetes siguientes se numeran 3.1, 3.2, 3.3… y cada uno se entrega como `dojo-kokoro-web-v3.X.zip`.
 
 Punto de partida: la página única de Dojo Kokoro (versión 15, un solo archivo HTML empaquetado).
 Resultado: un sitio de tres páginas, organizado y listo para publicar. La versión original está intacta en `respaldo-original/`.
@@ -121,3 +121,8 @@ Respaldo previo: `respaldo-original/respaldo-antes-del-prompt-maestro-*.tgz`. Se
 
 - **Inicio → «¿Qué es Kokoro?»:** se quitó el resumen de misión y visión. La misión y la visión oficiales siguen completas en Nuestro dojo. Quedó un solo enlace, con el texto «Conoce más de nuestro dojo», que lleva a esa página.
 
+## 12. Versión 3.3
+
+- **Facebook:** enlace definitivo de la página (`facebook.com/profile.php?id=61595614032952`) en el encabezado, el menú móvil, el pie y los datos estructurados.
+- **Dos sedes:** en la sección de ubicación de Inicio, el texto actual pasa a «Sede Birrí:» (con sus botones de Google Maps y Waze) y más abajo aparece «Sede Sta. Bárbara Centro: **PRÓXIMAMENTE**».
+- **Logos de ISKF y CCDR:** el dojo confirmó que tiene aprobación para usarlos (se quitó de los pendientes).

@@ -7,29 +7,27 @@ El sitio público **no muestra avisos de «pendiente»**: solo publica informaci
 | # | Qué | Dónde se cambia |
 |---|---|---|
 | 1 | **Dominio propio** (previsto `dojokokorocr.com`, aún no comprado ni configurado). Hoy el sitio usa la dirección de `workers.dev`. | `src/site.json` → `url` (o `SITE_URL` en Cloudflare). Ver README. |
-| 2 | **Permiso de uso** de los logos de ISKF Costa Rica y del CCDR de Santa Bárbara. | — |
-| 3 | Cambiar el enlace de Facebook por la **dirección permanente de la página** (el actual es un enlace para compartir, `facebook.com/share/...`). | `src/site.json` → `social.facebook` |
 
 ## Datos de texto
 
 | # | Qué falta | Sección |
 |---|---|---|
-| 4 | **Escala de cinturones** del dojo y requisitos de cada examen. | Progresión por cinturones |
-| 5 | **Calendario de torneos** y categorías competitivas. | Nuestro dojo → Desarrollo deportivo |
-| 6 | **Logros** (cuando el dojo decida compartirlos): año, torneo, categoría y resultado. Hoy se muestra «Construye una historia con nosotros». Nombres de atletas solo con autorización. | `src/data/logros.json` |
-| 7 | **Trayectoria de los senseis** (opcional): especialidades, certificaciones adicionales o datos verificables que quieran sumar. Hoy se muestran años de práctica, «Seleccionado/a Nacional» y «1er Dan». | Nuestro dojo → Senseis |
-| 8 | **Asociación Kokoro Santa Bárbara:** cartas o enlaces que verifiquen el apoyo de cada organización de respaldo, si existen. | Respaldo institucional |
-| 9 | **Kanji decorativos** (道場, 先生, 心, los del Dojo Kun, etc.): vienen del diseño original y de la tradición del Dojo Kun; conviene que los revise alguien que hable japonés, como se hizo con los valores. | Varias secciones |
+| 2 | **Escala de cinturones** del dojo y requisitos de cada examen. | Progresión por cinturones |
+| 3 | **Calendario de torneos** y categorías competitivas. | Nuestro dojo → Desarrollo deportivo |
+| 4 | **Logros** (cuando el dojo decida compartirlos): año, torneo, categoría y resultado. Hoy se muestra «Construye una historia con nosotros». Nombres de atletas solo con autorización. | `src/data/logros.json` |
+| 5 | **Trayectoria de los senseis** (opcional): especialidades, certificaciones adicionales o datos verificables que quieran sumar. Hoy se muestran años de práctica, «Seleccionado/a Nacional» y «1er Dan». | Nuestro dojo → Senseis |
+| 6 | **Asociación Kokoro Santa Bárbara:** cartas o enlaces que verifiquen el apoyo de cada organización de respaldo, si existen. | Respaldo institucional |
+| 7 | **Kanji decorativos** (道場, 先生, 心, los del Dojo Kun, etc.): vienen del diseño original y de la tradición del Dojo Kun; conviene que los revise alguien que hable japonés, como se hizo con los valores. | Varias secciones |
 
 ## Fotografías
 
 | # | Qué | Para qué |
 |---|---|---|
-| 10 | **Fotos reales** de entrenamientos, katas, kumite, graduaciones, torneos, comunidad e instructores con alumnos. Con autorización de padres o encargados si aparecen menores. | Galería deportiva (hoy muestra «Próximamente»; se llena sola al agregar fotos) |
-| 11 | **Fotos del lugar de entrenamiento** (Salón Comunal de ADI Birrí). | Sección de ubicación |
-| 12 | Una **foto de portada auténtica**, si quieren portada con fotografía en lugar del logo difuminado. | Las tres páginas |
-| 13 | Confirmar que las **fotos de los senseis** son las definitivas y sumar fotos de trayectoria si las hay. | Nuestro dojo → Senseis |
-| 14 | Imagen para compartir en redes (hoy se genera con el logo; puede reemplazarse por una foto real de 1200×630). | `src/assets/img/og-kokoro.jpg` |
+| 8 | **Fotos reales** de entrenamientos, katas, kumite, graduaciones, torneos, comunidad e instructores con alumnos. Con autorización de padres o encargados si aparecen menores. | Galería deportiva (hoy muestra «Próximamente»; se llena sola al agregar fotos) |
+| 9 | **Fotos del lugar de entrenamiento** (Salón Comunal de ADI Birrí). | Sección de ubicación |
+| 10 | Una **foto de portada auténtica**, si quieren portada con fotografía en lugar del logo difuminado. | Las tres páginas |
+| 11 | Confirmar que las **fotos de los senseis** son las definitivas y sumar fotos de trayectoria si las hay. | Nuestro dojo → Senseis |
+| 12 | Imagen para compartir en redes (hoy se genera con el logo; puede reemplazarse por una foto real de 1200×630). | `src/assets/img/og-kokoro.jpg` |
 
 ## Ya confirmado por el dojo (versión 3.1)
 
@@ -38,6 +36,9 @@ El sitio público **no muestra avisos de «pendiente»**: solo publica informaci
 - Qué llevar a la primera clase: ropa deportiva o cómoda, botella de agua y ganas de entrenar.
 - Datos de referencia del Programa educativo: 2–3 sesiones semanales, unos 60 minutos, espacio de unos 70 m².
 - Japonés de los valores: se quitó del sitio.
+- Facebook definitivo: `facebook.com/profile.php?id=61595614032952`.
+- Aprobación de ISKF y del CCDR para usar sus logos (los correos son confidenciales y no se guardan en el proyecto).
+- Segunda sede: «Sede Sta. Bárbara Centro: PRÓXIMAMENTE» en la sección de ubicación. Cuando haya dirección, se agrega su mapa y sus botones.
 
 ## Material que se dejó fuera a propósito
 
