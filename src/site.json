@@ -18,7 +18,6 @@
   },
   "maps": "https://maps.app.goo.gl/wjCoEnb7eMJgkQgW7",
   "waze": "https://ul.waze.com/ul?ll=10.05705377%2C-84.13793789&navigate=yes&zoom=17&utm_campaign=live_map&utm_source=waze_website&utm_medium=lm_share_location",
-  "wazeEmbed": "https://embed.waze.com/iframe?zoom=17&lat=10.057054&lon=-84.137938&ct=livemap",
   "geo": {
     "lat": 10.05705377,
     "lon": -84.13793789

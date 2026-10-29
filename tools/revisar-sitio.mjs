@@ -12,7 +12,7 @@
  *  - que no queden fechas de lanzamiento ("28 de octubre", "inicio de clases", etc.);
  *  - que cada página tenga <title>, description, canonical, Open Graph y un único <h1>;
  *  - que toda imagen tenga atributo alt y que los textos pendientes se vean u oculten según site.json;
- *  - que Inicio tenga los enlaces de Google Maps y Waze, el mapa incrustado y el formulario de WhatsApp completo.
+ *  - que Inicio tenga los enlaces de Google Maps y Waze (sin mapa incrustado), las dos sedes y el formulario de WhatsApp completo.
  *  - reglas de contenido: sin avisos internos, precios, datos personales ni textos provisionales; misión y visión oficiales
  *    tal cual; ocho valores con su descripción; preguntas frecuentes; dirección pública sin marcadores de posición.
  *
@@ -98,9 +98,11 @@ for (const file of htmlFiles) {
     const A = (u) => String(u).replace(/&/g, '&amp;');
     if (!html.includes(`href="${A(site.maps)}"`)) err(`${page}: falta el enlace a Google Maps de site.json`);
     if (!html.includes(`href="${A(site.waze)}"`)) err(`${page}: falta el enlace a Waze de site.json`);
-    const ifr = html.match(/<iframe\b[^>]*>/);
-    if (!ifr || !ifr[0].includes(`src="${A(site.wazeEmbed)}"`)) err(`${page}: falta el mapa incrustado de Waze`);
-    else if (!/\stitle="[^"]{10,}"/.test(ifr[0])) err(`${page}: el iframe del mapa no tiene title`);
+    if (/<iframe\b/.test(html)) err(`${page}: ya no lleva mapa incrustado (solo botones de Google Maps y Waze)`);
+    const iH = html.indexOf('id="horarios"'), iU = html.indexOf('id="ubicacion"'), iP = html.indexOf('id="preguntas"');
+    if (!(iH > -1 && iH < iU && iU < iP)) err(`${page}: la ubicación debe ir justo después de los horarios y antes de las preguntas`);
+    if (!html.includes('Sede Birrí:')) err(`${page}: falta «Sede Birrí:» en la ubicación`);
+    if (!/Sede Sta\. Bárbara Centro:<\/span> <strong>PRÓXIMAMENTE<\/strong>/.test(html)) err(`${page}: falta «Sede Sta. Bárbara Centro: PRÓXIMAMENTE»`);
     const form = html.match(/<form\b[^>]*data-wa-form[^>]*>/);
     if (!form) err(`${page}: falta el formulario de WhatsApp (data-wa-form)`);
     else {

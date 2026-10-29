@@ -85,7 +85,7 @@ node build.mjs --local                   # genera dist-local/ (se abre con doble
 
 Los mismos atajos con npm: `npm run build`, `npm start`, `npm run revisar`.
 
-**Revisión automática.** `tools/revisar-sitio.mjs` comprueba enlaces, imágenes, CSS y JS locales; que cada ancla (`#seccion`) exista; los enlaces de WhatsApp (número y mensaje legible); Maps, Waze y el mapa incrustado; el formulario (campos, etiquetas, plantilla con `{nombre}` y `{edad}`); título, descripción, canonical y Open Graph por página; un único `<h1>`; textos alternativos; que no queden variables sin reemplazar ni fechas de lanzamiento, y avisa si quedan avisos internos visibles. Termina con error si algo falla.
+**Revisión automática.** `tools/revisar-sitio.mjs` comprueba enlaces, imágenes, CSS y JS locales; que cada ancla (`#seccion`) exista; los enlaces de WhatsApp (número y mensaje legible); Maps y Waze (sin mapa incrustado); el formulario (campos, etiquetas, plantilla con `{nombre}` y `{edad}`); título, descripción, canonical y Open Graph por página; un único `<h1>`; textos alternativos; que no queden variables sin reemplazar ni fechas de lanzamiento, y avisa si quedan avisos internos visibles. Termina con error si algo falla.
 
 Variables de entorno opcionales del generador:
 
@@ -121,7 +121,7 @@ Cuando compres el dominio (previsto: `dojokokorocr.com`, **aún no configurado**
 | Quiero cambiar… | Dónde |
 |---|---|
 | Teléfono, Instagram, Facebook, dirección del sitio | `src/site.json` |
-| Enlaces de Google Maps y Waze, y el mapa incrustado | `src/site.json` → `maps`, `waze`, `wazeEmbed`, `geo` |
+| Enlaces de Google Maps y Waze | `src/site.json` → `maps`, `waze`, `geo` |
 | Mensajes de WhatsApp de los botones | `src/site.json` → `wa` |
 | Mensaje del formulario (usa `{nombre}` y `{edad}`) | `src/site.json` → `formulario.mensaje` |
 | Horarios y grupos | `src/pages/index.html` (sección `#horarios`) |

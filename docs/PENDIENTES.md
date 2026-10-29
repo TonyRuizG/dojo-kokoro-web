@@ -56,5 +56,5 @@ El sitio público **no muestra avisos de «pendiente»**: solo publica informaci
 
 - La **publicación real en Cloudflare** (hay que abrir el sitio tras cada commit).
 - La apariencia exacta con **Oswald y DM Sans** (el entorno de pruebas no puede descargar Google Fonts; se usó una tipografía de reemplazo más ancha).
-- El **mapa de Waze incrustado** en vivo (se probó con un sustituto) y el comportamiento de WhatsApp en dispositivos reales.
+- El comportamiento de WhatsApp y de los botones de Google Maps y Waze en dispositivos reales.
 - **Pruebas con usuarios reales.**

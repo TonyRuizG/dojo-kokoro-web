@@ -1,6 +1,6 @@
 # Resumen de cambios
 
-**Versión actual: 3.3** (sobre la 3.0, el tercer rediseño de interfaz). Los paquetes siguientes se numeran 3.1, 3.2, 3.3… y cada uno se entrega como `dojo-kokoro-web-v3.X.zip`.
+**Versión actual: 3.4** (sobre la 3.0, el tercer rediseño de interfaz). Los paquetes siguientes se numeran 3.1, 3.2, 3.3… y cada uno se entrega como `dojo-kokoro-web-v3.X.zip`.
 
 Punto de partida: la página única de Dojo Kokoro (versión 15, un solo archivo HTML empaquetado).
 Resultado: un sitio de tres páginas, organizado y listo para publicar. La versión original está intacta en `respaldo-original/`.
@@ -126,3 +126,10 @@ Respaldo previo: `respaldo-original/respaldo-antes-del-prompt-maestro-*.tgz`. Se
 - **Facebook:** enlace definitivo de la página (`facebook.com/profile.php?id=61595614032952`) en el encabezado, el menú móvil, el pie y los datos estructurados.
 - **Dos sedes:** en la sección de ubicación de Inicio, el texto actual pasa a «Sede Birrí:» (con sus botones de Google Maps y Waze) y más abajo aparece «Sede Sta. Bárbara Centro: **PRÓXIMAMENTE**».
 - **Logos de ISKF y CCDR:** el dojo confirmó que tiene aprobación para usarlos (se quitó de los pendientes).
+
+## 13. Versión 3.4
+
+- **Ubicación sin mapa incrustado:** se quitó el mapa de Waze (en escritorio y en celular). Quedan los botones «Abrir en Google Maps» y «Abrir en Waze».
+- **Ubicación más arriba:** la sección pasó a ir justo después de los horarios, antes de las preguntas frecuentes, para que se encuentre sin bajar tanto. Se agregó «Ubicación» a la barra lateral. Se alternaron los fondos de las secciones vecinas para que se sigan distinguiendo.
+- **Nuevo título:** «Dónde nos encontramos.» en lugar de «Un lugar para crecer.». El resto se mantiene: «Sede Birrí:», el texto, los dos botones y «Sede Sta. Bárbara Centro: PRÓXIMAMENTE».
+- Se retiró `wazeEmbed` de `src/site.json` y del generador, y la regla del revisor ahora exige que no haya mapa incrustado y que la ubicación esté bien colocada.

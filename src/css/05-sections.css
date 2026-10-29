@@ -173,27 +173,10 @@
 .tile:hover .go span { background: var(--cream); color: var(--ink); }
 
 /* ---------- Ubicación ---------- */
-.where { display: flex; flex-wrap: wrap; align-items: center; gap: 56px clamp(40px, 8vw, 120px); }
-.mapcard {
-  flex: 1 1 420px; min-width: 0; position: relative; overflow: hidden; aspect-ratio: 1 / 0.92;
-  background: var(--ink); color: var(--cream);
-  background-image: linear-gradient(rgba(243, 240, 232, 0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(243, 240, 232, 0.06) 1px, transparent 1px);
-  background-size: 48px 48px;
-}
-/* Fondo de marca (se ve mientras carga el mapa de Waze, o si el mapa no puede cargar) */
-.mapcard__bg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
-.mapcard__map { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: transparent; }
-.mapcard__r1, .mapcard__r2 { position: absolute; aspect-ratio: 1; border-radius: 50%; }
-.mapcard__r1 { width: 62%; border: 1px solid rgba(243, 240, 232, 0.25); }
-.mapcard__r2 { width: 100%; border: 1px solid rgba(243, 240, 232, 0.14); }
-.mapcard__pin { position: relative; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
-.mapcard__dot { display: block; width: 26px; height: 26px; background: var(--red); border: 5px solid var(--cream); border-radius: 50%; box-shadow: 0 0 0 14px rgba(204, 23, 27, 0.35); }
-.mapcard__pin strong { margin-top: 12px; font-family: var(--f-hd); font-size: clamp(30px, 4vw, 44px); font-weight: 600; letter-spacing: 0.15em; }
-.mapcard__pin span { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; }
-.mapcard .jp { position: absolute; right: 20px; top: 18px; font-size: 56px; font-weight: 700; color: rgba(243, 240, 232, 0.22); }
-.mapcard__cap { position: absolute; left: 24px; bottom: 22px; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; color: var(--on-dark); }
+.where { display: flex; flex-wrap: wrap; align-items: center; gap: 40px clamp(40px, 8vw, 120px); }
+.where__head { flex: 1 1 380px; min-width: 0; }
+.where__head .h2 { --fs: clamp(44px, 5.6vw, 84px); }
 .where__txt { flex: 1 1 380px; min-width: 0; max-width: 560px; }
-.where__txt .h2 { margin-bottom: 32px; --fs: clamp(44px, 5.6vw, 84px); }
 .where__txt .lede { margin-bottom: 14px; }
 .where__txt .copy { margin-bottom: 30px; font-size: 15px; }
 .where__go { display: flex; flex-wrap: wrap; gap: 14px; }

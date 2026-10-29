@@ -249,7 +249,7 @@ for (const p of PAGES) {
   const isPrograma = meta.cta === 'programa';
   const ctx = {
     site, wa, url, root, ver,
-    link: { maps: attr(site.maps || ''), waze: attr(site.waze || ''), wazeEmbed: attr(site.wazeEmbed || '') },
+    link: { maps: attr(site.maps || ''), waze: attr(site.waze || '') },
     form: { template: attr((site.formulario && site.formulario.mensaje) || '') },
     year: String(new Date().getFullYear()),
     page: {
