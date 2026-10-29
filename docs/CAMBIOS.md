@@ -1,6 +1,6 @@
 # Resumen de cambios
 
-**Versión actual: 3.1** (sobre la 3.0, el tercer rediseño de interfaz). Los paquetes siguientes se numeran 3.1, 3.2, 3.3… y cada uno se entrega como `dojo-kokoro-web-v3.X.zip`.
+**Versión actual: 3.2** (sobre la 3.0, el tercer rediseño de interfaz). Los paquetes siguientes se numeran 3.1, 3.2, 3.3… y cada uno se entrega como `dojo-kokoro-web-v3.X.zip`.
 
 Punto de partida: la página única de Dojo Kokoro (versión 15, un solo archivo HTML empaquetado).
 Resultado: un sitio de tres páginas, organizado y listo para publicar. La versión original está intacta en `respaldo-original/`.
@@ -116,3 +116,8 @@ Respaldo previo: `respaldo-original/respaldo-antes-del-prompt-maestro-*.tgz`. Se
 - **Programa educativo:** el dojo confirmó como correctos los datos de referencia (2–3 sesiones semanales, unos 60 minutos, espacio de unos 70 m²).
 - **Metadatos:** título y descripción de Nuestro Dojo actualizados («historia, senseis y valores»).
 - **Verificación:** compilación, revisor del sitio, 91 pruebas del navegador, pruebas de los ocho valores, layout en 9 anchos y contraste; consola sin errores.
+
+## 11. Versión 3.2
+
+- **Inicio → «¿Qué es Kokoro?»:** se quitó el resumen de misión y visión. La misión y la visión oficiales siguen completas en Nuestro dojo. Quedó un solo enlace, con el texto «Conoce más de nuestro dojo», que lleva a esa página.
+

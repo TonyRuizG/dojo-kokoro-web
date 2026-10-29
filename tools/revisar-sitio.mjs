@@ -150,7 +150,7 @@ for (const file of htmlFiles) {
   if (page === '/index.html') {
     const q = (html.match(/<details\b/g) || []).length;
     if (q < 6) err(`${page}: faltan preguntas frecuentes (hay ${q}, se esperan al menos 6)`);
-    if (!/class="mvt"/.test(html)) err(`${page}: falta el resumen de misión y visión`);
+    if (/class="mvt"/.test(html)) err(`${page}: el resumen de misión y visión ya no va en Inicio`);
   }
   if (!/^\/404/.test(page) && !html.includes(`rel="canonical" href="${site.url}`)) err(`${page}: el canonical no usa la dirección pública de site.json (${site.url})`);
 

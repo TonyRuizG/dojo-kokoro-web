@@ -14,11 +14,6 @@
 .philo__row .lede { flex: 1 1 320px; }
 .philo__aside { flex: 1 1 260px; min-width: 0; }
 .philo__aside .copy { margin-bottom: 22px; }
-.mvt { margin-top: 56px; padding-top: 30px; border-top: 2px solid var(--ink); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px clamp(28px, 5vw, 64px); }
-.mvt__k { margin-bottom: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); }
-.mvt__col p:last-child { font-size: 15px; line-height: 1.75; color: var(--muted); }
-.mvt__go { grid-column: 1 / -1; justify-self: start; }
-@media (max-width: 700px) { .mvt { grid-template-columns: 1fr; } }
 
 /* Preguntas frecuentes (acordeón con <details>) */
 .faq-wrap { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 48px clamp(40px, 7vw, 110px); align-items: start; }

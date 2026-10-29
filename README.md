@@ -8,7 +8,7 @@ Es un sitio estático de tres páginas, sin dependencias, sin base de datos y si
 
 | Página | Ruta | Para qué sirve |
 |---|---|---|
-| Inicio | `/` | Filosofía, resumen de misión y visión, método, horarios, preguntas frecuentes, ubicación y formulario que continúa por WhatsApp. |
+| Inicio | `/` | Filosofía, método, horarios, preguntas frecuentes, ubicación y formulario que continúa por WhatsApp. |
 | Nuestro dojo | `/nuestro-dojo/` | Historia, misión y visión, ocho valores, Dojo Kun, senseis, metodología (Kihon, Kata, Bunkai, Kumite), desarrollo deportivo, logros (o «Construye una historia con nosotros»), respaldo institucional y galería (o «Próximamente»). |
 | Programa educativo | `/programa-educativo/` | Propuesta de karate-do extracurricular para instituciones: objetivos, valores, metodología, niveles, condiciones, seguimiento y proceso de colaboración. |
 
@@ -126,7 +126,7 @@ Cuando compres el dominio (previsto: `dojokokorocr.com`, **aún no configurado**
 | Mensaje del formulario (usa `{nombre}` y `{edad}`) | `src/site.json` → `formulario.mensaje` |
 | Horarios y grupos | `src/pages/index.html` (sección `#horarios`) |
 | Preguntas frecuentes | `src/pages/index.html` (sección `#preguntas`, un `<details>` por pregunta) |
-| Misión y visión | `src/pages/nuestro-dojo.html` (`#mision`) y el resumen en `src/pages/index.html` (`.mvt`) |
+| Misión y visión | `src/pages/nuestro-dojo.html` (`#mision`); ya no van en Inicio |
 | Los ocho valores | `src/data/valores.json` (**no cambiar los textos sin autorización**; los valores no llevan japonés a propósito) |
 | Historia del dojo | `src/pages/nuestro-dojo.html` (`#historia`) |
 | Datos de los senseis (grado, trayectoria, especialidades) | `src/pages/nuestro-dojo.html` (`#senseis`, lista `sensei__dl` de cada tarjeta) |
