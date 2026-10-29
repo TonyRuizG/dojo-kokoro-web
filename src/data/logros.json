@@ -1,17 +1,4 @@
 {
-  "_ayuda": "Cada logro es un objeto. Campos: titulo, detalle, etiqueta (texto corto: p. ej. «Confirmado»), falta (opcional: lo que aún hay que confirmar; solo se muestra mientras showPending sea true). Agrega los nuevos al final o al inicio de la lista.",
-  "logros": [
-    {
-      "titulo": "Seleccionados nacionales en el dojo",
-      "detalle": "Sensei Anthony Ruiz (16 años de práctica) es Seleccionado Nacional. Sensei Camila Ruiz (12 años de práctica) es Seleccionada Nacional y atleta del Kata Equipo Femenino de Costa Rica.",
-      "etiqueta": "Confirmado",
-      "falta": "Falta el año, los torneos y los resultados específicos de cada sensei."
-    },
-    {
-      "titulo": "Atletas del dojo en los Juegos Deportivos Nacionales",
-      "detalle": "Cuatro atletas del dojo se clasificaron a los Juegos Nacionales y tres obtuvieron medalla.",
-      "etiqueta": "Confirmado",
-      "falta": "Falta el año de los juegos, las categorías, el tipo de medalla y los nombres que quieran hacerse públicos."
-    }
-  ]
+  "_ayuda": "Cada logro es un objeto. Obligatorio: titulo. Opcionales (se muestran solo si los llenas): detalle, competencia, anio, categoria, atleta, resultado, etiqueta (texto corto), foto {src, alt, w, h} con el archivo en src/assets/img/logros/ (solo con autorización de la persona o de sus padres). Publica únicamente resultados confirmados e indica el año siempre que sea posible. Mientras la lista esté vacía, la sección de logros se oculta y en su lugar se muestra «Construye una historia con nosotros».",
+  "logros": []
 }

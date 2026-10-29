@@ -14,6 +14,35 @@
 .philo__row .lede { flex: 1 1 320px; }
 .philo__aside { flex: 1 1 260px; min-width: 0; }
 .philo__aside .copy { margin-bottom: 22px; }
+.mvt { margin-top: 56px; padding-top: 30px; border-top: 2px solid var(--ink); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px clamp(28px, 5vw, 64px); }
+.mvt__k { margin-bottom: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); }
+.mvt__col p:last-child { font-size: 15px; line-height: 1.75; color: var(--muted); }
+.mvt__go { grid-column: 1 / -1; justify-self: start; }
+@media (max-width: 700px) { .mvt { grid-template-columns: 1fr; } }
+
+/* Preguntas frecuentes (acordeón con <details>) */
+.faq-wrap { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 48px clamp(40px, 7vw, 110px); align-items: start; }
+.faq { border-top: 2px solid var(--ink); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 64px; padding: 18px 0; cursor: pointer; list-style: none;
+  font-family: var(--f-hd); font-size: clamp(19px, 1.9vw, 24px); font-weight: 600; line-height: 1.25; text-transform: uppercase; letter-spacing: 0.02em;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary:hover { color: var(--red); }
+.faq summary:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
+.faq summary i { position: relative; flex: 0 0 auto; width: 28px; height: 28px; border: 1.5px solid currentColor; border-radius: 50%; transition: transform 0.3s var(--ease); }
+.faq summary i::before, .faq summary i::after { content: ''; position: absolute; left: 50%; top: 50%; width: 10px; height: 1.5px; background: currentColor; transform: translate(-50%, -50%); }
+.faq summary i::after { transform: translate(-50%, -50%) rotate(90deg); }
+.faq details[open] summary i { transform: rotate(45deg); }
+.faq details[open] summary { color: var(--red); }
+.faq__a { padding: 0 48px 24px 0; }
+.faq__a p { max-width: 60ch; font-size: 15px; line-height: 1.8; color: var(--muted); }
+.faq__a a { font-weight: 700; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.faq details[open] .faq__a { animation: faq-in 0.28s ease both; }
+@keyframes faq-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+@media (max-width: 860px) { .faq-wrap { grid-template-columns: 1fr; } .faq__a { padding-right: 0; } }
+@media (prefers-reduced-motion: reduce) { .faq details[open] .faq__a { animation: none; } .faq summary i { transition: none; } }
 .rule { display: block; width: 34px; height: 2px; background: var(--red); margin-bottom: 18px; }
 
 .trio { margin-top: 56px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
@@ -178,8 +207,14 @@
 /* ---------- Contacto (WhatsApp) ---------- */
 .contact { position: relative; overflow: hidden; }
 .contact__in { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 56px clamp(40px, 7vw, 110px); position: relative; }
-.contact__l { flex: 1 1 440px; min-width: 0; }
-.contact__l .h2 { --fs: clamp(80px, 13vw, 200px); font-weight: 700; line-height: 0.94; letter-spacing: -0.02em; }
+.contact__l { flex: 1 1 440px; min-width: 0; container-type: inline-size; }
+/* Título «EMPIEZA / HOY.»: cada palabra va en su línea y el tamaño sigue el ancho de la columna
+   (cqi = 1% del ancho de .contact__l), así nunca se corta en ninguna pantalla.
+   El valor en vw es el respaldo para navegadores sin unidades de contenedor. */
+.contact__l .h2 { --fs: clamp(56px, 11vw, 190px); font-weight: 700; line-height: 0.94; letter-spacing: -0.02em; white-space: nowrap; overflow-wrap: normal; }
+@supports (width: 1cqi) {
+  .contact__l .h2 { --fs: clamp(56px, 25cqi, 200px); }
+}
 .contact__l .h2 .dot { color: var(--ink); }
 .contact__l > p { margin-top: 32px; max-width: 420px; font-size: 20px; line-height: 1.5; font-weight: 500; }
 .checks { margin: 32px 0 0; display: flex; flex-direction: column; gap: 16px; font-size: 14px; font-weight: 700; }

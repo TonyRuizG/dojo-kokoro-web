@@ -2,12 +2,13 @@
   "name": "Dojo Kokoro",
   "legalName": "Dojo Kokoro Karate-Do Shotokan",
   "description": "Dojo de Karate-Do Shotokan en Santa Bárbara de Heredia, Costa Rica. Clases para niños, jóvenes y adultos. Primera clase gratis.",
-  "url": "https://REEMPLAZAR-DOMINIO.example",
+  "url": "https://dojo-kokoro-web.anthony-ruiz-g22.workers.dev",
+  "fundado": "2023",
   "locale": "es_CR",
   "whatsapp": "50685145922",
   "phoneDisplay": "+506 8514-5922",
   "phoneIntl": "+50685145922",
-  "showPending": true,
+  "showPending": false,
   "ogImage": "assets/img/og-kokoro.jpg",
   "ogImageAlt": "Dojo Kokoro, Karate-Do Shotokan en Santa Bárbara de Heredia",
   "social": {
@@ -31,6 +32,6 @@
     "instituciones": "Hola, represento a una institución educativa y me gustaría recibir información sobre el Programa de Karate-Do para Formación Integral de Kokoro. ¿Podemos conversar sobre una posible colaboración?"
   },
   "formulario": {
-    "mensaje": "Hola, quiero agendar la primera clase gratis de Karate-Do en Dojo Kokoro.\n\nNombre de la persona que va a entrenar: {nombre}\nEdad: {edad}\n\n¿Me pueden indicar las próximas fechas disponibles? ¡Gracias!"
+    "mensaje": "Hola, me gustaría recibir información sobre las clases de Karate-Do Shotokan en Dojo Kokoro.\n\nNombre del estudiante: {nombre}\nEdad: {edad}\n\nQuisiera consultar las próximas fechas disponibles para asistir a la primera clase gratuita."
   }
 }

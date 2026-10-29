@@ -1,0 +1,45 @@
+{
+  "_ayuda": "Los ocho valores institucionales de Kokoro. Los textos están aprobados: no los cambies sin autorización. Campos: nombre, icono (archivo en src/assets/icons/valores/), texto (descripción que se ve al pasar el cursor o tocar). Los valores no llevan texto en japonés a propósito, porque no hay quien lo verifique.",
+  "valores": [
+    {
+      "nombre": "Respeto y dignidad",
+      "icono": "01_respeto_y_dignidad.svg",
+      "texto": "Tratamos a cada persona con cortesía y consideración. Respetamos a compañeros, instructores, familias, rivales y autoridades deportivas, y rechazamos la humillación, el acoso y la discriminación."
+    },
+    {
+      "nombre": "Integridad",
+      "icono": "02_integridad.svg",
+      "texto": "Actuamos con honestidad y coherencia dentro y fuera del dojo. Practicamos el juego limpio y gestionamos con transparencia los recursos, las evaluaciones y las oportunidades deportivas."
+    },
+    {
+      "nombre": "Disciplina y compromiso",
+      "icono": "03_disciplina_y_compromiso.svg",
+      "texto": "Cultivamos la constancia, la puntualidad y la responsabilidad. Entendemos la disciplina como un proceso educativo que desarrolla autonomía y hábitos sostenibles."
+    },
+    {
+      "nombre": "Autocontrol y convivencia pacífica",
+      "icono": "04_autocontrol_y_paz.svg",
+      "texto": "Aprendemos a regular nuestras emociones y a utilizar la técnica con responsabilidad. Buscamos resolver los conflictos mediante el diálogo y evitar la violencia."
+    },
+    {
+      "nombre": "Perseverancia y superación",
+      "icono": "05_perseverancia_y_superacion.svg",
+      "texto": "Nos esforzamos por mejorar desde nuestro propio punto de partida. Afrontamos las dificultades con paciencia, aprendemos del error y reconocemos el progreso personal y colectivo."
+    },
+    {
+      "nombre": "Humildad y aprendizaje continuo",
+      "icono": "06_humildad_y_aprendizaje.svg",
+      "texto": "Escuchamos, aceptamos correcciones y reconocemos nuestros límites. Conservamos la tradición del karate-do y actualizamos la enseñanza con criterio técnico y apertura al conocimiento."
+    },
+    {
+      "nombre": "Inclusión y solidaridad",
+      "icono": "07_inclusion_y_solidaridad.svg",
+      "texto": "Promovemos oportunidades de participación y un sentido de pertenencia. Reconocemos distintas capacidades, ritmos de aprendizaje y realidades familiares, y nos apoyamos para avanzar juntos."
+    },
+    {
+      "nombre": "Cuidado y bienestar integral",
+      "icono": "08_cuidado_y_bienestar.svg",
+      "texto": "Protegemos la salud física y emocional de quienes practican. Adaptamos las exigencias a la edad, experiencia y condición de cada persona, y atendemos cualquier situación que comprometa su seguridad."
+    }
+  ]
+}

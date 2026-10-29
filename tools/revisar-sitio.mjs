@@ -13,6 +13,8 @@
  *  - que cada página tenga <title>, description, canonical, Open Graph y un único <h1>;
  *  - que toda imagen tenga atributo alt y que los textos pendientes se vean u oculten según site.json;
  *  - que Inicio tenga los enlaces de Google Maps y Waze, el mapa incrustado y el formulario de WhatsApp completo.
+ *  - reglas de contenido: sin avisos internos, precios, datos personales ni textos provisionales; misión y visión oficiales
+ *    tal cual; ocho valores con su descripción; preguntas frecuentes; dirección pública sin marcadores de posición.
  *
  * Termina con código 1 si encuentra errores (útil en CI).
  */
@@ -23,6 +25,24 @@ import { fileURLToPath } from 'node:url';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = resolve(ROOT, process.argv[2] || 'dist');
 const site = JSON.parse(readFileSync(join(ROOT, 'src/site.json'), 'utf8'));
+const VALORES = JSON.parse(readFileSync(join(ROOT, 'src/data/valores.json'), 'utf8')).valores || [];
+const esc2 = (x) => String(x).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+// Textos oficiales entregados por el dojo: no modificar sin autorización.
+const OFICIAL = {
+  mision: 'Formar personas íntegras y karatecas comprometidos con su desarrollo mediante la enseñanza del karate-do Shotokan, integrando tradición, métodos de entrenamiento actualizados y acompañamiento cercano. Desde Santa Bárbara de Heredia, promovemos la disciplina, el autocontrol y el bienestar en un entorno seguro e inclusivo, y brindamos oportunidades de crecimiento personal y deportivo, desde la iniciación hasta la competencia.',
+  vision: 'Consolidarnos como una organización referente en Costa Rica por la calidad de nuestra enseñanza del karate-do, la formación humana de nuestros practicantes y el desarrollo responsable del talento deportivo, con proyección internacional y un vínculo activo con la comunidad. Aspiramos a que cada persona formada en KOKORO lleve el respeto, la integridad y el espíritu de superación a su vida cotidiana.',
+};
+// Lista privada opcional (no se sube al repositorio): respaldo-original/prohibidos.txt, una expresión regular por línea,
+// con datos personales o económicos que nunca deben aparecer en el sitio.
+const PRIV = [];
+try {
+  for (const line of readFileSync(join(ROOT, 'respaldo-original/prohibidos.txt'), 'utf8').split('\n')) {
+    const l = line.trim();
+    if (l && !l.startsWith('#')) PRIV.push(new RegExp(l, 'i'));
+  }
+} catch { /* sin lista privada: solo se aplican las reglas generales */ }
+const WA_LOCAL = site.phoneDisplay.replace(/^\+\d{3}\s?/, '').replace(/\D/g, '').replace(/^(\d{4})(\d{4})$/, '$1[\\s-]?$2');
+if (/example|REEMPLAZAR/i.test(site.url)) { console.log(`✖ site.url sigue siendo un marcador de posición (${site.url})`); process.exit(1); }
 
 // Carpeta donde vive el sitio publicado (p. ej. /dojo-kokoro-web/ en GitHub Pages), deducida de robots.txt.
 let BASE = '/';
@@ -87,6 +107,7 @@ for (const file of htmlFiles) {
       if (!form[0].includes(`action="https://wa.me/${site.whatsapp}"`)) err(`${page}: el formulario apunta a un número de WhatsApp distinto`);
       const tpl = (form[0].match(/data-template="([^"]*)"/) || [])[1] || '';
       if (!tpl.includes('{nombre}') || !tpl.includes('{edad}')) err(`${page}: el mensaje del formulario debe incluir {nombre} y {edad}`);
+      if (!/Nombre del estudiante: \{nombre\}/.test(tpl) || !/Edad: \{edad\}/.test(tpl)) err(`${page}: el mensaje del formulario debe tener «Nombre del estudiante: {nombre}» y «Edad: {edad}»`);
     }
     for (const id of ['ask-nombre', 'ask-edad']) {
       if (!new RegExp(`<label for="${id}"`).test(html) || !new RegExp(`<input id="${id}"`).test(html)) err(`${page}: el campo ${id} necesita su <label for>`);
@@ -98,6 +119,40 @@ for (const file of htmlFiles) {
   for (const re of [/28 de octubre/i, /inicio de clases/i, /desde el 28/i, /octubre/i]) {
     if (re.test(decodeURIComponent(visible.replace(/%(?![0-9A-F]{2})/gi, '%25')))) err(`${page}: aparece una referencia a fecha de lanzamiento (${re})`);
   }
+
+  // reglas de contenido (sobre el texto visible y los datos estructurados)
+  {
+    const ld = (html.match(/<script type="application\/ld\+json">[\s\S]*?<\/script>/) || [''])[0];
+    const text = (visible.replace(/<[^>]+>/g, ' ') + ' ' + ld).replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ');
+    const banned = [
+      [/texto propuesto|a la espera de (su )?aprobaci[oó]n|\bpendiente\b|provisional|lorem ipsum|REEMPLAZAR|por confirmar/i, 'texto interno o provisional visible'],
+      [/[₡¢]\s?\d|\$\s?\d|\d\s?(colones|d[oó]lares)/i, 'precio o monto económico'],
+      [/[\w.+-]+@[\w-]+\.[\w.-]+/, 'correo electrónico (el único contacto público es el WhatsApp oficial)'],
+      [new RegExp(`(?<![\\d+])(?!${WA_LOCAL})(?!(?:19|20)\\d\\d)\\d{4}[\\s-]\\d{4}(?!\\d)`), 'otro número de teléfono distinto al oficial'],
+      [/aggregateRating|ratingValue|reviewCount|"@type":"Review"/i, 'reseñas o calificaciones inventadas'],
+    ];
+    for (const re of PRIV) if (re.test(text)) err(`${page}: contiene un dato de la lista privada de prohibidos (${re})`);
+    for (const [re, what] of banned) if (re.test(text)) err(`${page}: contiene ${what} → ${(text.match(re) || [''])[0]}`);
+    if (/class="todo|badge-prop/.test(html) && !site.showPending) err(`${page}: hay avisos internos visibles aunque showPending es false`);
+  }
+  if (page === '/nuestro-dojo/index.html' || page === '/nuestro-dojo.html') {
+    const flat = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
+    if (!flat.includes(OFICIAL.mision)) err(`${page}: la misión no coincide con el texto oficial`);
+    if (!flat.includes(OFICIAL.vision)) err(`${page}: la visión no coincide con el texto oficial`);
+    const n = (html.match(/data-valor\b/g) || []).length;
+    if (n !== 8) err(`${page}: debe haber 8 valores (hay ${n})`);
+    for (const v of VALORES) {
+      const t = (x) => esc2(x);
+      if (!html.includes(`>${t(v.nombre)}<`) || !html.includes(`>${t(v.texto)}<`)) err(`${page}: falta el valor «${v.nombre}» completo (nombre o descripción)`);
+    }
+    for (const id of ['mision', 'valores', 'dojokun']) if (!idsOf(html).has(id)) err(`${page}: falta la sección #${id}`);
+  }
+  if (page === '/index.html') {
+    const q = (html.match(/<details\b/g) || []).length;
+    if (q < 6) err(`${page}: faltan preguntas frecuentes (hay ${q}, se esperan al menos 6)`);
+    if (!/class="mvt"/.test(html)) err(`${page}: falta el resumen de misión y visión`);
+  }
+  if (!/^\/404/.test(page) && !html.includes(`rel="canonical" href="${site.url}`)) err(`${page}: el canonical no usa la dirección pública de site.json (${site.url})`);
 
   // enlaces y recursos
   const refs = [...html.matchAll(/\b(?:href|src)="([^"]+)"/g)].map((m) => m[1]);

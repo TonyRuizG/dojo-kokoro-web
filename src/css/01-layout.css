@@ -53,6 +53,10 @@
 .copy { font-size: 14px; line-height: 1.8; color: var(--muted); }
 .copy strong { color: var(--ink); }
 
+/* Seguridad tipográfica: si la tipografía de marca (Oswald) tarda en cargar o falla y se usa una más ancha,
+   las palabras largas se parten dentro de su caja en lugar de salirse de ella. */
+h1, h2, h3, h4 { overflow-wrap: break-word; }
+
 /* ---------- Botones ---------- */
 .btn { transition: transform 0.25s, background-color 0.25s, color 0.25s, border-color 0.25s; }
 .btn:hover { transform: translateY(-3px); }

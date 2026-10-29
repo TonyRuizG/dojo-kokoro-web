@@ -7,17 +7,17 @@
  *                                             para abrirlo con doble clic sin servidor
  *
  * Variables de entorno opcionales:
- *   SITE_URL=https://tudominio.com   dirección pública (canonical, Open Graph, sitemap). Puede incluir una
- *                                    carpeta, por ejemplo https://usuario.github.io/dojo-kokoro-web (GitHub Pages).
- *                                    Si no se define, se intenta usar la que expone Netlify o Vercel.
- *   SHOW_PENDING=false               oculta los avisos «Pendiente» (anula "showPending" de src/site.json).
+ *   SITE_URL=https://tudominio.com   dirección pública (canonical, Open Graph, sitemap). Anula "url" de src/site.json.
+ *                                    Puede incluir una carpeta si el sitio no vive en la raíz del dominio.
+ *   SHOW_PENDING=true|false          muestra u oculta los avisos internos «Pendiente» (anula "showPending" de src/site.json).
  *
  * Qué hace:
  *  - Une cada página de src/pages con src/layout.html y los parciales de src/partials.
  *  - Calcula rutas relativas, así el sitio funciona en cualquier carpeta o dominio.
  *  - Genera SEO por página (title, description, canonical, Open Graph, Twitter, JSON-LD).
  *  - Arma los enlaces de WhatsApp desde src/site.json (un solo lugar para editar mensajes).
- *  - Genera la galería (src/data/galeria.json) y los logros (src/data/logros.json).
+ *  - Genera los ocho valores (src/data/valores.json), los logros (src/data/logros.json) y la galería (src/data/galeria.json);
+ *    la sección de logros se oculta sola mientras no haya logros (y muestra «Construye una historia con nosotros»); la galería muestra «Próximamente» hasta que haya fotos reales.
  *  - Une los CSS (src/css/*.css) y JS (src/js/*.js) en un archivo cada uno.
  *  - Copia imágenes y archivos estáticos, y crea sitemap.xml y robots.txt.
  */
@@ -65,8 +65,9 @@ const PAGES = [
 function galeria(ctx) {
   const items = jsonFile('data/galeria.json', { fotos: [] }).fotos || [];
   if (!items.length) {
+    // Sin fotos reales se muestra el aviso «Próximamente»; en cuanto haya fotos en src/data/galeria.json, la galería se llena sola.
     return `<div class="gal gal--empty">
-<div class="gal__soon"><span class="jp" lang="ja" aria-hidden="true">稽古</span><p>Aquí compartiremos fotos de nuestros entrenamientos, torneos y graduaciones.</p></div>
+<div class="gal__soon"><p class="gal__badge hd">Próximamente</p><p>Aquí compartiremos fotos de nuestros entrenamientos, torneos y graduaciones.</p></div>
 <!--PENDIENTE--><p class="todo"><b>Pendiente</b><span>Agrega fotos reales del dojo en <code>src/assets/img/galeria/</code> y regístralas en <code>src/data/galeria.json</code>. La galería se llena sola al reconstruir el sitio.</span></p><!--/PENDIENTE-->
 </div>`;
   }
@@ -80,17 +81,49 @@ function galeria(ctx) {
   return `<div class="gal">${first}</div>${more}`;
 }
 
-function logros() {
+function logros(ctx) {
   const items = jsonFile('data/logros.json', { logros: [] }).logros || [];
   return items
-    .map(
-      (l, i) => `<li class="ledger__row">
+    .map((l, i) => {
+      const meta = [['Competencia', l.competencia], ['Año', l.anio], ['Categoría', l.categoria], ['Atleta', l.atleta], ['Resultado', l.resultado]].filter(([, v]) => v);
+      const dl = meta.length ? `<dl class="ledger__meta">${meta.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>` : '';
+      const foto = l.foto && l.foto.src ? `<img class="ledger__ph" src="${ctx.root}assets/img/logros/${l.foto.src}" alt="${esc(l.foto.alt || '')}" width="${l.foto.w || 640}" height="${l.foto.h || 427}" loading="lazy" decoding="async">` : '';
+      return `<li class="ledger__row">
 <span class="ledger__n hd">${String(i + 1).padStart(2, '0')}</span>
-<div class="ledger__main"><h3 class="hd">${esc(l.titulo)}</h3><p>${esc(l.detalle)}</p>${l.falta ? `<!--PENDIENTE--><p class="todo todo--inline"><b>Pendiente</b><span>${esc(l.falta)}</span></p><!--/PENDIENTE-->` : ''}</div>
-<span class="ledger__tag">${esc(l.etiqueta || '')}</span>
-</li>`
-    )
+<div class="ledger__main"><h3 class="hd">${esc(l.titulo)}</h3>${l.detalle ? `<p>${esc(l.detalle)}</p>` : ''}${dl}${foto}${l.falta ? `<!--PENDIENTE--><p class="todo todo--inline"><b>Pendiente</b><span>${esc(l.falta)}</span></p><!--/PENDIENTE-->` : ''}</div>
+${l.etiqueta ? `<span class="ledger__tag">${esc(l.etiqueta)}</span>` : '<span></span>'}
+</li>`;
+    })
     .join('\n');
+}
+
+/* Los ocho valores: tarjetas con ícono SVG en línea (toma el color del texto), nombre y descripción. */
+function valores() {
+  const items = jsonFile('data/valores.json', { valores: [] }).valores || [];
+  const icon = (file) =>
+    read(`assets/icons/valores/${file}`)
+      .replace(/<title>[\s\S]*?<\/title>/, '')
+      .replace(/\swidth="\d+"/, '')
+      .replace(/\sheight="\d+"/, '')
+      .replace(/stroke="#[0-9A-Fa-f]{3,8}"/, 'stroke="currentColor"')
+      .replace(/\srole="img"/, ' aria-hidden="true" focusable="false"');
+  const li = items
+    .map((v, i) => {
+      const n = i + 1;
+      const id = `valor-${n}`;
+      return `<li class="valor" data-valor>
+<button type="button" class="valor__btn" id="${id}" aria-expanded="false" aria-controls="${id}-pop">
+<span class="valor__ico">${icon(v.icono)}</span>
+<span class="valor__num hd" aria-hidden="true">${String(n).padStart(2, '0')}</span>
+<span class="valor__name hd">${esc(v.nombre)}</span>
+<span class="valor__more" aria-hidden="true"></span>
+<span class="sr-only">. Ver descripción</span>
+</button>
+<div class="valor__pop" id="${id}-pop"><div class="valor__pop-in"><p class="valor__pop-t hd">${esc(v.nombre)}</p><p>${esc(v.texto)}</p></div></div>
+</li>`;
+    })
+    .join('\n');
+  return `<ul class="vals8" aria-label="Los ocho valores de Kokoro" data-valores>\n${li}\n</ul>`;
 }
 
 function snavHtml(items) {
@@ -108,12 +141,24 @@ ${links}
 </aside>`;
 }
 
+/* ---------- secciones opcionales ----------
+   <!--GALERIA-->…<!--/GALERIA--> y <!--LOGROS-->…<!--/LOGROS--> en las páginas solo se publican si hay contenido real.
+   <!--SINLOGROS-->…<!--/SINLOGROS--> es lo contrario: se muestra solo mientras no haya logros publicados («Construye una historia con nosotros»).
+   En el bloque "snav" de cada página, {"if": "galeria"} oculta ese acceso cuando la sección no se publica. */
+const flags = {
+  galeria: true, // sin fotos reales muestra «Próximamente»
+  logros: (jsonFile('data/logros.json', { logros: [] }).logros || []).length > 0,
+};
+flags.sinlogros = !flags.logros;
+const applyFlags = (html) => html.replace(/<!--(GALERIA|LOGROS|SINLOGROS)-->([\s\S]*?)<!--\/\1-->/g, (_, k, inner) => (flags[k.toLowerCase()] ? inner : ''));
+
 /* ---------- motor de plantillas ---------- */
 function include(html, ctx, depth = 0) {
   if (depth > 6) throw new Error('Parciales anidados en exceso');
   return html.replace(/\{\{>\s*([\w-]+)\s*\}\}/g, (_, name) => {
     if (name === 'galeria') return galeria(ctx);
-    if (name === 'logros') return logros();
+    if (name === 'logros') return logros(ctx);
+    if (name === 'valores') return valores();
     if (name === 'snav') return snavHtml(ctx.page.snav);
     return include(read(`partials/${name}.html`), ctx, depth + 1);
   });
@@ -167,6 +212,7 @@ function jsonld(p) {
     address: { '@type': 'PostalAddress', addressLocality: 'Santa Bárbara', addressRegion: 'Heredia', addressCountry: 'CR' },
     ...(site.geo ? { geo: { '@type': 'GeoCoordinates', latitude: site.geo.lat, longitude: site.geo.lon } } : {}),
     ...(site.maps ? { hasMap: site.maps } : {}),
+    ...(site.fundado ? { foundingDate: String(site.fundado) } : {}),
     areaServed: 'Santa Bárbara de Heredia, Costa Rica',
     sport: 'Karate-Do Shotokan',
   };
@@ -217,7 +263,7 @@ for (const p of PAGES) {
       cta: isPrograma ? wa.instituciones : wa.gratis,
       ctaLabel: isPrograma ? 'Solicitar propuesta' : 'Primera clase gratis',
       ctaShort: isPrograma ? 'Propuesta' : 'Clase gratis',
-      snav: meta.snav || [],
+      snav: (meta.snav || []).filter((n) => !n.if || flags[n.if]),
       bodyClass: meta.bodyClass || '',
     },
     nav: {
@@ -230,7 +276,7 @@ for (const p of PAGES) {
   ctx.page.title = esc(meta.title).replace(/&amp;/g, '&amp;');
   ctx.page.description = esc(meta.description);
 
-  const content = include(html, ctx);
+  const content = include(applyFlags(html), ctx);
   let full = include(layout.replace('{{content}}', content), ctx);
   full = vars(stripPending(full), ctx);
   for (const ch of full) if (/[぀-ヿ㐀-鿿]/.test(ch)) allKanji.add(ch);

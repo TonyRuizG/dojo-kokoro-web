@@ -1,21 +1,24 @@
 <!--page {
-  "title": "Nuestro dojo · Dojo Kokoro Karate-Do Shotokan",
-  "description": "Conoce Dojo Kokoro: nuestra identidad, el significado de Kokoro, el Dojo Kun, a los senseis Anthony y Camila Ruiz, la metodología y la trayectoria deportiva en Santa Bárbara de Heredia.",
+  "title": "Nuestro Dojo: historia, senseis y valores | Dojo Kokoro",
+  "description": "Historia, misión, visión y ocho valores de Dojo Kokoro, y los senseis Anthony y Camila Ruiz (1er Dan). Karate-Do Shotokan en Santa Bárbara de Heredia.",
   "cta": "gratis",
   "snav": [
     {"id": "identidad", "label": "Identidad"},
+    {"id": "mision", "label": "Misión"},
+    {"id": "valores", "label": "Valores"},
     {"id": "dojokun", "label": "Dojo Kun"},
     {"id": "senseis", "label": "Senseis"},
     {"id": "metodologia", "label": "Método"},
     {"id": "deporte", "label": "Deporte"},
-    {"id": "galeria", "label": "Galería"}
+    {"id": "logros", "label": "Logros", "if": "logros"},
+    {"id": "galeria", "label": "Galería", "if": "galeria"}
   ]
 }-->
 <section id="inicio" class="hero hero--sub" data-hero>
 {{> hero-bg}}
 <div class="hero__kanji jp" lang="ja" aria-hidden="true">道場</div>
 <div class="hero__body">
-<p class="eyebrow rise d1">Identidad · instructores · trayectoria</p>
+<p class="eyebrow rise d1">Historia · senseis · valores</p>
 <h1 class="hero__title rise d2"><span class="t1">Nuestro</span><span class="t2">Dojo</span></h1>
 <p class="hero__lede rise d3">Dojo Kokoro es una academia de Karate-Do Shotokan en Santa Bárbara de Heredia. Aquí se entrena con técnica, disciplina y respeto.</p>
 <div class="hero__actions rise d3">
@@ -39,16 +42,32 @@
 <p class="lede" style="margin-top:32px">Un dojo de Karate-Do Shotokan abierto a niños, jóvenes y adultos, que entrena en el Salón Comunal de ADI Birrí.</p>
 <p class="copy" style="margin-top:18px;font-size:15px">Nuestro trabajo se apoya en la enseñanza tradicional del Karate-Do, con el respaldo de ISKF Costa Rica y la vinculación con el CCDR de Santa Bárbara. Además de las clases en el dojo, llevamos el karate a escuelas y colegios de la comunidad.</p>
 <div style="margin-top:26px"><a class="link-arrow" href="{{url.programa}}">Programa para centros educativos<span aria-hidden="true">↗</span></a></div>
-<!--PENDIENTE--><p class="todo"><b>Pendiente</b><span>Historia del dojo: año de fundación, cómo y por qué nació, y los primeros pasos. Edita este bloque en <code>src/pages/nuestro-dojo.html</code>.</span></p><!--/PENDIENTE-->
 </div>
 <ul class="facts" aria-label="Datos del dojo">
 <li><span class="k">Estilo</span><span class="v">Karate-Do Shotokan</span></li>
+<li><span class="k">Fundado</span><span class="v">{{site.fundado}}</span></li>
 <li><span class="k">Para</span><span class="v">Niños, jóvenes y adultos</span></li>
 <li><span class="k">Sede</span><span class="v">Salón Comunal de ADI Birrí<small>Santa Bárbara de Heredia, Costa Rica</small></span></li>
 <li><span class="k">Entrenamientos</span><span class="v">Miércoles y viernes</span></li>
 <li><span class="k">Respaldo</span><span class="v">ISKF Costa Rica<small>CCDR de Santa Bárbara · Asociación Kokoro Santa Bárbara</small></span></li>
-<!--PENDIENTE--><li><span class="k">Fundación</span><span class="v"><small>Año de fundación del dojo por confirmar.</small></span></li><!--/PENDIENTE-->
 </ul>
+</div>
+</section>
+
+<section id="historia" class="sec sec--paper">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-head__main">
+<p class="eyebrow">Nuestra historia</p>
+<h2 class="h2" style="--fs:clamp(44px,6vw,92px)">Así nació<br><span class="acc">el dojo.</span></h2>
+</div>
+<div class="sec-head__side"><p>Dos hermanos, una misma pasión por el karate-do y las ganas de compartirla con toda la comunidad de Santa Bárbara.</p></div>
+</div>
+<ol class="hist">
+<li class="hist__item"><span class="hist__n hd" aria-hidden="true">01</span><div><h3>2023: nace el dojo</h3><p>Dojo Kokoro se funda en {{site.fundado}} de la mano de dos hermanos que se han dedicado a la práctica del karate-do y querían compartir su conocimiento.</p></div></li>
+<li class="hist__item"><span class="hist__n hd" aria-hidden="true">02</span><div><h3>Una oportunidad en el cantón</h3><p>Se presentó la oportunidad de unirse al Comité Cantonal de Deportes y Recreación (CCDR) de Santa Bárbara. Así se planteó llevar la enseñanza de este arte marcial a todas las personas del cantón que quisieran practicarlo: niños, jóvenes y adultos.</p></div></li>
+<li class="hist__item"><span class="hist__n hd" aria-hidden="true">03</span><div><h3>Un dojo para la comunidad</h3><p>Hoy Dojo Kokoro entrena en el Salón Comunal de ADI Birrí, cuenta con el respaldo de ISKF Costa Rica y lleva el karate a escuelas y colegios de la comunidad.</p></div></li>
+</ol>
 </div>
 </section>
 
@@ -72,33 +91,40 @@
 </div>
 </section>
 
+<section id="mision" class="sec sec--cream">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-head__main">
+<p class="eyebrow">Misión y visión</p>
+<h2 class="h2" style="--fs:clamp(44px,6vw,92px)">Lo que nos<br><span class="acc">guía.</span></h2>
+</div>
+<div class="sec-head__side"><p>Quiénes somos hoy y hacia dónde queremos llegar como organización.</p></div>
+</div>
+<div class="mv">
+<article class="mv__card mv__card--m">
+<p class="mv__k">01 / Misión</p>
+<h3>Misión</h3>
+<p class="mv__t">Formar personas íntegras y karatecas comprometidos con su desarrollo mediante la enseñanza del karate-do Shotokan, integrando tradición, métodos de entrenamiento actualizados y acompañamiento cercano. Desde Santa Bárbara de Heredia, promovemos la disciplina, el autocontrol y el bienestar en un entorno seguro e inclusivo, y brindamos oportunidades de crecimiento personal y deportivo, desde la iniciación hasta la competencia.</p>
+</article>
+<article class="mv__card mv__card--v">
+<p class="mv__k">02 / Visión</p>
+<h3>Visión</h3>
+<p class="mv__t">Consolidarnos como una organización referente en Costa Rica por la calidad de nuestra enseñanza del karate-do, la formación humana de nuestros practicantes y el desarrollo responsable del talento deportivo, con proyección internacional y un vínculo activo con la comunidad. Aspiramos a que cada persona formada en KOKORO lleve el respeto, la integridad y el espíritu de superación a su vida cotidiana.</p>
+</article>
+</div>
+</div>
+</section>
+
 <section id="valores" class="sec sec--paper">
 <div class="wrap">
 <div class="sec-head">
 <div class="sec-head__main">
-<p class="eyebrow">Misión, visión y valores</p>
-<h2 class="h2" style="--fs:clamp(44px,6vw,92px)">Lo que nos<br><span class="acc">guía.</span></h2>
+<p class="eyebrow">Valores institucionales de Kokoro</p>
+<h2 class="h2" style="--fs:clamp(44px,6vw,92px)">Ocho valores.<br><span class="acc">Una misma filosofía.</span></h2>
 </div>
-<div class="sec-head__side"><p>Los textos de misión y visión son una propuesta basada en el contenido del dojo, a la espera de su aprobación. Los valores provienen de nuestro lema.</p></div>
+<div class="sec-head__side"><p>Son los principios propios de Kokoro como organización. Pasa el cursor o toca cada valor para leer qué significa para nosotros.</p></div>
 </div>
-<div class="mvv">
-<article class="mvv__card">
-<p class="mvv__k"><span>01 / MISIÓN</span><span class="badge-prop">Texto propuesto</span></p>
-<h3>Misión</h3>
-<p>Formar el cuerpo y fortalecer el espíritu de niños, jóvenes y adultos mediante el Karate-Do Shotokan, promoviendo disciplina, respeto y carácter dentro y fuera del dojo.</p>
-</article>
-<article class="mvv__card">
-<p class="mvv__k"><span>02 / VISIÓN</span><span class="badge-prop">Texto propuesto</span></p>
-<h3>Visión</h3>
-<p>Ser un dojo reconocido en su comunidad por su formación técnica y humana, que acompañe a cada alumno desde la iniciación hasta, si lo desea, el alto rendimiento deportivo.</p>
-</article>
-<article class="mvv__card">
-<p class="mvv__k"><span>03 / VALORES</span><span class="badge-prop" style="border-style:solid">De nuestro lema</span></p>
-<h3>Valores</h3>
-<ul class="vals"><li>Disciplina</li><li>Respeto</li><li>Constancia</li><li>Corazón</li></ul>
-</article>
-</div>
-<!--PENDIENTE--><p class="todo"><b>Pendiente</b><span>Revisar y aprobar los textos de misión y visión, o reemplazarlos por los oficiales del dojo.</span></p><!--/PENDIENTE-->
+{{> valores}}
 </div>
 </section>
 
@@ -106,11 +132,11 @@
 <div class="wrap">
 <div class="sec-head">
 <div class="sec-head__main">
-<p class="eyebrow">Dojo Kun</p>
+<p class="eyebrow">Tradición Shotokan · Dojo Kun</p>
 <h2 class="h2" style="--fs:clamp(44px,6vw,92px)">Los cinco<br>principios del dojo</h2>
 </div>
 <div class="sec-head__side">
-<p>Son los principios de la Federación Internacional de Karate Shotokan (ISKF) y guían cada clase, dentro y fuera del dojo.</p>
+<p>Son los cinco principios del Dojo Kun, parte de la tradición del Karate-Do Shotokan que compartimos con ISKF. Se recitan y se practican en cada clase, y conviven con los ocho valores propios de Kokoro.</p>
 <a class="link-under" href="{{site.iskfDojoKun}}" target="_blank" rel="noopener">Ver el Dojo Kun en iskf.com</a>
 </div>
 </div>
@@ -137,7 +163,7 @@
 <span class="jp" lang="ja" aria-hidden="true">先生</span>
 <div><p class="sensei__role">SENSEI</p><h3>Anthony Ruiz</h3></div>
 <div class="sensei__yrs"><b>16</b><span>años de experiencia en la práctica del Karate-Do</span></div>
-<p class="sensei__chip">Seleccionado Nacional</p>
+<div class="sensei__chips"><p class="sensei__chip">Seleccionado Nacional</p><p class="sensei__chip">1er Dan</p></div>
 </div>
 </article>
 <article class="sensei">
@@ -146,7 +172,7 @@
 <span class="jp" lang="ja" aria-hidden="true">先生</span>
 <div><p class="sensei__role">SENSEI</p><h3>Camila Ruiz</h3></div>
 <div class="sensei__yrs"><b>12</b><span>años de experiencia en la práctica del Karate-Do</span></div>
-<p class="sensei__chip">Seleccionada Nacional</p>
+<div class="sensei__chips"><p class="sensei__chip">Seleccionada Nacional</p><p class="sensei__chip">1er Dan</p></div>
 <div class="sensei__extra">
 <p><svg width="27" height="16" viewBox="0 0 50 30" role="img" aria-label="Bandera de Costa Rica"><rect width="50" height="30" fill="#FFFFFF"/><rect width="50" height="5" fill="#002B7F"/><rect y="10" width="50" height="10" fill="#CE1126"/><rect y="25" width="50" height="5" fill="#002B7F"/></svg><span>Atleta del Kata Equipo Femenino de Costa Rica</span></p>
 <a href="{{site.social.kataEquipo}}" target="_blank" rel="noopener">Instagram @kataequipocrc<span aria-hidden="true">↗</span></a>
@@ -154,7 +180,10 @@
 </div>
 </article>
 </div>
-<div class="sensei-note"><!--PENDIENTE--><p class="todo"><b>Pendiente</b><span>Biografías ampliadas: grado (Dan), títulos, trayectoria y logros individuales de cada sensei. Hoy solo se muestran los datos confirmados.</span></p><!--/PENDIENTE--></div>
+<aside class="teach" aria-labelledby="teach-t">
+<p class="teach__k" id="teach-t">Filosofía de enseñanza</p>
+<p class="teach__t">Enseñamos karate-do para formar personas íntegras: tradición y métodos de entrenamiento actualizados, con acompañamiento cercano en un entorno seguro e inclusivo. Adaptamos las exigencias a la edad, experiencia y condición de cada persona.</p>
+</aside>
 </div>
 </section>
 
@@ -165,12 +194,21 @@
 <p class="eyebrow">Metodología de entrenamiento</p>
 <h2 class="h2" style="--fs:clamp(44px,6vw,92px)">Cómo<br><span class="acc">entrenamos.</span></h2>
 </div>
-<div class="sec-head__side"><p>Clases de 60 minutos, organizadas por edad y nivel, con evaluaciones periódicas y seguimiento del avance de cada alumno.</p></div>
+<div class="sec-head__side"><p>Clases de 60 minutos, organizadas por edad y nivel, con evaluaciones periódicas y seguimiento del avance de cada alumno. Kihon, Kata y Kumite son los tres pilares; el Bunkai los conecta.</p></div>
 </div>
 <div class="method-cols">
 <div><span class="jp" lang="ja" aria-hidden="true">基本</span><h3>Kihon</h3><p>Las bases del karate: técnica, posturas y coordinación para desarrollar precisión, control y disciplina.</p></div>
 <div><span class="jp" lang="ja" aria-hidden="true">型</span><h3>Kata</h3><p>Secuencias de movimientos que ponen a prueba la memoria, la concentración, la precisión y la expresión técnica.</p></div>
 <div><span class="jp" lang="ja" aria-hidden="true">組手</span><h3>Kumite</h3><p>Aplicación práctica con compañero para desarrollar reflejos, control, criterio y toma de decisiones.</p></div>
+</div>
+
+<div class="bunkai">
+<span class="bunkai__jp jp" lang="ja" aria-hidden="true">分解</span>
+<div class="bunkai__body">
+<p class="bunkai__k">Complemento del entrenamiento</p>
+<h3>Bunkai — Comprender la técnica</h3>
+<p>Exploramos las aplicaciones de los movimientos del kata mediante ejercicios con compañeros, desarrollando comprensión técnica, control, análisis y trabajo en equipo.</p>
+</div>
 </div>
 
 <div class="path">
@@ -193,7 +231,7 @@
 </div>
 <div class="belts__track">
 <div class="belt"><h4>Inicio</h4><p>Se comienza con cinturón blanco. Cada alumno avanza a su ritmo, por edad y nivel.</p></div>
-<div class="belt belt--mid"><h4>Grados intermedios</h4><p>Evaluaciones periódicas para pasar de un grado al siguiente.</p><!--PENDIENTE--><p class="todo todo--inline"><b>Pendiente</b><span>Confirmar la escala exacta de cinturones y los requisitos de cada examen.</span></p><!--/PENDIENTE--></div>
+<div class="belt belt--mid"><h4>Grados intermedios</h4><p>Evaluaciones periódicas para pasar de un grado al siguiente.</p></div>
 <div class="belt belt--black"><h4>Cinturón negro</h4><p>Una meta de largo plazo, que se alcanza con constancia, disciplina y carácter.</p></div>
 </div>
 </div>
@@ -205,35 +243,52 @@
 <div class="lead">
 <p class="eyebrow">Desarrollo deportivo y competencia</p>
 <h2 class="h2" style="--fs:clamp(44px,6vw,92px)">Formación hoy.<br><span class="acc">Excelencia mañana.</span></h2>
-<p class="sub">El programa acompaña el crecimiento deportivo de cada alumno, desde la iniciación hasta el alto rendimiento.</p>
+<p class="sub">Kokoro acompaña a sus estudiantes desde los primeros entrenamientos hasta las oportunidades de desarrollo competitivo, según su preparación, su interés y su elegibilidad.</p>
 </div>
 {{> stages}}
 <div class="callout">
 <p class="callout__big">12+</p>
 <div class="callout__txt">
-<p class="hd">A partir de los 12 años, los estudiantes pueden participar en los Juegos Deportivos Nacionales y representar oficialmente al cantón.</p>
-<p>Con el apoyo del CCDR de Santa Bárbara para el desarrollo competitivo y la participación en torneos nacionales.</p>
+<p class="hd">Desde los 12 años, quienes cumplen los requisitos de elegibilidad pueden aspirar a representar al cantón en los Juegos Deportivos Nacionales.</p>
+<p>Con el apoyo del CCDR de Santa Bárbara para el desarrollo competitivo.</p>
 </div>
 </div>
-<!--PENDIENTE--><p class="todo"><b>Pendiente</b><span>Calendario de torneos en los que participa el dojo y categorías competitivas, para publicarlos con fechas reales.</span></p><!--/PENDIENTE-->
+<p class="fine-print">La participación en competencias depende de las convocatorias, los reglamentos y los procesos de selección vigentes en cada momento. Kokoro no garantiza selección, clasificación ni participación.</p>
 </div>
 </section>
 
+<!--LOGROS-->
 <section id="logros" class="sec sec--cream">
 <div class="wrap">
 <div class="sec-head">
 <div class="sec-head__main">
-<p class="eyebrow">Logros reales</p>
+<p class="eyebrow">Logros confirmados</p>
 <h2 class="h2" style="--fs:clamp(44px,6vw,92px)">Trayectoria<br><span class="acc">deportiva.</span></h2>
 </div>
-<div class="sec-head__side"><p>Publicamos únicamente resultados confirmados. Esta lista crece con cada torneo y cada nuevo logro de nuestros atletas.</p></div>
+<div class="sec-head__side"><p>Resultados confirmados de atletas e instructores del dojo. Forman parte de nuestra trayectoria y no deben leerse como resultados de la temporada actual.</p></div>
 </div>
 <ul class="ledger">
 {{> logros}}
 </ul>
-<!--PENDIENTE--><p class="todo ledger-add"><b>Pendiente</b><span>Para agregar un logro, copia una entrada en <code>src/data/logros.json</code> (título, detalle, etiqueta) y vuelve a generar el sitio.</span></p><!--/PENDIENTE-->
 </div>
 </section>
+<!--/LOGROS-->
+<!--SINLOGROS-->
+<section id="construye" class="sec sec--cream">
+<div class="wrap">
+<div class="sec-head">
+<div class="sec-head__main">
+<p class="eyebrow">Nuestro camino</p>
+<h2 class="h2" style="--fs:clamp(44px,6vw,92px)">Construye una historia<br><span class="acc">con nosotros.</span></h2>
+</div>
+<div class="sec-head__side">
+<p>Dojo Kokoro es un dojo joven. Cada persona que se une forma parte de los primeros capítulos de nuestra historia.</p>
+<a class="btn btn-main btn-main--red" href="{{wa.gratis}}" target="_blank" rel="noopener">Primera clase gratis<span class="btn-main__ico" aria-hidden="true">↗</span></a>
+</div>
+</div>
+</div>
+</section>
+<!--/SINLOGROS-->
 
 <section id="respaldo" class="sec sec--ink">
 <div class="wrap">
@@ -248,18 +303,20 @@
 </div>
 </section>
 
+<!--GALERIA-->
 <section id="galeria" class="sec sec--paper">
 <div class="wrap">
 <div class="sec-head">
 <div class="sec-head__main">
 <p class="eyebrow">Galería deportiva</p>
-<h2 class="h2" style="--fs:clamp(44px,6vw,92px)">Entrenamientos,<br><span class="acc">torneos y graduaciones.</span></h2>
+<h2 class="h2" style="--fs:clamp(44px,6vw,92px)">El dojo<br><span class="acc">en acción.</span></h2>
 </div>
-<div class="sec-head__side"><p>Un espacio para ver el dojo en acción. Se amplía con nuevas fotografías reales de nuestros alumnos y atletas.</p></div>
+<div class="sec-head__side"><p>Estamos preparando este espacio con fotografías reales de nuestros alumnos y entrenamientos.</p></div>
 </div>
 {{> galeria}}
 </div>
 </section>
+<!--/GALERIA-->
 
 <section id="unete" class="sec sec--red cta-band">
 <div class="wrap cta-band__in">

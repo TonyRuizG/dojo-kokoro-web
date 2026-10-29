@@ -1,45 +1,59 @@
-# Datos y fotografías pendientes de confirmar
+# Datos y fotografías por confirmar (documento interno)
 
-Todo lo marcado como **Pendiente** en el sitio aparece aquí. Mientras no se complete, el sitio solo muestra información confirmada.
-Los avisos se ven al trabajar en tu computadora y **se ocultan solos en la publicación de GitHub Pages** (ver `SHOW_PENDING` en el README).
+El sitio público **no muestra avisos de «pendiente»**: solo publica información confirmada. Esta lista es la referencia interna de lo que falta para completar secciones. (Para ver los avisos mientras trabajas: `SHOW_PENDING=true node build.mjs`).
 
-## Antes de publicar
+## Antes de publicar el dominio propio
 
 | # | Qué | Dónde se cambia |
 |---|---|---|
-| 1 | **Dominio propio** (opcional). En GitHub Pages el sitio funciona con la dirección que asigna GitHub; si compras un dominio, configúralo en Settings → Pages. | Ver README, sección «Dominio propio» |
-| 2 | Revisar y aprobar **misión y visión** (son textos propuestos), o reemplazarlas por las oficiales. | `src/pages/nuestro-dojo.html` (`#valores`) |
-| 3 | **Permiso de uso** de los logos de ISKF Costa Rica y del CCDR de Santa Bárbara. | — |
-| 4 | Cambiar el enlace de Facebook por la **dirección permanente de la página** (el actual es un enlace para compartir, `facebook.com/share/...`). | `src/site.json` → `social.facebook` |
+| 1 | **Dominio propio** (previsto `dojokokorocr.com`, aún no comprado ni configurado). Hoy el sitio usa la dirección de `workers.dev`. | `src/site.json` → `url` (o `SITE_URL` en Cloudflare). Ver README. |
+| 2 | **Permiso de uso** de los logos de ISKF Costa Rica y del CCDR de Santa Bárbara. | — |
+| 3 | Cambiar el enlace de Facebook por la **dirección permanente de la página** (el actual es un enlace para compartir, `facebook.com/share/...`). | `src/site.json` → `social.facebook` |
 
 ## Datos de texto
 
 | # | Qué falta | Sección |
 |---|---|---|
-| 5 | **Historia del dojo:** año de fundación, cómo y por qué nació, primeros pasos. | Nuestro dojo → Historia e identidad |
-| 6 | **Biografías de los senseis:** grado (Dan), títulos, trayectoria y logros individuales de Anthony y Camila. Hoy solo se muestran años de práctica y condición de seleccionados nacionales. | Nuestro dojo → Senseis |
-| 7 | **Logros:** año de los Juegos Nacionales, categorías, tipo de medalla, torneos y resultados de cada sensei, y nombres de atletas que se quieran hacer públicos. Hoy solo se publica: cuatro atletas clasificados y tres con medalla. | Nuestro dojo → Logros (`src/data/logros.json`) |
-| 8 | **Calendario de torneos** y categorías competitivas. | Nuestro dojo → Desarrollo deportivo |
-| 9 | **Escala de cinturones** del dojo y requisitos de cada examen. | Nuestro dojo → Progresión por cinturones |
-| 10 | **Asociación Kokoro Santa Bárbara:** logo oficial y, si existen, cartas o enlaces que verifiquen su apoyo (hoy se usa el kanji 心 como marca provisional). Lo mismo para verificar el respaldo de ISKF Costa Rica y del CCDR. | Respaldo institucional (Nuestro dojo y Programa educativo) |
-| 11 | **Programa educativo:** confirmar los datos de la propuesta (2–3 sesiones semanales, ~60 minutos, ~70 m², sin inversión inicial en infraestructura). Las condiciones económicas no se publican. | `src/pages/programa-educativo.html` |
+| 4 | **Escala de cinturones** del dojo y requisitos de cada examen. | Progresión por cinturones |
+| 5 | **Calendario de torneos** y categorías competitivas. | Nuestro dojo → Desarrollo deportivo |
+| 6 | **Logros** (cuando el dojo decida compartirlos): año, torneo, categoría y resultado. Hoy se muestra «Construye una historia con nosotros». Nombres de atletas solo con autorización. | `src/data/logros.json` |
+| 7 | **Trayectoria de los senseis** (opcional): especialidades, certificaciones adicionales o datos verificables que quieran sumar. Hoy se muestran años de práctica, «Seleccionado/a Nacional» y «1er Dan». | Nuestro dojo → Senseis |
+| 8 | **Asociación Kokoro Santa Bárbara:** cartas o enlaces que verifiquen el apoyo de cada organización de respaldo, si existen. | Respaldo institucional |
+| 9 | **Kanji decorativos** (道場, 先生, 心, los del Dojo Kun, etc.): vienen del diseño original y de la tradición del Dojo Kun; conviene que los revise alguien que hable japonés, como se hizo con los valores. | Varias secciones |
 
 ## Fotografías
 
 | # | Qué | Para qué |
 |---|---|---|
-| 12 | **Fotos reales del dojo en acción** (entrenamientos, torneos, graduaciones). Con autorización de padres o encargados si aparecen menores. | Galería deportiva (hoy vacía) |
-| 13 | **Fotos del nuevo lugar de entrenamiento** (Salón Comunal de ADI Birrí). | Sección de ubicación |
-| 14 | Una **foto de portada auténtica** del dojo, si quieren una portada con fotografía en lugar del logo difuminado. | Inicio, Nuestro dojo y Programa educativo |
-| 15 | Confirmar que las **fotos de los senseis** son las definitivas. | Nuestro dojo |
-| 16 | Imagen para compartir en redes (hoy se genera con el logo; se puede reemplazar por una foto real de 1200×630). | `src/assets/img/og-kokoro.jpg` |
+| 10 | **Fotos reales** de entrenamientos, katas, kumite, graduaciones, torneos, comunidad e instructores con alumnos. Con autorización de padres o encargados si aparecen menores. | Galería deportiva (hoy muestra «Próximamente»; se llena sola al agregar fotos) |
+| 11 | **Fotos del lugar de entrenamiento** (Salón Comunal de ADI Birrí). | Sección de ubicación |
+| 12 | Una **foto de portada auténtica**, si quieren portada con fotografía en lugar del logo difuminado. | Las tres páginas |
+| 13 | Confirmar que las **fotos de los senseis** son las definitivas y sumar fotos de trayectoria si las hay. | Nuestro dojo → Senseis |
+| 14 | Imagen para compartir en redes (hoy se genera con el logo; puede reemplazarse por una foto real de 1200×630). | `src/assets/img/og-kokoro.jpg` |
+
+## Ya confirmado por el dojo (versión 3.1)
+
+- Ambos senseis son 1er Dan de ISKF (se publica «1er Dan»).
+- Fundación en 2023 y la historia del dojo (dos hermanos, oportunidad con el comité cantonal).
+- Qué llevar a la primera clase: ropa deportiva o cómoda, botella de agua y ganas de entrenar.
+- Datos de referencia del Programa educativo: 2–3 sesiones semanales, unos 60 minutos, espacio de unos 70 m².
+- Japonés de los valores: se quitó del sitio.
 
 ## Material que se dejó fuera a propósito
 
+- **Precios y condiciones económicas del Plan de trabajo 2022** (tarifa por persona y sesión, tablas de inversión, precios de tatami y equipo) y la **cuota federativa**: no se publican; se acuerdan con cada institución.
+- **Teléfono y correo personales del Plan 2022:** el único contacto público es el WhatsApp oficial +506 8514-5922.
+- **Nombre legal completo:** se usa «Sensei Anthony Ruiz».
+- **Presentación comercial del programa** y fotos que parecen de banco de imágenes: no se usan; quedan en `respaldo-original/` (carpeta privada).
 - **Foto del afiche (zip de referencia):** es una imagen de judo, no de karate ni del dojo.
-- **Fotos de la presentación del programa:** parecen imágenes de banco de imágenes o generadas; no se presentan como del dojo.
-- **Condiciones económicas de la propuesta institucional:** se acuerdan con cada institución y no se publican.
-- **Estadística «20+ alumnos»** y recuadro de números: se retiró a pedido tuyo; los logros se muestran solo como lista de hechos confirmados.
+- **Estadísticas tipo «20+ alumnos»:** se retiraron a pedido del dojo.
+- **Logros y medallas de los Juegos Nacionales:** el dojo decidió no compartirlos todavía.
+- **Contenido del sitio de ISKF Costa Rica:** no se usa.
 - **Logo internacional de ISKF:** no corresponde; se usa solo el de ISKF Costa Rica.
 
-Todo está guardado en `respaldo-original/` por si quieres recuperarlo.
+## Qué no se puede verificar desde el entorno de desarrollo
+
+- La **publicación real en Cloudflare** (hay que abrir el sitio tras cada commit).
+- La apariencia exacta con **Oswald y DM Sans** (el entorno de pruebas no puede descargar Google Fonts; se usó una tipografía de reemplazo más ancha).
+- El **mapa de Waze incrustado** en vivo (se probó con un sustituto) y el comportamiento de WhatsApp en dispositivos reales.
+- **Pruebas con usuarios reales.**

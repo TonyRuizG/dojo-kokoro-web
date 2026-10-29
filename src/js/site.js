@@ -3,7 +3,9 @@
    1. Encabezado: fondo sólido, ocultar al bajar / mostrar al subir, menú móvil
    2. Barra lateral flotante: sección actual, indicador deslizante, volver arriba
    3. Selector de «¿para quién es la clase?» → enlace de WhatsApp
-   4. Transición suave al cambiar de página (se omite con movimiento reducido)
+   4. Los ocho valores: ventana con la descripción (cursor, toque o teclado)
+   5. Ajuste automático del título «EMPIEZA / HOY.» al ancho de su columna
+   6. Transición suave al cambiar de página (se omite con movimiento reducido)
    Todo es mejora progresiva: sin JavaScript las páginas y enlaces siguen funcionando.
    ========================================================== */
 (function () {
@@ -171,7 +173,6 @@
         ageIn.setAttribute('aria-invalid', ok ? 'false' : 'true');
         show(ageIn, 'err', !ok);
       }
-      show(ageIn, 'note', ok && n < 8);
       return ok;
     }
     function buildUrl() {
@@ -189,7 +190,6 @@
 
     nameIn.addEventListener('input', function () { if (nameIn.getAttribute('aria-invalid') === 'true') checkName(true); });
     ageIn.addEventListener('input', function () { if (ageIn.getAttribute('aria-invalid') === 'true') checkAge(true); });
-    ageIn.addEventListener('change', function () { checkAge(false); });
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var okName = checkName(true);
@@ -212,7 +212,126 @@
     });
   })();
 
-  /* ---------- 4. Transición entre páginas ---------- */
+  /* ---------- 4. Ocho valores ----------
+     Escritorio: la ventana se abre al pasar el cursor. Táctil: se abre al tocar y se cierra al tocar de nuevo o fuera.
+     Teclado: Enter o Espacio abren y cierran; Escape cierra y devuelve el foco. Solo hay una abierta a la vez
+     y siempre queda dentro de la pantalla. Sin JavaScript las descripciones quedan visibles en cada tarjeta. */
+  (function valores() {
+    var items = [].slice.call(doc.querySelectorAll('[data-valor]'));
+    if (!items.length) return;
+    var hoverTimer = 0;
+    var MARGIN = 12;
+
+    function btnOf(li) { return li.querySelector('.valor__btn'); }
+    function popOf(li) { return li.querySelector('.valor__pop'); }
+
+    function place(li) {
+      var pop = popOf(li);
+      if (!pop) return;
+      li.classList.remove('is-up');
+      pop.style.left = '0px';
+      var vw = doc.documentElement.clientWidth || window.innerWidth;
+      var vh = window.innerHeight || 800;
+      var r = li.getBoundingClientRect();
+      var w = pop.offsetWidth;
+      var h = pop.offsetHeight;
+      var left = r.left;
+      if (left + w > vw - MARGIN) left = vw - MARGIN - w;
+      if (left < MARGIN) left = MARGIN;
+      pop.style.left = Math.round(left - r.left) + 'px';
+      if (r.bottom + h > vh - 8 && r.top - h > 8) li.classList.add('is-up');
+    }
+
+    function render(li) {
+      var open = !!(li._pin || li._hov);
+      var was = li.classList.contains('is-open');
+      li.classList.toggle('is-open', open);
+      btnOf(li).setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open && !was) place(li);
+      else if (!open && was) setTimeout(function () { if (!li.classList.contains('is-open')) popOf(li).style.left = ''; }, 260);
+    }
+
+    function closeAll(except) {
+      items.forEach(function (li) {
+        if (li === except) return;
+        if (li._pin || li._hov || li.classList.contains('is-open')) { li._pin = false; li._hov = false; render(li); }
+      });
+    }
+
+    items.forEach(function (li) {
+      var btn = btnOf(li);
+      li._pin = false; li._hov = false;
+
+      btn.addEventListener('click', function () {
+        closeAll(li);
+        if (li._pin) { li._pin = false; li._hov = false; }
+        else { li._pin = true; }
+        render(li);
+      });
+      li.addEventListener('pointerenter', function (e) {
+        if (e.pointerType !== 'mouse') return;
+        clearTimeout(hoverTimer);
+        closeAll(li);
+        li._hov = true;
+        render(li);
+      });
+      li.addEventListener('pointerleave', function (e) {
+        if (e.pointerType !== 'mouse') return;
+        hoverTimer = setTimeout(function () { li._hov = false; render(li); }, 120);
+      });
+      li.addEventListener('focusout', function (e) {
+        var next = e.relatedTarget;
+        if (next && li.contains(next)) return;
+        li._pin = false; render(li);
+      });
+    });
+
+    doc.addEventListener('pointerdown', function (e) {
+      var inside = e.target.closest && e.target.closest('[data-valor]');
+      closeAll(inside || null);
+    });
+    doc.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      var open = items.filter(function (li) { return li.classList.contains('is-open'); });
+      if (!open.length) return;
+      var focused = doc.activeElement && doc.activeElement.closest ? doc.activeElement.closest('[data-valor]') : null;
+      closeAll(null);
+      if (focused) btnOf(focused).focus();
+    });
+    window.addEventListener('resize', function () {
+      items.forEach(function (li) {
+        var pop = popOf(li);
+        if (li.classList.contains('is-open')) place(li);
+        else if (pop) pop.style.left = '';
+      });
+    });
+  })();
+
+  /* ---------- 5. Título que nunca se corta ----------
+     El CSS ya calcula el tamaño con el ancho de la columna; esto lo reduce un poco más solo si la tipografía
+     (por ejemplo, una de respaldo más ancha) hace que la palabra no quepa. */
+  (function fitTitle() {
+    var els = [].slice.call(doc.querySelectorAll('[data-fit]'));
+    if (!els.length) return;
+    function fit(el) {
+      el.style.removeProperty('--fs');
+      var avail = el.clientWidth;
+      var need = el.scrollWidth;
+      if (!avail || need <= avail) return;
+      var cur = parseFloat(window.getComputedStyle(el).fontSize) || 0;
+      if (cur) el.style.setProperty('--fs', Math.floor((cur * avail * 0.985) / need) + 'px');
+    }
+    function all() { els.forEach(fit); }
+    all();
+    if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(all);
+    window.addEventListener('load', all);
+    if (window.ResizeObserver) {
+      var ro = new ResizeObserver(function () { all(); });
+      els.forEach(function (el) { ro.observe(el.parentNode); });
+    } else window.addEventListener('resize', all);
+  })();
+
+  /* ---------- 6. Transición entre páginas ---------- */
   (function pageFade() {
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
     var root = doc.documentElement;
