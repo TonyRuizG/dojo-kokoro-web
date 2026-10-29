@@ -85,6 +85,10 @@ node build.mjs --local                   # genera dist-local/ (se abre con doble
 
 Los mismos atajos con npm: `npm run build`, `npm start`, `npm run revisar`.
 
+**Pruebas en navegador.** `tools/pruebas/` tiene cuatro scripts con Playwright (`final`, `valores`, `layout`, `contraste`). Instalación única: `npm i --no-save playwright && npx playwright install chromium` (no se agrega a `package.json`, así que Cloudflare no instala nada extra). Después: `npm run pruebas`, o `node tools/pruebas/contraste.mjs` (los textos de la portada sobre imagen salen como falsos positivos).
+
+**Trabajo con Claude Code.** El archivo `CLAUDE.md` guarda las reglas del proyecto (privacidad, contenido aprobado, versiones y forma de publicar); Claude Code lo lee solo al empezar cada sesión.
+
 **Revisión automática.** `tools/revisar-sitio.mjs` comprueba enlaces, imágenes, CSS y JS locales; que cada ancla (`#seccion`) exista; los enlaces de WhatsApp (número y mensaje legible); Maps y Waze (sin mapa incrustado); el formulario (campos, etiquetas, plantilla con `{nombre}` y `{edad}`); título, descripción, canonical y Open Graph por página; un único `<h1>`; textos alternativos; que no queden variables sin reemplazar ni fechas de lanzamiento, y avisa si quedan avisos internos visibles. Termina con error si algo falla.
 
 Variables de entorno opcionales del generador:

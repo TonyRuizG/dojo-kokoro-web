@@ -9,6 +9,7 @@
     "build": "node build.mjs",
     "build:local": "node build.mjs --local",
     "revisar": "node build.mjs && node tools/revisar-sitio.mjs dist",
-    "start": "node build.mjs && node tools/servir.mjs dist"
+    "start": "node build.mjs && node tools/servir.mjs dist",
+    "pruebas": "node build.mjs && node tools/pruebas/final.mjs && node tools/pruebas/valores.mjs && node tools/pruebas/layout.mjs"
   }
 }

@@ -1,6 +1,6 @@
 # Resumen de cambios
 
-**Versión actual: 3.4** (sobre la 3.0, el tercer rediseño de interfaz). Los paquetes siguientes se numeran 3.1, 3.2, 3.3… y cada uno se entrega como `dojo-kokoro-web-v3.X.zip`.
+**Versión actual: 3.5** (sobre la 3.0, el tercer rediseño de interfaz). Los paquetes siguientes se numeran 3.1, 3.2, 3.3… y cada uno se entrega como `dojo-kokoro-web-v3.X.zip`.
 
 Punto de partida: la página única de Dojo Kokoro (versión 15, un solo archivo HTML empaquetado).
 Resultado: un sitio de tres páginas, organizado y listo para publicar. La versión original está intacta en `respaldo-original/`.
@@ -133,3 +133,11 @@ Respaldo previo: `respaldo-original/respaldo-antes-del-prompt-maestro-*.tgz`. Se
 - **Ubicación más arriba:** la sección pasó a ir justo después de los horarios, antes de las preguntas frecuentes, para que se encuentre sin bajar tanto. Se agregó «Ubicación» a la barra lateral. Se alternaron los fondos de las secciones vecinas para que se sigan distinguiendo.
 - **Nuevo título:** «Dónde nos encontramos.» en lugar de «Un lugar para crecer.». El resto se mantiene: «Sede Birrí:», el texto, los dos botones y «Sede Sta. Bárbara Centro: PRÓXIMAMENTE».
 - Se retiró `wazeEmbed` de `src/site.json` y del generador, y la regla del revisor ahora exige que no haya mapa incrustado y que la ubicación esté bien colocada.
+
+## 14. Versión 3.5 (preparación para Claude Code)
+
+El sitio no cambió: esta versión solo deja el repositorio listo para seguir trabajando en Claude Code.
+- **`CLAUDE.md`:** reglas del proyecto (cómo trabajar con Tony, arquitectura, publicación, versiones, privacidad y contenido aprobado).
+- **`tools/pruebas/`:** las cuatro pruebas de navegador (`final`, `valores`, `layout`, `contraste`) ahora viven en el repositorio y usan rutas relativas. Se probaron desde una copia limpia del proyecto. Script `npm run pruebas`.
+- **README:** secciones sobre las pruebas y sobre Claude Code.
+
