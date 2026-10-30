@@ -52,7 +52,7 @@
 .hero__lede strong { color: #fff; }
 .hero__actions { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 20px 36px; }
 .hero .link-arrow { border-bottom-color: rgba(243, 240, 232, 0.6); }
-/* «Ver horarios»: acción principal de la portada de Inicio */
+/* Acción principal de la portada: «Ver horarios» (Inicio) y «Conoce a los senseis» (Nuestro dojo) */
 .hero__go { min-height: 66px; gap: 28px; padding: 0 12px 0 32px; border-radius: 8px; font-size: 14px; letter-spacing: 0.14em; }
 .hero__go .btn-main__ico { width: 42px; height: 42px; border-radius: 6px; font-size: 22px; }
 
