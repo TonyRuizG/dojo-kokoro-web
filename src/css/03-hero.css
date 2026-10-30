@@ -12,12 +12,12 @@
 }
 .hero__glow {
   position: absolute; inset: 0; z-index: -2;
-  background: radial-gradient(ellipse at 76% 46%, rgba(204, 23, 27, 0.28), transparent 58%);
+  background: radial-gradient(ellipse at 76% 46%, rgba(39, 47, 106, 0.7), transparent 60%);
 }
 .hero__ring {
   position: absolute; z-index: -1; right: -6%; top: 50%;
   width: min(720px, 92vw); aspect-ratio: 1; transform: translateY(-42%);
-  display: flex; align-items: center; justify-content: center;
+  display: flex; align-items: center; justify-content: center; color: var(--azul);
 }
 .hero__ring svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hero__ring img {
@@ -37,7 +37,7 @@
 .hero .eyebrow {
   gap: 14px; margin-bottom: 0; color: #e6e2d8;
 }
-.hero .eyebrow::before { width: 36px; height: 2px; background: var(--red-hi); }
+.hero .eyebrow::before { width: 36px; height: 2px; background: var(--verde); }
 
 .hero__title {
   margin-top: 26px; font-family: var(--f-hd); font-weight: 700;
@@ -45,13 +45,16 @@
 }
 .hero__title .t1 { display: block; font-size: var(--t1, clamp(52px, 9.5vw, 148px)); color: var(--cream); }
 .hero__title .t2 {
-  display: block; font-size: var(--t2, clamp(60px, 14vw, 224px)); color: transparent;
-  -webkit-text-stroke: 2px var(--red-hi); margin-left: clamp(0px, 3vw, 48px);
+  display: block; font-size: var(--t2, clamp(60px, 14vw, 224px)); color: var(--verde);
+  margin-left: clamp(0px, 3vw, 48px);
 }
 .hero__lede { margin-top: 34px; max-width: 470px; font-size: 18px; line-height: 1.65; color: #e6e2d8; }
 .hero__lede strong { color: #fff; }
 .hero__actions { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 20px 36px; }
 .hero .link-arrow { border-bottom-color: rgba(243, 240, 232, 0.6); }
+/* «Ver horarios»: acción principal de la portada de Inicio */
+.hero__go { min-height: 66px; gap: 28px; padding: 0 12px 0 32px; border-radius: 8px; font-size: 14px; letter-spacing: 0.14em; }
+.hero__go .btn-main__ico { width: 42px; height: 42px; border-radius: 6px; font-size: 22px; }
 
 .meta {
   margin-top: 64px; border-top: 1px solid rgba(243, 240, 232, 0.25); padding-top: 26px;
@@ -59,8 +62,8 @@
 }
 .meta__k { margin-bottom: 6px; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; color: var(--on-dark); text-transform: uppercase; }
 .meta__v { font-family: var(--f-hd); font-size: 22px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
-.stamp { flex: 0 0 auto; background: var(--red); padding: 14px 22px; transform: rotate(-2deg); }
-.stamp p { font-family: var(--f-hd); font-size: 24px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1; color: #fff; }
+.stamp { flex: 0 0 auto; background: var(--verde); padding: 14px 22px; transform: rotate(-2deg); }
+.stamp p { font-family: var(--f-hd); font-size: 24px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1; color: var(--ink); }
 
 /* Variantes de las portadas interiores */
 .hero--sub { --t1: clamp(46px, 8vw, 124px); --t2: clamp(60px, 13vw, 200px); }
@@ -69,13 +72,13 @@
 .hero--programa .hero__title .t2 { line-height: 0.98; }
 
 /* ---------- Cinta de lemas ---------- */
-.ticker { overflow: hidden; background: var(--red); color: var(--cream); height: 61px; display: flex; align-items: center; }
+.ticker { overflow: hidden; background: var(--azul); color: var(--cream); height: 61px; display: flex; align-items: center; }
 .ticker__track {
   display: flex; align-items: center; gap: 44px; width: max-content; white-space: nowrap;
   font-family: var(--f-hd); font-size: 20px; font-weight: 600; letter-spacing: 0.17em;
   animation: tick 40s linear infinite;
 }
-.ticker__track i { display: block; width: 9px; height: 9px; background: var(--cream); transform: rotate(45deg); }
+.ticker__track i { display: block; width: 9px; height: 9px; background: var(--verde); transform: rotate(45deg); }
 @keyframes tick { to { transform: translateX(-50%); } }
 
 @media (prefers-reduced-motion: reduce) {

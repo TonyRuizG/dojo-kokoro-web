@@ -12,8 +12,11 @@
 .sec--cream { background: var(--cream); color: var(--ink); }
 .sec--paper { background: var(--paper); color: var(--ink); }
 .sec--ink { background: var(--ink); color: var(--cream); }
-.sec--navy { background: var(--navy); color: var(--cream); }
-.sec--red { background: var(--red); color: var(--cream); }
+.sec--navy { background: var(--azul); color: var(--cream); }
+/* Títulos en azul Kokoro sobre fondo claro; sobre fondo oscuro el foco pasa a verde (el azul no se ve) */
+.sec--cream .h2, .sec--paper .h2 { color: var(--azul); }
+.sec--ink, .sec--navy, .hero, .site-header, .site-footer, .sensei { --focus: var(--verde); }
+.contact__card { --focus: var(--azul); }
 
 /* Cabecera de sección: título a la izquierda, texto a la derecha */
 .sec-head {
@@ -33,10 +36,9 @@
 }
 .eyebrow::before {
   content: ''; display: inline-block; flex: 0 0 auto; width: 9px; height: 9px;
-  background: var(--eb, var(--red));
+  background: var(--eb, var(--azul));
 }
-.sec--ink .eyebrow, .sec--navy .eyebrow, .hero .eyebrow { --eb: var(--red-hi); }
-.sec--red .eyebrow { --eb: var(--cream); }
+.sec--ink .eyebrow, .sec--navy .eyebrow, .hero .eyebrow { --eb: var(--verde); }
 
 .h2 {
   font-family: var(--f-hd); font-weight: 600; text-transform: uppercase;
@@ -44,10 +46,8 @@
   font-size: var(--fs, clamp(44px, 6vw, 92px));
   overflow-wrap: break-word;
 }
-.acc { color: var(--red); }
-.sec--navy .acc { color: var(--red-soft); }
-.sec--ink .acc { color: #7e8399; }
-.acc--red { color: var(--red); }
+.acc { color: var(--verde-hondo); }
+.sec--navy .acc, .sec--ink .acc { color: var(--verde); }
 
 .lede { font-size: clamp(18px, 1.7vw, 22px); line-height: 1.55; font-weight: 500; }
 .copy { font-size: 14px; line-height: 1.8; color: var(--muted); }
@@ -70,9 +70,16 @@ h1, h2, h3, h4 { overflow-wrap: break-word; }
   display: grid; place-items: center; flex: 0 0 auto; width: 38px; height: 38px;
   background: rgba(255, 255, 255, 0.18); font-size: 22px; font-weight: 400;
 }
-.btn-main--red { background: var(--red); color: #fff; }
+/* Principal: verde con texto azul noche. Secundarios: azul noche o azul Kokoro con texto claro. */
+.btn-main--verde { background: var(--verde); color: var(--ink); }
+.btn-main--verde:hover { background: var(--verde-hover); }
+.btn-main--verde .btn-main__ico { background: rgba(18, 24, 45, 0.12); }
 .btn-main--ink { background: var(--ink); color: var(--cream); }
+.btn-main--ink:hover { background: var(--azul); }
 .btn-main--ink .btn-main__ico { background: rgba(255, 255, 255, 0.16); }
+.btn-main--azul { background: var(--azul); color: #fff; border: 2px solid var(--verde); }
+.btn-main--azul:hover { background: #323c85; }
+.btn-main--azul .btn-main__ico { background: var(--verde); color: var(--ink); }
 .btn-main--cream { background: var(--cream); color: var(--ink); }
 .btn-main--cream .btn-main__ico { background: rgba(15, 16, 25, 0.1); }
 
@@ -96,15 +103,15 @@ h1, h2, h3, h4 { overflow-wrap: break-word; }
 .todo {
   display: flex; align-items: flex-start; gap: 12px; margin-top: 18px; padding: 14px 16px;
   border: 1.5px dashed currentColor; font-size: 13px; line-height: 1.6;
-  background: rgba(204, 23, 27, 0.07);
+  background: rgba(39, 47, 106, 0.07);
 }
 .todo b {
-  flex: 0 0 auto; padding: 2px 8px; background: var(--red); color: #fff;
+  flex: 0 0 auto; padding: 2px 8px; background: var(--azul); color: #fff;
   font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.6;
 }
 .todo > span { min-width: 0; overflow-wrap: anywhere; }
 .todo code { padding: 1px 5px; background: rgba(15, 16, 25, 0.1); font-size: 12px; overflow-wrap: anywhere; }
-.sec--ink .todo, .sec--navy .todo, .sec--red .todo, .hero .todo { background: rgba(243, 240, 232, 0.08); }
+.sec--ink .todo, .sec--navy .todo, .hero .todo { background: rgba(243, 240, 232, 0.08); }
 .sec--ink .todo code, .sec--navy .todo code { background: rgba(243, 240, 232, 0.14); }
 .todo--inline { margin-top: 12px; padding: 10px 12px; font-size: 12px; }
 

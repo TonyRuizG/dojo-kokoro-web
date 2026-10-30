@@ -27,7 +27,7 @@ El sitio público **no muestra avisos de «pendiente»**: solo publica informaci
 | 9 | **Fotos del lugar de entrenamiento** (Salón Comunal de ADI Birrí). | Sección de ubicación |
 | 10 | Una **foto de portada auténtica**, si quieren portada con fotografía en lugar del logo difuminado. | Las tres páginas |
 | 11 | Confirmar que las **fotos de los senseis** son las definitivas y sumar fotos de trayectoria si las hay. | Nuestro dojo → Senseis |
-| 12 | Imagen para compartir en redes (hoy se genera con el logo; puede reemplazarse por una foto real de 1200×630). | `src/assets/img/og-kokoro.jpg` |
+| 12 | Imagen para compartir en redes (desde la 4.0 se genera con el logo y la paleta oficial; puede reemplazarse por una foto real de 1200×630). | `src/assets/img/og-kokoro.jpg` |
 
 ## Ya confirmado por el dojo (versión 3.1)
 
@@ -55,6 +55,7 @@ El sitio público **no muestra avisos de «pendiente»**: solo publica informaci
 ## Qué no se puede verificar desde el entorno de desarrollo
 
 - La **publicación real en Cloudflare** (hay que abrir el sitio tras cada commit).
+- La **identidad 4.0 en celulares reales** (el pulso del botón, los colores en pantallas de distinto brillo); se probó en el navegador con tamaños de celular.
 - La apariencia exacta con **Oswald y DM Sans** (el entorno de pruebas no puede descargar Google Fonts; se usó una tipografía de reemplazo más ancha).
 - El comportamiento de WhatsApp y de los botones de Google Maps y Waze en dispositivos reales.
 - **Pruebas con usuarios reales.**

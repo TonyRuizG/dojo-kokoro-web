@@ -261,8 +261,10 @@ for (const p of PAGES) {
       ogImageAlt: site.ogImageAlt,
       robots: meta.robots || 'index,follow',
       cta: isPrograma ? wa.instituciones : wa.gratis,
-      ctaLabel: isPrograma ? 'Solicitar propuesta' : 'Primera clase gratis',
-      ctaShort: isPrograma ? 'Propuesta' : 'Clase gratis',
+      ctaLabel: isPrograma ? 'Solicitar propuesta' : '¡Primera Clase Gratis!',
+      ctaShort: isPrograma ? 'Propuesta' : '¡Clase Gratis!',
+      // El pulso queda reservado para el llamado de primera clase gratis (no para el institucional)
+      ctaClass: isPrograma ? '' : ' cta-h--pulso',
       snav: (meta.snav || []).filter((n) => !n.if || flags[n.if]),
       bodyClass: meta.bodyClass || '',
     },

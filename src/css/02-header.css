@@ -10,7 +10,7 @@
   transition: background-color 0.3s, border-color 0.3s, transform 0.4s var(--ease), -webkit-backdrop-filter 0.3s, backdrop-filter 0.3s;
 }
 .site-header.is-solid {
-  background: rgba(15, 16, 25, 0.94);
+  background: rgba(18, 24, 45, 0.94);
   -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
   border-bottom-color: rgba(243, 240, 232, 0.12);
 }
@@ -44,11 +44,10 @@
 }
 .nav-links a::after {
   content: ''; position: absolute; left: 0; right: 0; bottom: 6px; height: 2px;
-  background: var(--red-hi); transform: scaleX(0); transform-origin: left; transition: transform 0.35s var(--ease);
+  background: var(--verde); transform: scaleX(0); transform-origin: left; transition: transform 0.35s var(--ease);
 }
-.nav-links a:hover { color: var(--red-soft); }
+.nav-links a:hover, .nav-links a[aria-current='page'] { color: var(--verde); }
 .nav-links a:hover::after, .nav-links a[aria-current='page']::after { transform: scaleX(1); }
-.nav-links a[aria-current='page'] { color: #fff; }
 
 .hdr-r { display: flex; align-items: center; gap: 10px; }
 
@@ -59,13 +58,23 @@
 .soc:hover { background: rgba(243, 240, 232, 0.16); }
 .soc img { display: block; width: 24px; height: 24px; }
 
+/* Llamado principal «¡Primera Clase Gratis!»: verde con texto azul noche y un pulso suave cada 3,6 s
+   (solo escala, no mueve el diseño; se detiene con el cursor, el foco o movimiento reducido). */
 .cta-h {
-  display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px;
-  background: var(--red); border: 1px solid var(--red); color: #fff;
-  font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 10px; min-height: 46px; padding: 0 18px;
+  background: var(--verde); border-radius: 8px; color: var(--ink);
+  font-size: 14px; font-weight: 700; letter-spacing: 0.01em; white-space: nowrap;
 }
-.cta-h:hover { background: var(--red-hi); border-color: var(--red-hi); }
+.cta-h--pulso { animation: cta-pulso 3.6s ease-in-out infinite; }
+.cta-h:hover { background: var(--verde-hover); }
+.cta-h:hover, .cta-h:focus-visible { animation: none; }
+.cta-h .arr { font-size: 17px; line-height: 1; }
 .cta-h .short { display: none; }
+@keyframes cta-pulso {
+  0%, 70%, 100% { transform: scale(1); }
+  80% { transform: scale(1.04); }
+  90% { transform: scale(1); }
+}
 
 .menu-btn {
   display: none; place-items: center; flex: 0 0 auto; width: 44px; height: 44px; padding: 0;
@@ -92,14 +101,13 @@
   border-bottom: 1px solid rgba(243, 240, 232, 0.14);
   font-family: var(--f-hd); font-size: clamp(28px, 7vw, 40px); font-weight: 600; letter-spacing: 0.02em; text-transform: uppercase;
 }
-.mnav a.mnav__link small { font-family: var(--f-body); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; color: var(--red-soft); }
-.mnav a.mnav__link[aria-current='page'] { color: var(--red-soft); }
+.mnav a.mnav__link small { font-family: var(--f-body); font-size: 11px; font-weight: 700; letter-spacing: 0.16em; color: var(--verde); }
+.mnav a.mnav__link[aria-current='page'] { color: var(--verde); }
 .mnav__foot { margin-top: 22px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; }
 .mnav__soc { display: flex; align-items: center; gap: 6px; }
 
 @media (max-width: 1180px) {
-  .cta-h .long { display: none; }
-  .cta-h .short { display: inline; }
+  .cta-h { padding: 0 14px; font-size: 13px; }
 }
 @media (max-width: 1020px) {
   .nav-links { display: none; }
@@ -107,17 +115,22 @@
   .hdr-r .soc { display: none; }
   .hdr-r { gap: 12px; }
 }
-@media (max-width: 520px) {
+@media (max-width: 600px) {
   .hdr-in { gap: 10px; }
   .hdr-r { gap: 8px; }
   .brand__tx small { display: none; }
   .brand__tx strong { font-size: 20px; }
-  .cta-h { padding: 0 12px; font-size: 10.5px; letter-spacing: 0.08em; min-height: 44px; }
+  .cta-h { padding: 0 12px; letter-spacing: 0; min-height: 44px; }
 }
-@media (max-width: 380px) {
+/* En celulares queda solo el logo para que «¡Primera Clase Gratis!» se lea completo */
+@media (max-width: 460px) {
   .brand__tx { display: none; }
+}
+@media (max-width: 350px) {
+  .cta-h .long { display: none; }
+  .cta-h .short { display: inline; }
 }
 @media (prefers-reduced-motion: reduce) {
   .site-header, .hdr-in, .brand__mark, .menu-btn line, .nav-links a::after { transition: none; }
-  .menu-open .mnav { animation: none; }
+  .menu-open .mnav, .cta-h { animation: none; }
 }
