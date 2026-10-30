@@ -1,21 +1,27 @@
 /* ==========================================================
    DOJO KOKORO · Base: variables, reinicio, tipografía
-   Paleta y tipografías conservadas del diseño original.
+   Versión 4.0: paleta oficial del logotipo (azul, verde y negro Kokoro)
+   con complementarios para fondos y texto. Tipografías del diseño original.
    ========================================================== */
 :root {
-  --red: #cc171b;
-  --red-hi: #ff4a44;
-  --red-soft: #ff6b63;
-  --navy: #1b1f55;
-  --ink: #0f1019;
-  --ink-2: #1a1c30;
-  --cream: #f3f0e8;
-  --paper: #ece8df;
+  /* Oficiales del logotipo */
+  --azul: #272f6a;        /* títulos, bordes, íconos y bandas de marca */
+  --verde: #79c8a2;       /* botones de acción, acentos sobre fondo oscuro, activo, hover y focus */
+  --negro: #000;
+  /* Complementarios */
+  --ink: #12182d;         /* azul noche: portadas, fondos oscuros, pie y texto principal */
+  --ink-2: #1c2440;       /* azul noche un poco más claro (hover de tarjetas oscuras) */
+  --cream: #f6f3ea;       /* marfil: fondos claros */
+  --paper: #ece8df;       /* marfil más profundo para alternar secciones claras */
+  --verde-hover: #5fb68c; /* fondo verde al pasar el cursor (texto azul noche sigue en AA) */
+  --verde-hondo: #2a7352; /* verde Kokoro oscurecido: solo para texto verde sobre fondo claro (AA) */
+  --error: #b3261e;       /* solo mensajes de error del formulario */
   --muted: #4f524b;
   --muted-2: #5c5f57;
   --line: #c9c5b8;
-  --on-dark: #b4b6ad;
+  --on-dark: #aab6cc;     /* azul grisáceo: texto secundario sobre fondo oscuro */
   --on-dark-2: #d6d9f0;
+  --focus: var(--azul);   /* sobre fondos oscuros pasa a verde (01-layout.css) */
 
   --pad-x: clamp(20px, 4.5vw, 64px);
   --sec-y: clamp(80px, 10vw, 130px);
@@ -51,10 +57,10 @@ ul, ol { padding: 0; list-style: none; }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; }
 button { font: inherit; color: inherit; }
-::selection { background: var(--red); color: #fff; }
+::selection { background: var(--verde); color: var(--ink); }
 
 a:focus-visible, button:focus-visible, summary:focus-visible {
-  outline: 3px solid var(--red-soft);
+  outline: 3px solid var(--focus);
   outline-offset: 3px;
 }
 

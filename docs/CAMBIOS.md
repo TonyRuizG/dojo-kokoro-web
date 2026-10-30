@@ -1,6 +1,6 @@
 # Resumen de cambios
 
-**Versión actual: 3.5** (sobre la 3.0, el tercer rediseño de interfaz). Los paquetes siguientes se numeran 3.1, 3.2, 3.3… y cada uno se entrega como `dojo-kokoro-web-v3.X.zip`.
+**Versión actual: 4.0 — Identidad Visual Oficial** (cuarta gran actualización visual). Los paquetes siguientes se numeran 4.1, 4.2… y cada uno se entrega como `dojo-kokoro-web-v4.X.zip`. Las secciones 1 a 14 cuentan la historia hasta la 3.5 (la paleta roja que se menciona ahí ya no está vigente).
 
 Punto de partida: la página única de Dojo Kokoro (versión 15, un solo archivo HTML empaquetado).
 Resultado: un sitio de tres páginas, organizado y listo para publicar. La versión original está intacta en `respaldo-original/`.
@@ -140,4 +140,21 @@ El sitio no cambió: esta versión solo deja el repositorio listo para seguir tr
 - **`CLAUDE.md`:** reglas del proyecto (cómo trabajar con Tony, arquitectura, publicación, versiones, privacidad y contenido aprobado).
 - **`tools/pruebas/`:** las cuatro pruebas de navegador (`final`, `valores`, `layout`, `contraste`) ahora viven en el repositorio y usan rutas relativas. Se probaron desde una copia limpia del proyecto. Script `npm run pruebas`.
 - **README:** secciones sobre las pruebas y sobre Claude Code.
+
+## 15. Versión 4.0 — Identidad Visual Oficial
+
+Actualización integral de la identidad visual de Dojo Kokoro utilizando los colores oficiales del logotipo. Rediseño cromático de las tres páginas, optimización de la navegación, nuevo CTA animado de primera clase gratuita y mejoras en la jerarquía visual de la portada. La estructura, los textos aprobados, las tipografías y las funciones no cambiaron.
+
+- **Paleta oficial** (la entregó el diseñador del logo): azul Kokoro `#272F6A`, verde Kokoro `#79C8A2` y negro `#000000`, con complementarios azul noche `#12182D`, marfil `#F6F3EA` y azul grisáceo `#AAB6CC`. Viven como variables al inicio de `src/css/00-base.css`; se revisó color por color qué función cumplía cada rojo en lugar de reemplazarlos en bloque.
+- **Cómo se usa:** fondos oscuros, portadas y pie en azul noche; bandas de marca (cinta de lemas, frase, contacto, Dojo Kun, deporte, colaboración) en azul Kokoro; títulos de las secciones claras en azul Kokoro; el verde para botones de acción, palabras destacadas sobre fondo oscuro, estado activo, hover y foco. Sobre verde el texto va siempre en azul noche.
+- **Contraste (WCAG AA):** el verde Kokoro no alcanza a leerse como texto sobre fondo claro (1,8:1), así que ahí las palabras destacadas usan un verde más hondo de la misma familia, `#2A7352` (4,6:1 o más). El foco del teclado es verde sobre fondos oscuros y azul sobre fondos claros.
+- **Encabezado:** el enlace de la página activa va en verde. El botón superior dice **«¡Primera Clase Gratis!»** con flecha, fondo verde, texto azul noche y bordes redondeados, y se lee completo en todos los tamaños (en celulares el encabezado muestra solo el logo para darle espacio; por debajo de 350 px dice «¡Clase Gratis!»). En Programa educativo el botón conserva su destino institucional («Solicitar propuesta»), con el mismo estilo y sin pulso.
+- **Pulso suave:** cada 3,6 s el botón crece un 4 % y vuelve a su tamaño (solo `transform: scale`, sin mover el encabezado). Se detiene con el cursor o el foco del teclado y se desactiva con «reducir movimiento».
+- **Portada de Inicio:** se quitó el botón «Agenda tu primera clase gratis» del hero (los enlaces de inscripción después de los horarios, en las preguntas y en el formulario siguen igual). **«VER HORARIOS»** pasó a ser la acción principal: botón grande azul Kokoro con borde verde y flecha, que baja suavemente a los horarios sin que el encabezado tape el título (con movimiento reducido salta de inmediato). El título de la portada usa verde sólido en la segunda línea y el círculo enso pasó a azul Kokoro.
+- **Portada de Nuestro dojo:** igual que en Inicio, se quitó el botón «Primera clase gratis» del hero (el de la sección «Construye una historia con nosotros» y el del encabezado siguen igual). **«CONOCE A LOS SENSEIS»** pasó de enlace subrayado al mismo botón grande de «Ver horarios» y baja a la sección de los senseis.
+- **Sistema de botones:** principal verde (`btn-main--verde`), secundario azul noche (`btn-main--ink`) y azul con borde verde (`btn-main--azul`). «Solicitar propuesta institucional» y «Forma parte de nuestro dojo» quedaron en verde sobre las bandas azules.
+- **Nuestro dojo y Programa educativo:** misión y visión, senseis, Dojo Kun, ocho valores (íconos azules; al abrirse, ícono y borde verdes), Kata en verde entre Kihon y Kumite, beneficios, proceso con números en círculos verdes, desarrollo deportivo, respaldo y galería adaptados a la nueva paleta. Los logos de terceros y la bandera de Costa Rica conservan sus colores.
+- **Imagen para compartir** (`og-kokoro.jpg`): rehecha con la nueva paleta, el mismo logo y los mismos textos. WhatsApp y Facebook pueden seguir mostrando la vista previa anterior unos días por su caché.
+- **Lo único rojo que queda:** los mensajes de error del formulario (`--error`), a propósito, porque así se reconocen como error.
+- **Verificación:** compilación y revisor del sitio sin errores; pruebas `final`, `valores`, `layout` y `contraste`; además, una revisión de las tres páginas en 1920×1080, 1440×900, 1366×768, 1024×768, 768×1024, 390×844 y 375×812 (187 comprobaciones: sin desplazamiento horizontal, botón sin cortes, sin rojo en la interfaz, textos dentro de su caja, consola limpia, pulso, movimiento reducido, teclado, menú móvil, «Ver horarios», «Conoce a los senseis» y destinos de los enlaces), con capturas de antes y después. Los dos avisos que dan `layout` (una tarjeta de Inicio en 1440 y 1920) y `contraste` (textos del encabezado transparente sobre la portada) ya aparecían igual en la 3.5.
 

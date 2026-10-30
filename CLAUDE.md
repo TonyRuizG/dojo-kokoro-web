@@ -23,9 +23,9 @@ El dominio propio previsto (dojokokorocr.com) todavía NO está comprado ni conf
 - Para comprobar la compilación: `gh api repos/TonyRuizG/dojo-kokoro-web/commits/<sha>/check-runs` (si hay `gh`). Al leer el sitio publicado con herramientas web, pide `/index.html` o una ruta distinta: algunas herramientas guardan la página en caché unos 15 minutos.
 
 ## Versiones y entregas
-- La versión vigente está al inicio de `docs/CAMBIOS.md` («Versión actual: 3.x»). La tercera interfaz es la 3.0; cada tanda de cambios sube el número (3.1, 3.2…).
+- La versión vigente está al inicio de `docs/CAMBIOS.md` («Versión actual: 4.x»). La cuarta interfaz es la 4.0 (identidad visual oficial); cada tanda de cambios sube el número (4.1, 4.2…).
 - Al terminar una tanda: sube «Versión actual», agrega una sección al final de `docs/CAMBIOS.md`, y ajusta `docs/PENDIENTES.md` y `README.md` si cambió algo.
-- Si Tony pide un zip, nómbralo `dojo-kokoro-web-v3.X.zip`, sin `dist/`, `dist-local/`, `respaldo-original/`, `node_modules/` ni `.git/`, y comprueba que no lleve datos privados.
+- Si Tony pide un zip, nómbralo `dojo-kokoro-web-v4.X.zip`, sin `dist/`, `dist-local/`, `respaldo-original/`, `node_modules/` ni `.git/`, y comprueba que no lleve datos privados.
 - Antes de publicar: `node build.mjs` y `node tools/revisar-sitio.mjs` sin errores. Si tocaste maquetación, formulario o valores, corre también `tools/pruebas/`.
 
 ## Reglas de contenido (decisiones de Tony)
@@ -46,7 +46,11 @@ Contenido aprobado:
 - Programa educativo: sin precios; las condiciones se acuerdan con cada institución.
 - Ubicación: «Sede Birrí» (Salón Comunal de ADI Birrí) y «Sede Sta. Bárbara Centro: PRÓXIMAMENTE». Botones de Google Maps y Waze, sin mapa incrustado, justo después de los horarios.
 - Formulario de WhatsApp: el mensaje está en `src/site.json`. No muevas el diseño al salir de un campo: se pierde el clic en el botón de enviar.
-- Identidad visual a conservar: rojo #cc171b, azul marino #1b1f55, tinta #0f1019, crema #F3F0E8, papel #ECE8DF; Oswald (títulos), DM Sans (texto), Noto Serif JP (kanji decorativos).
+- Identidad visual oficial (desde la 4.0, colores del logotipo): azul Kokoro #272F6A, verde Kokoro #79C8A2 y negro #000000. Complementarios: azul noche #12182D (portadas, fondos oscuros, pie) y marfil #F6F3EA (fondos claros); también azul grisáceo #AAB6CC (texto secundario sobre oscuro) y verde hondo #2A7352 (solo texto verde sobre fondo claro, por contraste). Todo vive como variables al inicio de `src/css/00-base.css`; no escribas colores sueltos.
+- El rojo ya no es color de la interfaz: solo queda en los mensajes de error del formulario (`--error`) y en logos o banderas de terceros, que no se recolorean.
+- Uso del color: azul para títulos, bordes, íconos y bandas de marca; verde para botones de acción, acentos sobre fondo oscuro, estados activos, hover y foco. Nunca texto verde ni blanco sobre verde: sobre verde el texto va en azul noche. Mantén la alternancia de secciones claras y oscuras.
+- Botones: principal verde con texto azul noche (`btn-main--verde`); secundario azul noche o azul Kokoro (`btn-main--ink`, `btn-main--azul`). El pulso suave (3,6 s, `cta-h--pulso`) es solo para «¡Primera Clase Gratis!» del encabezado; no animes otros botones así.
+- Tipografías: Oswald (títulos), DM Sans (texto), Noto Serif JP (kanji decorativos).
 
 ## Pendientes
 Están en `docs/PENDIENTES.md` (cinturones, calendario de torneos, fotos reales, cartas de respaldo, revisión de kanji decorativos, dominio propio).

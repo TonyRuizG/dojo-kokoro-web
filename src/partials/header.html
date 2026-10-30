@@ -12,7 +12,7 @@
 <div class="hdr-r">
 <a class="btn soc" href="{{site.social.instagram}}" target="_blank" rel="noopener" aria-label="Instagram del Dojo Kokoro" title="Instagram"><img src="{{root}}assets/icons/instagram.png" alt="" width="24" height="24"></a>
 <a class="btn soc" href="{{site.social.facebook}}" target="_blank" rel="noopener" aria-label="Facebook del Dojo Kokoro" title="Facebook"><img src="{{root}}assets/icons/facebook.png" alt="" width="24" height="24"></a>
-<a class="btn cta-h" href="{{page.cta}}" target="_blank" rel="noopener"><span class="long">{{page.ctaLabel}}</span><span class="short">{{page.ctaShort}}</span></a>
+<a class="btn cta-h{{page.ctaClass}}" href="{{page.cta}}" target="_blank" rel="noopener"><span class="long">{{page.ctaLabel}}</span><span class="short">{{page.ctaShort}}</span><span class="arr" aria-hidden="true">→</span></a>
 <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Abrir menú"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line class="tl1" x1="5" y1="7" x2="19" y2="7"/><line class="tl2" x1="5" y1="12" x2="19" y2="12"/><line class="tl3" x1="5" y1="17" x2="19" y2="17"/></svg></button>
 </div>
 </div>
@@ -22,7 +22,7 @@
 <a class="mnav__link" href="{{url.dojo}}" {{nav.dojo}}><small>02</small>Nuestro dojo</a>
 <a class="mnav__link" href="{{url.programa}}" {{nav.programa}}><small>03</small>Programa educativo</a>
 <div class="mnav__foot">
-<a class="btn btn-main btn-main--red" href="{{page.cta}}" target="_blank" rel="noopener">{{page.ctaLabel}}<span class="btn-main__ico" aria-hidden="true">↗</span></a>
+<a class="btn btn-main btn-main--verde" href="{{page.cta}}" target="_blank" rel="noopener">{{page.ctaLabel}}<span class="btn-main__ico" aria-hidden="true">↗</span></a>
 <span class="mnav__soc">
 <a class="soc" href="{{site.social.instagram}}" target="_blank" rel="noopener" aria-label="Instagram del Dojo Kokoro"><img src="{{root}}assets/icons/instagram.png" alt="" width="24" height="24"></a>
 <a class="soc" href="{{site.social.facebook}}" target="_blank" rel="noopener" aria-label="Facebook del Dojo Kokoro"><img src="{{root}}assets/icons/facebook.png" alt="" width="24" height="24"></a>
