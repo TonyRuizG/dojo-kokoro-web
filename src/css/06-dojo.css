@@ -156,10 +156,10 @@ html:not(.js) .valor__pop-in { border-top-width: 1px; box-shadow: none; }
 .crit__card h3 { font-family: var(--f-hd); font-size: clamp(24px, 2.6vw, 32px); font-weight: 600; line-height: 1.1; text-transform: uppercase; color: var(--azul); }
 .crit__card h3 span { font-weight: 400; }
 .crit__card p { margin-top: 12px; font-size: 16px; line-height: 1.7; color: var(--ink); }
-.crit__end { margin-top: 24px; padding: clamp(32px, 5vw, 64px) clamp(24px, 5vw, 64px); background: var(--ink); color: var(--cream); }
-.crit__end::before { content: ''; display: block; width: 56px; height: 3px; margin-bottom: 26px; background: var(--verde); }
-.crit__big { font-family: var(--f-hd); font-size: clamp(30px, 4.6vw, 60px); font-weight: 600; line-height: 1.05; text-transform: uppercase; text-wrap: balance; }
-.crit__end p:last-child { margin-top: 16px; font-size: clamp(16px, 1.6vw, 19px); line-height: 1.6; color: var(--on-dark-2); }
+.crit__end { margin-top: 24px; padding: clamp(26px, 4vw, 52px) clamp(20px, 4vw, 56px); background: var(--ink); color: var(--cream); }
+.crit__end::before { content: ''; display: block; width: 56px; height: 3px; margin-bottom: 20px; background: var(--verde); }
+.crit__big { font-family: var(--f-hd); font-size: clamp(22px, 3vw, 40px); font-weight: 600; line-height: 1.1; text-transform: uppercase; text-wrap: balance; }
+.crit__end p:last-child { margin-top: 12px; font-size: clamp(14px, 1.4vw, 17px); line-height: 1.6; color: var(--on-dark-2); }
 
 /* Desarrollo deportivo */
 .stages { display: flex; flex-wrap: wrap; gap: 32px 40px; }
@@ -258,10 +258,16 @@ html:not(.js) .valor__pop-in { border-top-width: 1px; box-shadow: none; }
   .belt { padding: 0 0 0 52px; }
   .belt::before { top: 0; }
 }
-@media (max-width: 700px) {
-  .crit { grid-template-columns: 1fr; gap: 16px; }
-}
 @media (max-width: 560px) {
+  /* Criterios: siguen en 2×2 en celulares, con tarjetas más compactas */
+  .crit { gap: 12px; }
+  .crit__card { padding: 18px 14px; }
+  .crit__top { margin-bottom: 14px; }
+  .crit__ico { width: 32px; height: 32px; }
+  .crit__num { font-size: 12px; }
+  .crit__card h3 { font-size: 18px; }
+  .crit__card p { margin-top: 8px; font-size: 14px; line-height: 1.6; }
+  .crit__end { margin-top: 12px; }
   .valor__btn { min-height: 218px; padding: 20px 16px 18px; }
   .valor__ico { width: 44px; height: 44px; }
   .valor__num { right: 54px; top: 20px; }
