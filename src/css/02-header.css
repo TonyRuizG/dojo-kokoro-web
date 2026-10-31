@@ -68,7 +68,6 @@
 .cta-h--pulso { animation: cta-pulso 3.6s ease-in-out infinite; }
 .cta-h:hover { background: var(--verde-hover); }
 .cta-h:hover, .cta-h:focus-visible { animation: none; }
-.cta-h .arr { font-size: 17px; line-height: 1; }
 .cta-h .short { display: none; }
 @keyframes cta-pulso {
   0%, 70%, 100% { transform: scale(1); }
