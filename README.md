@@ -128,7 +128,7 @@ Cuando compres el dominio (previsto: `dojokokorocr.com`, **aún no configurado**
 | Enlaces de Google Maps y Waze | `src/site.json` → `maps`, `waze`, `geo` |
 | Mensajes de WhatsApp de los botones | `src/site.json` → `wa` |
 | Mensaje del formulario (usa `{nombre}` y `{edad}`) | `src/site.json` → `formulario.mensaje` |
-| Horarios y grupos | `src/pages/index.html` (sección `#horarios`) |
+| Días, horarios y grupos (edades) | `src/pages/index.html` (portada, cinta de lemas, `#horarios`, preguntas y nota del formulario), `src/pages/nuestro-dojo.html` (Entrenamientos), `src/pages/programa-educativo.html` (edades del programa) y `src/site.json` → `wa.ninos`, `wa.adultos` |
 | Preguntas frecuentes | `src/pages/index.html` (sección `#preguntas`, un `<details>` por pregunta) |
 | Misión y visión | `src/pages/nuestro-dojo.html` (`#mision`); ya no van en Inicio |
 | Los ocho valores | `src/data/valores.json` (**no cambiar los textos sin autorización**; los valores no llevan japonés a propósito) |

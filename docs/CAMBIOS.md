@@ -1,6 +1,6 @@
 # Resumen de cambios
 
-**Versión actual: 4.0 — Identidad Visual Oficial** (cuarta gran actualización visual). Los paquetes siguientes se numeran 4.1, 4.2… y cada uno se entrega como `dojo-kokoro-web-v4.X.zip`. Las secciones 1 a 14 cuentan la historia hasta la 3.5 (la paleta roja que se menciona ahí ya no está vigente).
+**Versión actual: 4.1** (la 4.0 fue la identidad visual oficial, cuarta gran actualización visual). Los paquetes siguientes se numeran 4.1, 4.2… y cada uno se entrega como `dojo-kokoro-web-v4.X.zip`. Las secciones 1 a 14 cuentan la historia hasta la 3.5 (la paleta roja que se menciona ahí ya no está vigente).
 
 Punto de partida: la página única de Dojo Kokoro (versión 15, un solo archivo HTML empaquetado).
 Resultado: un sitio de tres páginas, organizado y listo para publicar. La versión original está intacta en `respaldo-original/`.
@@ -158,3 +158,9 @@ Actualización integral de la identidad visual de Dojo Kokoro utilizando los col
 - **Lo único rojo que queda:** los mensajes de error del formulario (`--error`), a propósito, porque así se reconocen como error.
 - **Verificación:** compilación y revisor del sitio sin errores; pruebas `final`, `valores`, `layout` y `contraste`; además, una revisión de las tres páginas en 1920×1080, 1440×900, 1366×768, 1024×768, 768×1024, 390×844 y 375×812 (187 comprobaciones: sin desplazamiento horizontal, botón sin cortes, sin rojo en la interfaz, textos dentro de su caja, consola limpia, pulso, movimiento reducido, teclado, menú móvil, «Ver horarios», «Conoce a los senseis» y destinos de los enlaces), con capturas de antes y después. Los dos avisos que dan `layout` (una tarjeta de Inicio en 1440 y 1920) y `contraste` (textos del encabezado transparente sobre la portada) ya aparecían igual en la 3.5.
 
+## 16. Versión 4.1 — Nuevos días de entrenamiento y edad mínima de 6 años
+
+- **Días:** las clases pasan de miércoles y viernes a **lunes y miércoles**, con los mismos horarios (niños de 6:40 a 7:40 p. m.; jóvenes y adultos de 7:40 a 8:40 p. m.). Se cambió en la portada y la cinta de lemas de Inicio, en la tabla de horarios, en las preguntas frecuentes y en «Entrenamientos» de Nuestro dojo.
+- **Edad mínima de 6 años:** el grupo de niños pasa de 8–11 a **6–11 años**, también para la primera clase gratis. Se cambió en la tabla de horarios, las preguntas frecuentes, la nota del formulario y el mensaje de WhatsApp del grupo de niños (`src/site.json` → `wa.ninos`). En Programa educativo, «desde los 8 años» pasó a «desde los 6 años» (presentación, objetivo general y ficha de edades). El grupo de jóvenes y adultos sigue desde los 12 años, igual que la elegibilidad deportiva.
+- **README:** la tabla de «Cómo actualizar el contenido» ahora lista todos los lugares donde aparecen días y edades.
+- **Verificación:** compilación y revisor del sitio sin errores; pruebas `final` y `valores` sin fallas; `layout` y `contraste` solo con los avisos que ya existían.
