@@ -144,6 +144,23 @@ html:not(.js) .valor__pop-in { border-top-width: 1px; box-shadow: none; }
 .belt h4 { font-family: var(--f-hd); font-size: 24px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
 .belt p { margin-top: 8px; max-width: 280px; font-size: 14px; line-height: 1.7; color: var(--muted); }
 
+/* Criterios de evaluación: tarjetas informativas (no son botones) y un cierre oscuro */
+#criterios .eyebrow { --eb: var(--verde); }
+.sec-head__side p.crit__q { font-size: 20px; line-height: 1.4; font-weight: 600; color: var(--ink); }
+.crit { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.crit__card { padding: clamp(24px, 3vw, 36px); background: #fff; border: 1px solid var(--line); border-radius: 2px; }
+.crit__top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
+.crit__ico { display: block; width: 44px; height: 44px; color: var(--verde); }
+.crit__ico svg { display: block; width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.crit__num { font-size: 14px; font-weight: 700; letter-spacing: 0.12em; color: var(--verde-hondo); }
+.crit__card h3 { font-family: var(--f-hd); font-size: clamp(24px, 2.6vw, 32px); font-weight: 600; line-height: 1.1; text-transform: uppercase; color: var(--azul); }
+.crit__card h3 span { font-weight: 400; }
+.crit__card p { margin-top: 12px; font-size: 16px; line-height: 1.7; color: var(--ink); }
+.crit__end { margin-top: 24px; padding: clamp(26px, 4vw, 52px) clamp(20px, 4vw, 56px); background: var(--ink); color: var(--cream); }
+.crit__end::before { content: ''; display: block; width: 56px; height: 3px; margin-bottom: 20px; background: var(--verde); }
+.crit__big { font-family: var(--f-hd); font-size: clamp(22px, 3vw, 40px); font-weight: 600; line-height: 1.1; text-transform: uppercase; text-wrap: balance; }
+.crit__end p:last-child { margin-top: 12px; font-size: clamp(14px, 1.4vw, 17px); line-height: 1.6; color: var(--on-dark-2); }
+
 /* Desarrollo deportivo */
 .stages { display: flex; flex-wrap: wrap; gap: 32px 40px; }
 .stage { flex: 1 1 200px; min-width: 0; border-top: 4px solid rgba(243, 240, 232, 0.35); padding-top: 20px; }
@@ -242,6 +259,15 @@ html:not(.js) .valor__pop-in { border-top-width: 1px; box-shadow: none; }
   .belt::before { top: 0; }
 }
 @media (max-width: 560px) {
+  /* Criterios: siguen en 2×2 en celulares, con tarjetas más compactas */
+  .crit { gap: 12px; }
+  .crit__card { padding: 18px 14px; }
+  .crit__top { margin-bottom: 14px; }
+  .crit__ico { width: 32px; height: 32px; }
+  .crit__num { font-size: 12px; }
+  .crit__card h3 { font-size: 18px; }
+  .crit__card p { margin-top: 8px; font-size: 14px; line-height: 1.6; }
+  .crit__end { margin-top: 12px; }
   .valor__btn { min-height: 218px; padding: 20px 16px 18px; }
   .valor__ico { width: 44px; height: 44px; }
   .valor__num { right: 54px; top: 20px; }

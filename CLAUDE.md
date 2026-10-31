@@ -43,6 +43,7 @@ Contenido aprobado:
 - Logros: por ahora ninguno publicado; la sección dice «Construye una historia con nosotros».
 - Galería: «PRÓXIMAMENTE» hasta tener fotos reales (con permiso de los padres si salen menores).
 - Camino deportivo: Iniciación → Formación → Competencia → Alto rendimiento, sin prometer selección ni clasificación.
+- Criterios de evaluación (Nuestro dojo, `#criterios`, justo después de los cinturones): cuatro tarjetas (Kihon, Kata, Kumite, Espíritu y actitud) y el cierre «Los exámenes reflejan el progreso, no la perfección.», con textos textuales aprobados. Sin kanji ni requisitos por cinturón: es una explicación general, no un reglamento de exámenes.
 - Programa educativo: sin precios; las condiciones se acuerdan con cada institución.
 - Ubicación: «Sede Birrí» (Salón Comunal de ADI Birrí) y «Sede Sta. Bárbara Centro: PRÓXIMAMENTE». Botones de Google Maps y Waze, sin mapa incrustado, justo después de los horarios.
 - Formulario de WhatsApp: el mensaje está en `src/site.json`. No muevas el diseño al salir de un campo: se pierde el clic en el botón de enviar.

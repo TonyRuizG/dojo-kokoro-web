@@ -9,7 +9,7 @@ Es un sitio estático de tres páginas, sin dependencias, sin base de datos y si
 | Página | Ruta | Para qué sirve |
 |---|---|---|
 | Inicio | `/` | Filosofía, método, horarios, preguntas frecuentes, ubicación y formulario que continúa por WhatsApp. |
-| Nuestro dojo | `/nuestro-dojo/` | Historia, misión y visión, ocho valores, Dojo Kun, senseis, metodología (Kihon, Kata, Bunkai, Kumite), desarrollo deportivo, logros (o «Construye una historia con nosotros»), respaldo institucional y galería (o «Próximamente»). |
+| Nuestro dojo | `/nuestro-dojo/` | Historia, misión y visión, ocho valores, Dojo Kun, senseis, metodología (Kihon, Kata, Bunkai, Kumite), criterios de evaluación, desarrollo deportivo, logros (o «Construye una historia con nosotros»), respaldo institucional y galería (o «Próximamente»). |
 | Programa educativo | `/programa-educativo/` | Propuesta de karate-do extracurricular para instituciones: objetivos, valores, metodología, niveles, condiciones, seguimiento y proceso de colaboración. |
 
 ## Contenido
@@ -133,6 +133,7 @@ Cuando compres el dominio (previsto: `dojokokorocr.com`, **aún no configurado**
 | Misión y visión | `src/pages/nuestro-dojo.html` (`#mision`); ya no van en Inicio |
 | Los ocho valores | `src/data/valores.json` (**no cambiar los textos sin autorización**; los valores no llevan japonés a propósito) |
 | Historia del dojo | `src/pages/nuestro-dojo.html` (`#historia`) |
+| Criterios de evaluación | `src/pages/nuestro-dojo.html` (`#criterios`, después de los cinturones; textos aprobados, **no cambiarlos sin autorización**) |
 | Datos de los senseis (grado, trayectoria, especialidades) | `src/pages/nuestro-dojo.html` (`#senseis`, lista `sensei__dl` de cada tarjeta) |
 | Programa educativo | `src/pages/programa-educativo.html` |
 | Logros | `src/data/logros.json` |

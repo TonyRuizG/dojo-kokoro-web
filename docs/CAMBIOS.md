@@ -1,6 +1,6 @@
 # Resumen de cambios
 
-**Versión actual: 4.1** (la 4.0 fue la identidad visual oficial, cuarta gran actualización visual). Los paquetes siguientes se numeran 4.1, 4.2… y cada uno se entrega como `dojo-kokoro-web-v4.X.zip`. Las secciones 1 a 14 cuentan la historia hasta la 3.5 (la paleta roja que se menciona ahí ya no está vigente).
+**Versión actual: 4.2** (la 4.0 fue la identidad visual oficial, cuarta gran actualización visual). Los paquetes siguientes se numeran 4.1, 4.2… y cada uno se entrega como `dojo-kokoro-web-v4.X.zip`. Las secciones 1 a 14 cuentan la historia hasta la 3.5 (la paleta roja que se menciona ahí ya no está vigente).
 
 Punto de partida: la página única de Dojo Kokoro (versión 15, un solo archivo HTML empaquetado).
 Resultado: un sitio de tres páginas, organizado y listo para publicar. La versión original está intacta en `respaldo-original/`.
@@ -165,3 +165,12 @@ Actualización integral de la identidad visual de Dojo Kokoro utilizando los col
 - **Botón del encabezado:** se quitó la flecha (→) de «¡Primera Clase Gratis!» porque no aportaba nada; el botón queda solo con el texto y sigue con su pulso. También se quitó del «Solicitar propuesta» de Programa educativo, que usa el mismo botón.
 - **README:** la tabla de «Cómo actualizar el contenido» ahora lista todos los lugares donde aparecen días y edades.
 - **Verificación:** compilación y revisor del sitio sin errores; pruebas `final` y `valores` sin fallas; `layout` y `contraste` solo con los avisos que ya existían.
+
+## 17. Versión 4.2 — Criterios de evaluación en Nuestro dojo
+
+- **Nueva sección «Criterios de evaluación»** (`#criterios`), justo después de «Progresión por niveles y cinturones» y antes de «Desarrollo deportivo»: etiqueta «Evaluaciones», título, la pregunta «¿Qué se valora durante un examen de Karate-Do?» y el texto introductorio aprobado.
+- **Cuatro tarjetas informativas** (Kihon, Kata, Kumite, Espíritu y actitud) con número, ícono propio en verde Kokoro y los textos aprobados, sin cambios. En 2×2 en todos los tamaños; en celulares (560 px o menos) las tarjetas se compactan, con letra e íconos más pequeños. No son botones: sin enlaces, ventanas ni animaciones. Sin kanji ni emojis.
+- **Cierre** en azul noche con una línea verde, a todo el ancho debajo de las tarjetas y con letra moderada (hasta 40 px): «Los exámenes reflejan el progreso, no la perfección.» y «La mejora continua es nuestro verdadero objetivo.»
+- **Sin cambios** en la progresión por cinturones, la metodología, los valores, el encabezado, el pie, la navegación ni las otras páginas. Los estilos nuevos van en `src/css/06-dojo.css` y solo afectan a esta sección.
+- **README y CLAUDE.md:** la sección y sus textos aprobados quedan anotados.
+- **Verificación:** compilación y revisor del sitio sin errores; pruebas `final` y `valores` sin fallas; `layout` y `contraste` solo con los avisos que ya existían. Además, 91 comprobaciones de la sección en siete tamaños (1920 a 375 px): orden de las secciones, cuadrícula 2×2 en todos, tarjetas del mismo ancho y alto, textos completos y exactos, sin desbordes, colores de fondo, sin kanji ni enlaces y consola limpia.
