@@ -259,7 +259,6 @@ html:not(.js) .valor__pop-in { border-top-width: 1px; box-shadow: none; }
 }
 @media (max-width: 860px) {
   .ident { grid-template-columns: 1fr; }
-  .method-cols { grid-template-columns: 1fr; }
   .belts__track { grid-template-columns: 1fr; gap: 28px; }
   .belts__track::before { left: 11px; right: auto; top: 11px; bottom: 40px; width: 2px; height: auto; }
   .belt { padding: 0 0 0 52px; }
@@ -279,6 +278,7 @@ html:not(.js) .valor__pop-in { border-top-width: 1px; box-shadow: none; }
   .valor__ico { width: 44px; height: 44px; }
   .valor__num { right: 54px; top: 20px; }
   .valor__more { top: 16px; right: 14px; }
+  .method-cols { grid-template-columns: 1fr; }
   /* Dojo Kun y etapas deportivas se quedan en dos columnas en celular */
   .plaque--kun { min-height: 0; padding: 18px 16px 20px; }
   .plaque--kun .jp { font-size: 44px; }

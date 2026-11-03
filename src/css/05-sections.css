@@ -270,13 +270,13 @@
 /* ---------- Responsive ---------- */
 @media (max-width: 860px) {
   .g3, .g3b, .explore { grid-template-columns: 1fr; }
-  .trio { grid-template-columns: 1fr; }
   /* En una columna las tarjetas miden lo que su texto; el kanji queda de marca de agua en la esquina */
   .feat, .pillar { min-height: 0; }
   .feat__kanji, .pillar__kanji { font-size: 56px; }
   .tile { min-height: 240px; }
 }
 @media (max-width: 700px) {
+  .trio { grid-template-columns: 1fr; }
   .philo__side { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 8px 20px; }
   .philo__kanji { font-size: 72px; }
 }

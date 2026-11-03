@@ -1,6 +1,6 @@
 # Resumen de cambios
 
-**Versión actual: 4.2** (la 4.0 fue la identidad visual oficial, cuarta gran actualización visual). Los paquetes siguientes se numeran 4.1, 4.2… y cada uno se entrega como `dojo-kokoro-web-v4.X.zip`. Las secciones 1 a 14 cuentan la historia hasta la 3.5 (la paleta roja que se menciona ahí ya no está vigente).
+**Versión actual: 4.3** (la 4.0 fue la identidad visual oficial, cuarta gran actualización visual). Los paquetes siguientes se numeran 4.1, 4.2… y cada uno se entrega como `dojo-kokoro-web-v4.X.zip`. Las secciones 1 a 14 cuentan la historia hasta la 3.5 (la paleta roja que se menciona ahí ya no está vigente).
 
 Punto de partida: la página única de Dojo Kokoro (versión 15, un solo archivo HTML empaquetado).
 Resultado: un sitio de tres páginas, organizado y listo para publicar. La versión original está intacta en `respaldo-original/`.
@@ -174,3 +174,23 @@ Actualización integral de la identidad visual de Dojo Kokoro utilizando los col
 - **Sin cambios** en la progresión por cinturones, la metodología, los valores, el encabezado, el pie, la navegación ni las otras páginas. Los estilos nuevos van en `src/css/06-dojo.css` y solo afectan a esta sección.
 - **README y CLAUDE.md:** la sección y sus textos aprobados quedan anotados.
 - **Verificación:** compilación y revisor del sitio sin errores; pruebas `final` y `valores` sin fallas; `layout` y `contraste` solo con los avisos que ya existían. Además, 91 comprobaciones de la sección en siete tamaños (1920 a 375 px): orden de las secciones, cuadrícula 2×2 en todos, tarjetas del mismo ancho y alto, textos completos y exactos, sin desbordes, colores de fondo, sin kanji ni enlaces y consola limpia.
+
+## 18. Versión 4.3 — Optimización editorial y experiencia de lectura
+
+Objetivo: menos desplazamiento para recorrer las tres páginas, sin quitar contenido ni cambiar la identidad. El texto de las páginas es idéntico al de la 4.2 (solo se agregó «Beneficios» al menú por secciones de Programa educativo).
+
+- **Sistema global:** el espacio arriba y abajo de cada sección pasa de `clamp(80px, 10vw, 130px)` a `clamp(56px, 7vw, 96px)` (`--sec-y`); los títulos de sección quedan al 84 % de su tamaño con una sola variable (`--h2-k`); menos espacio bajo las cabeceras y etiquetas; la palabra «KOKORO» del pie es más contenida.
+- **Inicio:** portada con menos aire (mismo título, «Ver horarios», «¡Primera Clase Gratis!» y pulso). En «Cuerpo, mente y espíritu», «Tres pilares» y «Conoce más» el kanji pasa a marca de agua en la esquina y las tarjetas ya no imponen alturas grandes. Frase azul, horarios, ubicación, preguntas y contacto más contenidos. En celular, el kanji de Filosofía va en línea con sus etiquetas y el botón de cada horario va junto al nombre del grupo.
+- **Nuestro dojo:** en computadora cada sensei va en horizontal (foto a la izquierda, datos a la derecha), los dos lado a lado; mismas fotos y datos. Dojo Kun con placas más bajas y, en celular, en dos columnas. Desarrollo deportivo en 2×2 en celular. Kihon, Kata y Kumite en tres columnas también en tableta. Identidad, historia, misión y visión, cinturones y galería («Próximamente») más compactos. Los ocho valores no cambian.
+- **Programa educativo:** beneficios, «Por qué este programa» y el bloque de 70 m² con alturas menores; ficha del programa, seguimiento, objetivos y necesidades con filas más contenidas; la cita final baja de 62 a 42 px como máximo. El menú por secciones suma «Beneficios».
+- **Prueba de valores:** el paso «tocar otra cambia» fija primero la posición de la lista en pantalla, porque con la página más corta la ventana de un valor podía abrirse hacia abajo y tapar el siguiente. Los valores se comportan igual que en la 4.2 (comprobado en las dos versiones).
+- **Altura de las páginas (px, antes → después):**
+
+| Página | 1920 | 1440 | 1366 | 1024 | 768 | 390 | 375 | 360 |
+|---|---|---|---|---|---|---|---|---|
+| Inicio | 9710 → 7836 | 9369 → 7707 | 9171 → 7617 | 8645 → 7149 | 11820 → 9362 | 12816 → 10264 | 12999 → 10525 | 13118 → 10641 |
+| Nuestro dojo | 16397 → 13395 | 16110 → 13162 | 15743 → 13015 | 15097 → 12982 | 17424 → 14842 | 19832 → 16862 | 19964 → 16969 | 20207 → 17272 |
+| Programa educativo | 15565 → 12831 | 15257 → 12527 | 15011 → 12316 | 14291 → 12258 | 16206 → 13448 | 21026 → 18037 | 21310 → 18313 | 21682 → 18708 |
+
+  En computadora, entre 17 y 19 % menos; en tableta y celular, entre 14 y 21 % menos.
+- **Verificación:** compilación y revisor del sitio sin errores; pruebas `final` y `valores` sin fallas; `layout` sin avisos (antes daba dos); `contraste` solo con los avisos de siempre del encabezado transparente; la revisión de 187 comprobaciones de la 4.0 sin fallas; 99 comprobaciones de anclas (cada acceso del menú por secciones y de las portadas deja su sección a la vista, sin quedar bajo el encabezado) y de desplazamiento horizontal en 8 tamaños (1920 a 360 px); 91 comprobaciones de «Criterios de evaluación»; texto de las tres páginas comparado con la 4.2.
