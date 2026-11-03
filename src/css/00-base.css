@@ -24,7 +24,8 @@
   --focus: var(--azul);   /* sobre fondos oscuros pasa a verde (01-layout.css) */
 
   --pad-x: clamp(20px, 4.5vw, 64px);
-  --sec-y: clamp(80px, 10vw, 130px);
+  --sec-y: clamp(56px, 7vw, 96px);   /* V4.3: antes clamp(80px, 10vw, 130px) */
+  --h2-k: 0.84;                     /* V4.3: escala de los títulos de sección (.h2) sobre su --fs */
   --maxw: 1280px;
   --hdr-h: 84px;
 

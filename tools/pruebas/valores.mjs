@@ -72,8 +72,11 @@ for (const [label,opts] of [['iPhone 13',devices['iPhone 13']],['Pixel 5',device
  let s=await state(pg); ck(`[${label}] tocar abre`,s[0].open);
  await btns.nth(0).tap(); await pg.waitForTimeout(350);
  s=await state(pg); ck(`[${label}] tocar de nuevo cierra`,!s[0].open);
- await btns.nth(0).tap(); await pg.waitForTimeout(250); await btns.nth(1).tap(); await pg.waitForTimeout(350);
- s=await state(pg); ck(`[${label}] tocar otra cambia (una sola abierta)`,!s[0].open&&s[1].open&&s.filter(x=>x.open).length===1);
+ // El valor 2 se abre con la lista a media pantalla (su ventana baja) y luego se toca el 1, que queda arriba y a la vista:
+ // así la prueba no depende de dónde deje la lista el largo de la página.
+ await pg.evaluate(()=>{const li=document.querySelectorAll('[data-valor]')[1]; scrollTo(0, li.getBoundingClientRect().top+scrollY-300);}); await pg.waitForTimeout(150);
+ await btns.nth(1).tap(); await pg.waitForTimeout(250); await btns.nth(0).tap(); await pg.waitForTimeout(350);
+ s=await state(pg); ck(`[${label}] tocar otra cambia (una sola abierta)`,s[0].open&&!s[1].open&&s.filter(x=>x.open).length===1);
  const vh=await pg.evaluate(()=>window.innerHeight); await pg.touchscreen.tap(3,Math.round(vh/2)); await pg.waitForTimeout(300);
  s=await state(pg); ck(`[${label}] tocar fuera cierra`,s.every(x=>!x.open));
  let allIn=true,maxOver=0; for(let i=0;i<8;i++){ await pg.touchscreen.tap(3,Math.round(vh/2)); await pg.waitForTimeout(150); await pg.locator('.valor').nth(i).scrollIntoViewIfNeeded(); await btns.nth(i).tap(); await pg.waitForTimeout(300); const v=await inView(pg,i); if(!v.ok){allIn=false;console.log('  fuera:',i,JSON.stringify(v));} }

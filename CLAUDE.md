@@ -52,6 +52,7 @@ Contenido aprobado:
 - Uso del color: azul para títulos, bordes, íconos y bandas de marca; verde para botones de acción, acentos sobre fondo oscuro, estados activos, hover y foco. Nunca texto verde ni blanco sobre verde: sobre verde el texto va en azul noche. Mantén la alternancia de secciones claras y oscuras.
 - Botones: principal verde con texto azul noche (`btn-main--verde`); secundario azul noche o azul Kokoro (`btn-main--ink`, `btn-main--azul`). El pulso suave (3,6 s, `cta-h--pulso`) es solo para «¡Primera Clase Gratis!» del encabezado; no animes otros botones así.
 - Tipografías: Oswald (títulos), DM Sans (texto), Noto Serif JP (kanji decorativos).
+- Espaciado (desde la 4.3): `--sec-y` (espacio vertical de las secciones) y `--h2-k` (escala de los títulos de sección) viven en `src/css/00-base.css`. Las tarjetas con poco texto no llevan alturas mínimas grandes y sus kanji van como marca de agua en una esquina. En celular, las cuadrículas compactas (Dojo Kun, etapas deportivas, criterios) se quedan en dos columnas cuando el ancho alcanza.
 
 ## Pendientes
 Están en `docs/PENDIENTES.md` (cinturones, calendario de torneos, fotos reales, cartas de respaldo, revisión de kanji decorativos, dominio propio).
