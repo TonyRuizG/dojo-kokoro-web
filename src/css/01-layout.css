@@ -21,7 +21,7 @@
 /* Cabecera de sección: título a la izquierda, texto a la derecha */
 .sec-head {
   display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between;
-  gap: 28px 80px; margin-bottom: 56px;
+  gap: 20px 80px; margin-bottom: clamp(32px, 4vw, 48px);
 }
 .sec-head__main { flex: 1 1 520px; min-width: 0; }
 .sec-head__side { flex: 0 1 380px; display: flex; flex-direction: column; gap: 10px; }
@@ -31,7 +31,7 @@
 .sec--navy .sec-head__side p { color: var(--on-dark-2); }
 
 .eyebrow {
-  display: flex; align-items: center; gap: 11px; margin-bottom: 28px;
+  display: flex; align-items: center; gap: 11px; margin-bottom: 20px;
   font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
 }
 .eyebrow::before {
@@ -43,7 +43,7 @@
 .h2 {
   font-family: var(--f-hd); font-weight: 600; text-transform: uppercase;
   line-height: 1.02; letter-spacing: -0.01em;
-  font-size: var(--fs, clamp(44px, 6vw, 92px));
+  font-size: calc(var(--fs, clamp(44px, 6vw, 92px)) * var(--h2-k));
   overflow-wrap: break-word;
 }
 .acc { color: var(--verde-hondo); }
@@ -115,6 +115,3 @@ h1, h2, h3, h4 { overflow-wrap: break-word; }
 .sec--ink .todo code, .sec--navy .todo code { background: rgba(243, 240, 232, 0.14); }
 .todo--inline { margin-top: 12px; padding: 10px 12px; font-size: 12px; }
 
-@media (max-width: 860px) {
-  .sec-head { margin-bottom: 44px; }
-}
