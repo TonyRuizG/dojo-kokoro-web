@@ -4,13 +4,13 @@
    ========================================================== */
 
 /* ---------- Filosofía / significado ---------- */
-.philo { display: flex; flex-wrap: wrap; gap: 48px clamp(40px, 6vw, 96px); }
+.philo { display: flex; flex-wrap: wrap; gap: 32px clamp(40px, 6vw, 96px); }
 .philo__side { flex: 0 1 260px; min-width: 0; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
 .philo__side .tag { font-size: 10px; font-weight: 700; letter-spacing: 0.16em; }
 .philo__side .tag--soft { color: var(--muted-2); }
 .philo__kanji { font-size: clamp(120px, 16vw, 220px); line-height: 1; font-weight: 700; color: #cfc9bb; }
 .philo__main { flex: 1 1 520px; min-width: 0; }
-.philo__row { margin-top: 64px; display: flex; flex-wrap: wrap; gap: 36px 64px; }
+.philo__row { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 36px 64px; }
 .philo__row .lede { flex: 1 1 320px; }
 .philo__aside { flex: 1 1 260px; min-width: 0; }
 .philo__aside .copy { margin-bottom: 22px; }
@@ -20,7 +20,7 @@
 .faq { border-top: 2px solid var(--ink); }
 .faq details { border-bottom: 1px solid var(--line); }
 .faq summary {
-  display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 64px; padding: 18px 0; cursor: pointer; list-style: none;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 56px; padding: 14px 0; cursor: pointer; list-style: none;
   font-family: var(--f-hd); font-size: clamp(19px, 1.9vw, 24px); font-weight: 600; line-height: 1.25; text-transform: uppercase; letter-spacing: 0.02em;
 }
 .faq summary::-webkit-details-marker { display: none; }
@@ -40,7 +40,7 @@
 @media (prefers-reduced-motion: reduce) { .faq details[open] .faq__a { animation: none; } .faq summary i { transition: none; } }
 .rule { display: block; width: 34px; height: 2px; background: var(--verde); margin-bottom: 18px; }
 
-.trio { margin-top: 56px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
+.trio { margin-top: 36px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; }
 .trio > div { border-top: 2px solid var(--ink); padding-top: 18px; }
 .trio .hd { display: block; font-size: clamp(26px, 3vw, 38px); font-weight: 600; text-transform: uppercase; line-height: 1.1; }
 .trio span.k { display: block; margin-bottom: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; color: var(--azul); }
@@ -52,22 +52,22 @@
   background: rgba(243, 240, 232, 0.2); border: 1px solid rgba(243, 240, 232, 0.2);
 }
 .feat {
-  min-height: 420px; padding: 26px 28px 30px; background: var(--ink);
+  position: relative; min-height: 280px; padding: 26px 28px 30px; background: var(--ink);
   display: flex; flex-direction: column; justify-content: space-between; gap: 24px;
   transition: background-color 0.35s;
 }
 .feat:hover { background-color: var(--ink-2); }
 .feat__k { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; color: var(--on-dark); }
-.feat__kanji { align-self: center; font-size: clamp(90px, 9vw, 120px); line-height: 1; font-weight: 700; color: rgba(243, 240, 232, 0.16); }
+.feat__kanji { position: absolute; top: 18px; right: 24px; font-size: clamp(64px, 6vw, 96px); line-height: 1; font-weight: 700; color: rgba(243, 240, 232, 0.16); }
 .feat h3 { margin-bottom: 14px; font-family: var(--f-hd); font-size: clamp(30px, 3vw, 38px); font-weight: 600; line-height: 1.15; text-transform: uppercase; }
 .feat p { max-width: 300px; font-size: 14px; line-height: 1.7; color: var(--on-dark); }
 
-.foot-row { margin-top: 44px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 30px; }
+.foot-row { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 30px; }
 .foot-row .jp { font-size: 34px; font-weight: 700; color: var(--verde); }
 .foot-row p { flex: 1 1 280px; font-size: 13px; color: var(--on-dark); }
 
 .chips {
-  margin-top: 56px; padding-top: 28px; border-top: 1px solid rgba(243, 240, 232, 0.2);
+  margin-top: 36px; padding-top: 22px; border-top: 1px solid rgba(243, 240, 232, 0.2);
   display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px;
   font-family: var(--f-hd); font-size: clamp(18px, 2vw, 24px); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
 }
@@ -76,7 +76,7 @@
 /* ---------- Tres pilares ---------- */
 .g3b { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 .pillar {
-  min-height: 460px; padding: 29px 29px 34px; color: var(--cream);
+  position: relative; min-height: 360px; padding: 29px 29px 34px; color: var(--cream);
   display: flex; flex-direction: column; justify-content: space-between; gap: 24px;
   transition: transform 0.35s;
 }
@@ -86,18 +86,18 @@
 .pillar--navy { background: var(--azul); }
 .pillar__top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
 .pillar__top > p { font-size: 10px; font-weight: 700; letter-spacing: 0.17em; }
-.pillar__kanji { writing-mode: vertical-rl; font-size: clamp(80px, 8vw, 115px); line-height: 0.95; font-weight: 700; color: rgba(255, 255, 255, 0.14); }
+.pillar__kanji { position: absolute; top: 22px; right: 22px; writing-mode: vertical-rl; font-size: clamp(64px, 6vw, 92px); line-height: 0.95; font-weight: 700; color: rgba(255, 255, 255, 0.14); }
 .pillar--verde .pillar__kanji { color: rgba(18, 24, 45, 0.16); }
 .pillar__body { max-width: 345px; }
 .pillar__rule { display: block; width: 33px; height: 2px; background: var(--verde); margin-bottom: 23px; }
 .pillar--verde .pillar__rule { background: var(--ink); }
-.pillar h3 { margin-bottom: 18px; font-family: var(--f-hd); font-size: clamp(52px, 5vw, 76px); font-weight: 600; line-height: 1; text-transform: uppercase; }
+.pillar h3 { margin-bottom: 14px; font-family: var(--f-hd); font-size: clamp(44px, 4.4vw, 66px); font-weight: 600; line-height: 1; text-transform: uppercase; }
 .pillar p.d { font-size: 14px; line-height: 1.8; color: #d2d0c8; }
 .pillar--verde p.d { color: var(--ink); }
 .pillar--navy p.d { color: #d6d9f0; }
 
 .path {
-  margin-top: 64px; border-top: 1px solid rgba(15, 16, 25, 0.3); padding-top: 32px;
+  margin-top: 40px; border-top: 1px solid rgba(15, 16, 25, 0.3); padding-top: 26px;
   display: flex; flex-wrap: wrap; gap: 28px 56px;
 }
 .path__lead { flex: 0 0 auto; display: flex; align-items: center; gap: 16px; }
@@ -115,12 +115,12 @@
 /* ---------- Banda azul de frase ---------- */
 .quote { background: var(--azul); color: var(--cream); overflow: hidden; }
 .quote__in {
-  max-width: var(--maxw); margin: 0 auto; padding: 44px var(--pad-x); min-height: 440px;
+  max-width: var(--maxw); margin: 0 auto; padding: 40px var(--pad-x);
   display: flex; flex-direction: column; justify-content: space-between; gap: 36px;
 }
 .quote__k { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; }
 .quote__main { display: flex; flex-wrap: wrap; align-items: center; gap: 28px 56px; }
-.quote__main .jp { font-size: clamp(130px, 18vw, 250px); line-height: 1; font-weight: 700; color: var(--cream); }
+.quote__main .jp { font-size: clamp(96px, 13vw, 190px); line-height: 1; font-weight: 700; color: var(--cream); }
 .quote__main p { flex: 1 1 360px; font-family: var(--f-hd); font-size: clamp(28px, 4vw, 58px); font-weight: 500; text-transform: uppercase; line-height: 1.2; }
 .quote__main strong { color: var(--verde); font-weight: 700; }
 .quote__sig { align-self: flex-end; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; }
@@ -128,7 +128,7 @@
 /* ---------- Horarios (tabla) ---------- */
 .board-row { display: grid; grid-template-columns: 1.5fr 1fr 1.2fr 48px; gap: 16px; align-items: center; }
 .board-head { border-top: 1px solid var(--ink); padding: 16px 20px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; color: var(--muted-2); }
-.board-row.row { padding: 30px 20px; border-top: 1px solid var(--line); transition: background-color 0.2s; }
+.board-row.row { padding: 22px 20px; border-top: 1px solid var(--line); transition: background-color 0.2s; }
 .board-row.row:last-of-type { border-bottom: 1px solid var(--ink); }
 .board-row.row:hover { background-color: #e9e5da; }
 .board__grp { display: flex; gap: 18px; align-items: baseline; }
@@ -141,7 +141,7 @@
 .board__go { width: 48px; height: 48px; border: 1px solid var(--ink); border-radius: 50%; display: grid; place-items: center; font-size: 20px; }
 .board__go:hover { background: var(--verde); border-color: var(--verde); color: var(--ink); }
 
-.free-row { margin-top: 36px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+.free-row { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
 .free-row__txt { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
 .free-row__txt i { display: block; flex: 0 0 auto; width: 16px; height: 16px; background: var(--verde); transform: rotate(45deg); }
 .free-row__txt strong { font-family: var(--f-hd); font-size: 26px; font-weight: 600; text-transform: uppercase; }
@@ -152,7 +152,7 @@
 /* ---------- Tarjetas hacia las otras páginas ---------- */
 .explore { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .tile {
-  position: relative; overflow: hidden; min-height: 400px; padding: 30px 32px 34px;
+  position: relative; overflow: hidden; min-height: 300px; padding: 30px 32px 34px;
   display: flex; flex-direction: column; justify-content: space-between; gap: 28px; color: var(--cream);
   transition: transform 0.35s;
 }
@@ -162,7 +162,7 @@
 .tile__k { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; color: var(--on-dark-2); }
 .tile__kanji {
   position: absolute; right: 18px; top: 10px; writing-mode: vertical-rl;
-  font-size: clamp(90px, 10vw, 150px); line-height: 1; font-weight: 700; color: rgba(243, 240, 232, 0.13);
+  font-size: clamp(80px, 8vw, 120px); line-height: 1; font-weight: 700; color: rgba(243, 240, 232, 0.13);
 }
 .tile h3 { position: relative; font-family: var(--f-hd); font-size: clamp(40px, 4.6vw, 64px); font-weight: 600; line-height: 1.02; text-transform: uppercase; }
 .tile p.d { position: relative; margin-top: 14px; max-width: 420px; font-size: 15px; line-height: 1.7; color: var(--on-dark-2); }
@@ -182,13 +182,13 @@
 .where__txt .copy { margin-bottom: 30px; font-size: 15px; }
 .where__go { display: flex; flex-wrap: wrap; gap: 14px; }
 .where__go .btn-main { flex: 1 1 200px; }
-.sede-next { margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 17px; line-height: 1.6; }
+.sede-next { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 17px; line-height: 1.6; }
 .sede-next span { font-weight: 600; }
 .sede-next strong { font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; overflow-wrap: anywhere; }
 
 /* ---------- Contacto (WhatsApp) ---------- */
 .contact { position: relative; overflow: hidden; }
-.contact__in { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 56px clamp(40px, 7vw, 110px); position: relative; }
+.contact__in { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px clamp(40px, 7vw, 110px); position: relative; }
 .contact__l { flex: 1 1 440px; min-width: 0; container-type: inline-size; }
 /* Título «EMPIEZA / HOY.»: cada palabra va en su línea y el tamaño sigue el ancho de la columna
    (cqi = 1% del ancho de .contact__l), así nunca se corta en ninguna pantalla.
@@ -198,8 +198,8 @@
   .contact__l .h2 { --fs: clamp(56px, 25cqi, 200px); }
 }
 .contact__l .h2 .dot { color: var(--verde); }
-.contact__l > p { margin-top: 32px; max-width: 420px; font-size: 20px; line-height: 1.5; font-weight: 500; }
-.checks { margin: 32px 0 0; display: flex; flex-direction: column; gap: 16px; font-size: 14px; font-weight: 700; }
+.contact__l > p { margin-top: 24px; max-width: 420px; font-size: 20px; line-height: 1.5; font-weight: 500; }
+.checks { margin: 24px 0 0; display: flex; flex-direction: column; gap: 16px; font-size: 14px; font-weight: 700; }
 .checks li { display: flex; align-items: center; gap: 12px; }
 .checks li::before {
   content: '✓'; display: grid; place-items: center; flex: 0 0 auto; width: 22px; height: 22px;
@@ -271,10 +271,18 @@
 @media (max-width: 860px) {
   .g3, .g3b, .explore { grid-template-columns: 1fr; }
   .trio { grid-template-columns: 1fr; }
-  .tile { min-height: 340px; }
+  /* En una columna las tarjetas miden lo que su texto; el kanji queda de marca de agua en la esquina */
+  .feat, .pillar { min-height: 0; }
+  .feat__kanji, .pillar__kanji { font-size: 56px; }
+  .tile { min-height: 240px; }
+}
+@media (max-width: 700px) {
+  .philo__side { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 8px 20px; }
+  .philo__kanji { font-size: 72px; }
 }
 @media (max-width: 700px) {
   .board-row { grid-template-columns: 1fr auto; gap: 14px; }
-  .board-row .board__grp { grid-column: 1 / -1; }
+  .board-row .board__grp { grid-column: 1 / -1; grid-row: 1; padding-right: 60px; }
+  .board-row .board__go { grid-column: 2; grid-row: 1; justify-self: end; }
   .board-head { display: none; }
 }
