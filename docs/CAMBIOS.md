@@ -1,6 +1,6 @@
 # Resumen de cambios
 
-**Versión actual: 4.3** (la 4.0 fue la identidad visual oficial, cuarta gran actualización visual). Los paquetes siguientes se numeran 4.1, 4.2… y cada uno se entrega como `dojo-kokoro-web-v4.X.zip`. Las secciones 1 a 14 cuentan la historia hasta la 3.5 (la paleta roja que se menciona ahí ya no está vigente).
+**Versión actual: 4.4** (la 4.0 fue la identidad visual oficial, cuarta gran actualización visual). Los paquetes siguientes se numeran 4.1, 4.2… y cada uno se entrega como `dojo-kokoro-web-v4.X.zip`. Las secciones 1 a 14 cuentan la historia hasta la 3.5 (la paleta roja que se menciona ahí ya no está vigente).
 
 Punto de partida: la página única de Dojo Kokoro (versión 15, un solo archivo HTML empaquetado).
 Resultado: un sitio de tres páginas, organizado y listo para publicar. La versión original está intacta en `respaldo-original/`.
@@ -194,3 +194,32 @@ Objetivo: menos desplazamiento para recorrer las tres páginas, sin quitar conte
 
   En computadora, entre 17 y 19 % menos; en tableta y celular, entre 14 y 21 % menos.
 - **Verificación:** compilación y revisor del sitio sin errores; pruebas `final` y `valores` sin fallas; `layout` sin avisos (antes daba dos); `contraste` solo con los avisos de siempre del encabezado transparente; la revisión de 187 comprobaciones de la 4.0 sin fallas; 99 comprobaciones de anclas (cada acceso del menú por secciones y de las portadas deja su sección a la vista, sin quedar bajo el encabezado) y de desplazamiento horizontal en 8 tamaños (1920 a 360 px); 91 comprobaciones de «Criterios de evaluación»; texto de las tres páginas comparado con la 4.2.
+
+## 19. Versión 4.4 — Inicio esencial
+
+Reorganización estratégica de la página Inicio para mejorar la experiencia de nuevos visitantes, reducir contenido redundante, destacar a los instructores, simplificar el acceso a horarios y contacto, y mantener la información institucional y técnica en las subpáginas correspondientes.
+
+- **Estructura nueva de Inicio (de 10 a 8 secciones):** portada · filosofía y beneficios · frase azul · senseis · horarios y ubicación · preguntas · accesos a las otras páginas · «Empieza hoy». La portada no cambia.
+- **Filosofía y beneficios, juntos:** «El verdadero combate es interior», la introducción y las tres tarjetas (cuerpo, mente, espíritu) en una sola sección, con los enlaces «Conoce nuestra filosofía» (a `#kokoro` de Nuestro dojo) y «Descubre cómo entrenamos» (a `#metodologia`). Salen el segundo título («Formar el cuerpo. Fortalecer el espíritu.») y la fila de palabras sueltas, que repetían lo mismo.
+- **Senseis en resumen (`#senseis`):** foto, años de experiencia, grado y selección nacional de Anthony y Camila, con los mismos datos de Nuestro dojo, y el enlace «Conoce a nuestros instructores». Los perfiles completos siguen solo en Nuestro dojo.
+- **Sale de Inicio «Tres pilares»** (Kihon, Kata, Kumite): ya está completo en Nuestro dojo. El texto «空手道 significa "el camino de la mano vacía"…», que solo estaba en Inicio, pasó a la cabecera de «Cómo entrenamos».
+- **Horarios y ubicación en un mismo bloque:** en computadora (desde 1200 px) la tabla va a la izquierda y, a la derecha, la tarjeta de la sede con Google Maps, Waze y la invitación a la primera clase. En tableta y celular el orden es grupos, horarios, sede, mapas e invitación. Los datos no cambian. `#ubicacion` sigue existiendo, ahora dentro de `#horarios`.
+- **Preguntas frecuentes:** quedan cinco. La de cinturones sale de Inicio (sigue en Nuestro dojo) y «¿La primera clase tiene algún costo?» pasa a «¿La primera clase es gratuita?».
+- **Accesos a las otras páginas:** dos tarjetas compactas, «Conoce Kokoro por dentro» y «Kokoro en instituciones educativas», sin título grande de sección.
+- **Contacto:** la etiqueta pasa a «El primer paso es conocernos» y el párrafo a un mensaje de bienvenida. El formulario, sus validaciones y WhatsApp no cambian.
+- **Navegación lateral de Inicio:** Filosofía, Senseis, Horarios, Preguntas y Contacto. Las de Nuestro dojo y Programa educativo no cambian.
+- **Política de contenido:** no se publica información económica (solo que la primera clase es gratis) ni fechas de apertura sin confirmar. Queda anotado en `CLAUDE.md`.
+- **Pruebas actualizadas:** `tools/revisar-sitio.mjs` y `tools/pruebas/final.mjs` esperan el nuevo número de preguntas.
+- **Recorrido de Inicio (px, antes → después):**
+
+| Tamaño | Alto total | Hasta los horarios | Hasta el formulario |
+|---|---|---|---|
+| 1920 × 1080 | 7836 → 6578 | 3764 → 3177 | 6772 → 5515 |
+| 1440 × 900 | 7707 → 6475 | 3696 → 3119 | 6647 → 5416 |
+| 1366 × 768 | 7617 → 6401 | 3641 → 3070 | 6570 → 5354 |
+| 1024 × 768 | 7149 → 6179 | 3513 → 2985 | 6166 → 5196 |
+| 768 × 1024 | 9362 → 7967 | 4391 → 3601 | 8403 → 7008 |
+| 390 × 844 | 10264 → 8721 | 4914 → 3901 | 9216 → 7672 |
+| 375 × 812 | 10525 → 8915 | 5083 → 4035 | 9477 → 7867 |
+
+- **Verificación:** compilación y revisor del sitio sin errores; pruebas `final` y `valores` sin fallas; `layout` sin avisos; `contraste` solo con los avisos de siempre del encabezado transparente; la revisión de 187 comprobaciones sin fallas; 93 comprobaciones de anclas y desplazamiento horizontal; 91 de «Criterios de evaluación»; y 114 propias de la 4.4 en siete tamaños (estructura, navegación lateral, fotos, enlaces hacia las otras páginas, «Ver horarios», pulso, datos vigentes, sin información económica ni fechas, y Nuestro dojo y Programa educativo con todo su texto de la 4.3).

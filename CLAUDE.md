@@ -31,11 +31,14 @@ El dominio propio previsto (dojokokorocr.com) todavía NO está comprado ni conf
 ## Reglas de contenido (decisiones de Tony)
 Privacidad (el repositorio es PÚBLICO):
 - No publicar precios, tarifas, inversiones ni condiciones económicas, ni teléfonos o correos personales, ni el nombre legal completo (usar «Sensei Anthony Ruiz»). El único contacto público es el WhatsApp oficial +506 8514-5922 (`src/site.json`).
+- Tampoco se publican mensualidades, matrículas, descuentos, becas, promociones ni diferencias de costo entre sedes, ni preguntas frecuentes o campos de formulario sobre dinero: las condiciones se conversan con cada persona. Lo único económico que se publica es que la primera clase es gratis.
+- No publicar fechas de apertura o inauguración que Tony no haya confirmado, ni cuentas regresivas o campañas de lanzamiento. La sede Sta. Bárbara Centro sigue como «PRÓXIMAMENTE».
 - `respaldo-original/` es PRIVADO (versión original, presentación comercial, lista de datos prohibidos). Está en `.gitignore`, vive solo en la computadora de Tony y no se sube nunca. Si existe, `tools/revisar-sitio.mjs` la usa para buscar fugas.
 - No usar contenido del sitio de ISKF Costa Rica. Solo logos entregados por Tony (ISKF Costa Rica en rojo y CCDR; ya tiene aprobación de ambos).
 - Sin estadísticas tipo «20+ alumnos».
 
 Contenido aprobado:
+- Inicio (desde la 4.4, «Inicio esencial»): portada, filosofía con las tres tarjetas (cuerpo, mente, espíritu), frase azul, senseis en resumen, horarios con la sede al lado, cinco preguntas, accesos compactos a las otras páginas y «Empieza hoy». Kihon, Kata y Kumite, la progresión por cinturones y los perfiles completos de los senseis viven solo en Nuestro dojo: no volver a explicarlos en Inicio. En la portada solo va el botón «Ver horarios».
 - Misión y visión oficiales, textuales, en Nuestro dojo (no van en Inicio). No cambiarlas.
 - Ocho valores (`src/data/valores.json`): textos aprobados y SIN japonés (no se puede verificar). No cambiarlos sin autorización. El Dojo Kun va aparte de los valores.
 - Senseis Anthony y Camila Ruiz como iguales (tarjetas del mismo tamaño), con recuadros «Seleccionado/a Nacional» y «1er Dan». Sin «Rol» ni «Enseñanza».
@@ -45,7 +48,7 @@ Contenido aprobado:
 - Camino deportivo: Iniciación → Formación → Competencia → Alto rendimiento, sin prometer selección ni clasificación.
 - Criterios de evaluación (Nuestro dojo, `#criterios`, justo después de los cinturones): cuatro tarjetas (Kihon, Kata, Kumite, Espíritu y actitud) y el cierre «Los exámenes reflejan el progreso, no la perfección.», con textos textuales aprobados. Sin kanji ni requisitos por cinturón: es una explicación general, no un reglamento de exámenes.
 - Programa educativo: sin precios; las condiciones se acuerdan con cada institución.
-- Ubicación: «Sede Birrí» (Salón Comunal de ADI Birrí) y «Sede Sta. Bárbara Centro: PRÓXIMAMENTE». Botones de Google Maps y Waze, sin mapa incrustado, justo después de los horarios.
+- Ubicación: «Sede Birrí» (Salón Comunal de ADI Birrí) y «Sede Sta. Bárbara Centro: PRÓXIMAMENTE». Botones de Google Maps y Waze, sin mapa incrustado. Desde la 4.4 es una tarjeta (`#ubicacion`) dentro del bloque de horarios de Inicio.
 - Formulario de WhatsApp: el mensaje está en `src/site.json`. No muevas el diseño al salir de un campo: se pierde el clic en el botón de enviar.
 - Identidad visual oficial (desde la 4.0, colores del logotipo): azul Kokoro #272F6A, verde Kokoro #79C8A2 y negro #000000. Complementarios: azul noche #12182D (portadas, fondos oscuros, pie) y marfil #F6F3EA (fondos claros); también azul grisáceo #AAB6CC (texto secundario sobre oscuro) y verde hondo #2A7352 (solo texto verde sobre fondo claro, por contraste). Todo vive como variables al inicio de `src/css/00-base.css`; no escribas colores sueltos.
 - El rojo ya no es color de la interfaz: solo queda en los mensajes de error del formulario (`--error`) y en logos o banderas de terceros, que no se recolorean.

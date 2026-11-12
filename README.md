@@ -8,7 +8,7 @@ Es un sitio estático de tres páginas, sin dependencias, sin base de datos y si
 
 | Página | Ruta | Para qué sirve |
 |---|---|---|
-| Inicio | `/` | Filosofía, método, horarios, preguntas frecuentes, ubicación y formulario que continúa por WhatsApp. |
+| Inicio | `/` | Portada, filosofía y beneficios, senseis (resumen), horarios y ubicación, preguntas frecuentes, accesos a las otras páginas y formulario que continúa por WhatsApp. |
 | Nuestro dojo | `/nuestro-dojo/` | Historia, misión y visión, ocho valores, Dojo Kun, senseis, metodología (Kihon, Kata, Bunkai, Kumite), criterios de evaluación, desarrollo deportivo, logros (o «Construye una historia con nosotros»), respaldo institucional y galería (o «Próximamente»). |
 | Programa educativo | `/programa-educativo/` | Propuesta de karate-do extracurricular para instituciones: objetivos, valores, metodología, niveles, condiciones, seguimiento y proceso de colaboración. |
 
@@ -128,13 +128,13 @@ Cuando compres el dominio (previsto: `dojokokorocr.com`, **aún no configurado**
 | Enlaces de Google Maps y Waze | `src/site.json` → `maps`, `waze`, `geo` |
 | Mensajes de WhatsApp de los botones | `src/site.json` → `wa` |
 | Mensaje del formulario (usa `{nombre}` y `{edad}`) | `src/site.json` → `formulario.mensaje` |
-| Días, horarios y grupos (edades) | `src/pages/index.html` (portada, cinta de lemas, `#horarios`, preguntas y nota del formulario), `src/pages/nuestro-dojo.html` (Entrenamientos), `src/pages/programa-educativo.html` (edades del programa) y `src/site.json` → `wa.ninos`, `wa.adultos` |
+| Días, horarios y grupos (edades) | `src/pages/index.html` (portada, cinta de lemas, `#horarios`, preguntas, lista de «Empieza hoy» y nota del formulario), `src/pages/nuestro-dojo.html` (Entrenamientos), `src/pages/programa-educativo.html` (edades del programa) y `src/site.json` → `wa.ninos`, `wa.adultos` |
 | Preguntas frecuentes | `src/pages/index.html` (sección `#preguntas`, un `<details>` por pregunta) |
 | Misión y visión | `src/pages/nuestro-dojo.html` (`#mision`); ya no van en Inicio |
 | Los ocho valores | `src/data/valores.json` (**no cambiar los textos sin autorización**; los valores no llevan japonés a propósito) |
 | Historia del dojo | `src/pages/nuestro-dojo.html` (`#historia`) |
 | Criterios de evaluación | `src/pages/nuestro-dojo.html` (`#criterios`, después de los cinturones; textos aprobados, **no cambiarlos sin autorización**) |
-| Datos de los senseis (grado, trayectoria, especialidades) | `src/pages/nuestro-dojo.html` (`#senseis`, lista `sensei__dl` de cada tarjeta) |
+| Datos de los senseis (grado, trayectoria, especialidades) | `src/pages/nuestro-dojo.html` (`#senseis`, perfil completo) y el resumen de `src/pages/index.html` (`#senseis`: años de experiencia, grado y selección nacional). Cambiar los dos a la vez |
 | Programa educativo | `src/pages/programa-educativo.html` |
 | Logros | `src/data/logros.json` |
 | Fotos de la galería | `src/data/galeria.json` y `src/assets/img/galeria/` |
