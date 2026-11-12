@@ -307,7 +307,65 @@
     });
   })();
 
-  /* ---------- 5. Título que nunca se corta ----------
+  /* ---------- 5. Cinturones (Nuestro dojo) ----------
+     La tarjeta se amplía por dentro. Escritorio: al dejar el cursor un instante sobre ella. Táctil y teclado: al tocar
+     o con Enter/Espacio; se cierra al tocar de nuevo o fuera, o con Escape. Solo hay una abierta a la vez.
+     Sin JavaScript el texto ampliado queda visible en cada tarjeta. */
+  (function cinturones() {
+    var items = [].slice.call(doc.querySelectorAll('[data-obi]'));
+    if (!items.length) return;
+
+    function btnOf(li) { return li.querySelector('.obi__btn'); }
+    function render(li) {
+      var open = !!(li._pin || li._hov);
+      li.classList.toggle('is-open', open);
+      btnOf(li).setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    function closeAll(except) {
+      items.forEach(function (li) {
+        if (li !== except && (li._pin || li._hov)) { li._pin = false; li._hov = false; render(li); }
+      });
+    }
+
+    items.forEach(function (li) {
+      li._pin = false; li._hov = false;
+      btnOf(li).addEventListener('click', function () {
+        closeAll(li);
+        if (li._pin) { li._pin = false; li._hov = false; }
+        else { li._pin = true; }
+        render(li);
+      });
+      li.addEventListener('pointerenter', function (e) {
+        if (e.pointerType !== 'mouse') return;
+        clearTimeout(li._leave);
+        clearTimeout(li._enter);
+        // la espera evita que se abran las tarjetas que solo pasan bajo el cursor al desplazar la página
+        li._enter = setTimeout(function () { closeAll(li); li._hov = true; render(li); }, 180);
+      });
+      li.addEventListener('pointerleave', function (e) {
+        if (e.pointerType !== 'mouse') return;
+        clearTimeout(li._enter);
+        li._leave = setTimeout(function () { li._hov = false; render(li); }, 120);
+      });
+      li.addEventListener('focusout', function (e) {
+        var next = e.relatedTarget;
+        if (next && li.contains(next)) return;
+        li._pin = false; render(li);
+      });
+    });
+
+    doc.addEventListener('pointerdown', function (e) {
+      if (!(e.target.closest && e.target.closest('[data-obi]'))) closeAll(null);
+    });
+    doc.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      var focused = doc.activeElement && doc.activeElement.closest ? doc.activeElement.closest('[data-obi]') : null;
+      closeAll(null);
+      if (focused) btnOf(focused).focus();
+    });
+  })();
+
+  /* ---------- 6. Título que nunca se corta ----------
      El CSS ya calcula el tamaño con el ancho de la columna; esto lo reduce un poco más solo si la tipografía
      (por ejemplo, una de respaldo más ancha) hace que la palabra no quepa. */
   (function fitTitle() {
@@ -331,7 +389,7 @@
     } else window.addEventListener('resize', all);
   })();
 
-  /* ---------- 6. Transición entre páginas ---------- */
+  /* ---------- 7. Transición entre páginas ---------- */
   (function pageFade() {
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
     var root = doc.documentElement;

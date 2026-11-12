@@ -134,6 +134,7 @@ Cuando compres el dominio (previsto: `dojokokorocr.com`, **aún no configurado**
 | Los ocho valores | `src/data/valores.json` (**no cambiar los textos sin autorización**; los valores no llevan japonés a propósito) |
 | Historia del dojo | `src/pages/nuestro-dojo.html` (`#historia`) |
 | Criterios de evaluación | `src/pages/nuestro-dojo.html` (`#criterios`, después de los cinturones; textos aprobados, **no cambiarlos sin autorización**) |
+| Cinturones y su significado | `src/pages/nuestro-dojo.html` (`#significado-cinturones`, entre Criterios y Desarrollo deportivo: nombre, nombre japonés, frase breve y texto ampliado de cada cinturón). Los colores de las ilustraciones están en `src/css/00-base.css` (`--obi-*`) |
 | Datos de los senseis (grado, trayectoria, especialidades) | `src/pages/nuestro-dojo.html` (`#senseis`, perfil completo) y el resumen de `src/pages/index.html` (`#senseis`: años de experiencia, grado y selección nacional). Cambiar los dos a la vez |
 | Programa educativo | `src/pages/programa-educativo.html` |
 | Logros | `src/data/logros.json` |

@@ -12,7 +12,7 @@ El sitio público **no muestra avisos de «pendiente»**: solo publica informaci
 
 | # | Qué falta | Sección |
 |---|---|---|
-| 2 | **Escala de cinturones** del dojo y requisitos de cada examen. | Progresión por cinturones |
+| 2 | **Requisitos de cada examen** de cinturón (la escala de colores, con 2 niveles en morado y 3 en café, ya está publicada desde la 4.4.1). | Cinturones y su significado / Progresión por cinturones |
 | 3 | **Calendario de torneos** y categorías competitivas. | Nuestro dojo → Desarrollo deportivo |
 | 4 | **Logros** (cuando el dojo decida compartirlos): año, torneo, categoría y resultado. Hoy se muestra «Construye una historia con nosotros». Nombres de atletas solo con autorización. | `src/data/logros.json` |
 | 5 | **Trayectoria de los senseis** (opcional): especialidades, certificaciones adicionales o datos verificables que quieran sumar. Hoy se muestran años de práctica, «Seleccionado/a Nacional» y «1er Dan». | Nuestro dojo → Senseis |

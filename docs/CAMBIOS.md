@@ -1,6 +1,6 @@
 # Resumen de cambios
 
-**Versión actual: 4.4** (la 4.0 fue la identidad visual oficial, cuarta gran actualización visual). Los paquetes siguientes se numeran 4.1, 4.2… y cada uno se entrega como `dojo-kokoro-web-v4.X.zip`. Las secciones 1 a 14 cuentan la historia hasta la 3.5 (la paleta roja que se menciona ahí ya no está vigente).
+**Versión actual: 4.4.1** (la 4.0 fue la identidad visual oficial, cuarta gran actualización visual). Los paquetes siguientes se numeran 4.1, 4.2… y cada uno se entrega como `dojo-kokoro-web-v4.X.zip`. Las secciones 1 a 14 cuentan la historia hasta la 3.5 (la paleta roja que se menciona ahí ya no está vigente).
 
 Punto de partida: la página única de Dojo Kokoro (versión 15, un solo archivo HTML empaquetado).
 Resultado: un sitio de tres páginas, organizado y listo para publicar. La versión original está intacta en `respaldo-original/`.
@@ -225,3 +225,18 @@ Reorganización estratégica de la página Inicio para mejorar la experiencia de
 | 375 × 812 | 10525 → 8708 | 5083 → 3915 | 9477 → 7672 |
 
 - **Verificación:** compilación y revisor del sitio sin errores; pruebas `final` y `valores` sin fallas; `layout` sin avisos; `contraste` solo con los avisos de siempre del encabezado transparente; la revisión de 187 comprobaciones sin fallas; 93 comprobaciones de anclas y desplazamiento horizontal; 91 de «Criterios de evaluación»; 114 propias de la 4.4 en siete tamaños (estructura, navegación lateral, fotos, enlaces hacia las otras páginas, «Ver horarios», pulso, datos vigentes, sin información económica ni fechas, y Nuestro dojo y Programa educativo con todo su texto de la 4.3); y 135 de las tres portadas en nueve tamaños, incluido 1277 × 603 (título completo, botón a la vista, título igual que antes en pantallas altas).
+
+## 20. Versión 4.4.1 — Cinturones y su significado, y acomodo suave en Inicio
+
+- **Cinturones como divisores: descartado.** No se agregó ningún cinturón decorativo entre secciones; queda anotado en `CLAUDE.md`.
+- **Nueva sección «Cinturones y su significado»** en Nuestro dojo (`#significado-cinturones`), entre Criterios de evaluación y Desarrollo deportivo. Fondo azul noche y ocho tarjetas marfil (Blanco, Amarillo, Naranja, Verde, Azul, Morado, Café y Negro), cada una con una ilustración simple del cinturón en su color, el nombre, el nombre japonés y una frase breve.
+- **La tarjeta se amplía por dentro** (no es ventana flotante ni modal):
+  - en computadora, al dejar el cursor un instante sobre ella (la espera evita que se abran las que solo pasan bajo el cursor al desplazar la página);
+  - en celular y tableta, al tocarla; se cierra al tocar de nuevo o fuera;
+  - con el teclado, con Enter o Espacio; Escape la cierra.
+  Solo queda una abierta a la vez. El despliegue es suave y se apaga con movimiento reducido; sin JavaScript los textos ampliados quedan visibles. El texto ampliado de Morado aclara que tiene 2 niveles, el de Café 3, y el de Negro menciona los grados dan sin afirmar cuántos hay.
+- **Distribución:** en computadora, tres filas (3, 3 y 2, con Café y Negro centrados); en tableta, dos columnas; en celular, una fila compacta por cinturón con la ilustración a la izquierda.
+- **Colores de los cinturones** como variables `--obi-*` en `src/css/00-base.css`, solo para sus ilustraciones. La interacción es un bloque propio en `src/js/site.js`; los ocho valores no se tocaron.
+- **Acomodo suave en Inicio:** `scroll-snap-type: y proximity` solo en Inicio, con `scroll-snap-align: start` en sus secciones y respetando los 84 px del encabezado. Cuando el desplazamiento se detiene justo antes de una sección, o apenas pasada una sección corta, la vista se acomoda a su comienzo. Dentro de una sección más alta que la pantalla se lee libre. No se usa `mandatory` ni se intercepta la rueda o el toque. Se apaga con movimiento reducido y mientras se escribe en el formulario (para que el teclado del celular no mueva la vista).
+- **Altura de Nuestro dojo:** la sección suma 958 px en computadora (13206 → 14164), 1240 en tableta (14967 → 16207) y 1518 en celular (16979 → 18497).
+- **Verificación:** compilación y revisor del sitio sin errores; pruebas `final` y `valores` sin fallas; `layout` sin avisos; `contraste` solo con los avisos de siempre del encabezado transparente; la revisión de 187 comprobaciones sin fallas; 93 de anclas y desplazamiento horizontal; 91 de «Criterios de evaluación» (ya con el nuevo orden); 114 de la 4.4; 102 de los cinturones (orden, colores, cuadrícula en 7 tamaños, cursor, toque en iPhone, Android y iPad, teclado, una abierta a la vez, movimiento reducido y sin JavaScript); y 76 del acomodo suave (solo en Inicio, cerca de cada sección, secciones largas libres, rueda y toque sin retrocesos ni saltos bruscos, menú lateral y formulario).
