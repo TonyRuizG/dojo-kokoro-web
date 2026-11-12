@@ -105,12 +105,12 @@
 /* ---------- Banda azul de frase ---------- */
 .quote { background: var(--azul); color: var(--cream); overflow: hidden; }
 .quote__in {
-  max-width: var(--maxw); margin: 0 auto; padding: 40px var(--pad-x);
-  display: flex; flex-direction: column; justify-content: space-between; gap: 36px;
+  max-width: var(--maxw); margin: 0 auto; padding: 30px var(--pad-x);
+  display: flex; flex-direction: column; justify-content: space-between; gap: 22px;
 }
 .quote__k { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; }
 .quote__main { display: flex; flex-wrap: wrap; align-items: center; gap: 28px 56px; }
-.quote__main .jp { font-size: clamp(96px, 13vw, 190px); line-height: 1; font-weight: 700; color: var(--cream); }
+.quote__main .jp { font-size: clamp(80px, 9.5vw, 140px); line-height: 1; font-weight: 700; color: var(--cream); }
 .quote__main p { flex: 1 1 360px; font-family: var(--f-hd); font-size: clamp(28px, 4vw, 58px); font-weight: 500; text-transform: uppercase; line-height: 1.2; }
 .quote__main strong { color: var(--verde); font-weight: 700; }
 .quote__sig { align-self: flex-end; font-size: 10px; font-weight: 700; letter-spacing: 0.2em; }
@@ -260,11 +260,18 @@
 /* ---------- Responsive ---------- */
 /* Computadora: horarios a la izquierda y la sede a la derecha, desde la altura del título */
 @media (min-width: 1200px) {
-  .start { grid-template-columns: minmax(0, 1fr) 360px; grid-template-rows: auto 1fr; column-gap: clamp(40px, 4vw, 56px); align-items: start; }
+  .start { grid-template-columns: minmax(0, 1fr) 360px; grid-template-rows: auto auto 1fr; column-gap: clamp(40px, 4vw, 56px); }
   .start > * { grid-column: 1; }
-  .start > .start__side { grid-column: 2; grid-row: 1 / span 2; }
-  .start__side .where { margin-top: 0; }
-  .start__side .free-row .btn-main { flex: 1 1 100%; }
+  /* la tarjeta de la sede ocupa todo el alto del bloque; la próxima sede queda abajo, a la altura de la invitación */
+  .start > .where { grid-column: 2; grid-row: 1 / span 3; margin-top: 0; display: flex; flex-direction: column; }
+  .start > .where .sede-next { margin-top: auto; }
+  .start > .where .where__go { margin-bottom: 22px; }
+  /* la invitación cabe en una sola fila bajo la tabla */
+  .start > .free-row { align-self: start; flex-wrap: nowrap; gap: 16px; }
+  .start > .free-row .free-row__txt { flex: 1 1 auto; min-width: 0; gap: 10px 14px; }
+  .start > .free-row .free-row__txt strong { font-size: 24px; }
+  .start > .free-row .free-row__txt span { max-width: 150px; padding-left: 14px; }
+  .start > .free-row .btn-main { flex: 0 0 auto; }
   /* la tabla comparte fila con la sede: un poco más de sitio para la hora */
   .start .board-row { grid-template-columns: 1.2fr 0.8fr 1.4fr 48px; }
   .start .board__time { font-size: clamp(28px, 2.6vw, 38px); }

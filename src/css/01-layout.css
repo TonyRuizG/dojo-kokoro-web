@@ -10,6 +10,8 @@
 
 .sec { padding: var(--sec-y) 0; }
 .sec--tight { padding: clamp(40px, 5vw, 64px) 0; }   /* franja breve: accesos secundarios */
+/* Inicio es la página más directa: sus secciones van un poco más juntas que en las otras dos (V4.4) */
+.pg-inicio { --sec-y: clamp(44px, 5vw, 68px); }
 .sec--cream { background: var(--cream); color: var(--ink); }
 .sec--paper { background: var(--paper); color: var(--ink); }
 .sec--ink { background: var(--ink); color: var(--cream); }
