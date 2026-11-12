@@ -46,32 +46,22 @@
 .trio span.k { display: block; margin-bottom: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.18em; color: var(--azul); }
 .trio p { margin-top: 10px; font-size: 14px; line-height: 1.7; color: var(--muted); }
 
-/* ---------- Tres tarjetas (cuerpo, mente, espíritu) ---------- */
-.g3 {
-  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px;
-  background: rgba(243, 240, 232, 0.2); border: 1px solid rgba(243, 240, 232, 0.2);
-}
+/* ---------- Tres tarjetas (cuerpo, mente, espíritu), dentro de Filosofía ---------- */
+.g3 { margin-top: clamp(32px, 4vw, 48px); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; }
 .feat {
-  position: relative; min-height: 280px; padding: 26px 28px 30px; background: var(--ink);
-  display: flex; flex-direction: column; justify-content: space-between; gap: 24px;
+  position: relative; padding: 26px 28px 30px; background: var(--ink); color: var(--cream);
+  display: flex; flex-direction: column; justify-content: space-between; gap: 28px;
   transition: background-color 0.35s;
 }
 .feat:hover { background-color: var(--ink-2); }
 .feat__k { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; color: var(--on-dark); }
 .feat__kanji { position: absolute; top: 18px; right: 24px; font-size: clamp(64px, 6vw, 96px); line-height: 1; font-weight: 700; color: rgba(243, 240, 232, 0.16); }
-.feat h3 { margin-bottom: 14px; font-family: var(--f-hd); font-size: clamp(30px, 3vw, 38px); font-weight: 600; line-height: 1.15; text-transform: uppercase; }
+.feat h3 { margin-bottom: 12px; font-family: var(--f-hd); font-size: clamp(26px, 2.6vw, 34px); font-weight: 600; line-height: 1.15; text-transform: uppercase; }
 .feat p { max-width: 300px; font-size: 14px; line-height: 1.7; color: var(--on-dark); }
 
+/* Fila de cierre de una sección clara: una línea de apoyo y un enlace hacia Nuestro dojo */
 .foot-row { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 30px; }
-.foot-row .jp { font-size: 34px; font-weight: 700; color: var(--verde); }
-.foot-row p { flex: 1 1 280px; font-size: 13px; color: var(--on-dark); }
-
-.chips {
-  margin-top: 36px; padding-top: 22px; border-top: 1px solid rgba(243, 240, 232, 0.2);
-  display: flex; flex-wrap: wrap; align-items: center; gap: 14px 28px;
-  font-family: var(--f-hd); font-size: clamp(18px, 2vw, 24px); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
-}
-.chips i { display: block; width: 8px; height: 8px; background: var(--verde); transform: rotate(45deg); }
+.foot-row p { flex: 1 1 280px; font-size: 14px; color: var(--muted); }
 
 /* ---------- Tres pilares ---------- */
 .g3b { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
@@ -149,11 +139,11 @@
 .open-pill { display: flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; }
 .open-pill i { display: inline-block; flex: 0 0 auto; width: 9px; height: 9px; background: var(--verde-hondo); border-radius: 50%; }
 
-/* ---------- Tarjetas hacia las otras páginas ---------- */
+/* ---------- Tarjetas hacia las otras páginas (accesos secundarios, compactos) ---------- */
 .explore { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .tile {
-  position: relative; overflow: hidden; min-height: 300px; padding: 30px 32px 34px;
-  display: flex; flex-direction: column; justify-content: space-between; gap: 28px; color: var(--cream);
+  position: relative; overflow: hidden; padding: 24px 28px 26px;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 18px; color: var(--cream);
   transition: transform 0.35s;
 }
 .tile:hover { transform: translateY(-8px); }
@@ -161,28 +151,27 @@
 .tile--navy { background: var(--azul); }
 .tile__k { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; color: var(--on-dark-2); }
 .tile__kanji {
-  position: absolute; right: 18px; top: 10px; writing-mode: vertical-rl;
-  font-size: clamp(80px, 8vw, 120px); line-height: 1; font-weight: 700; color: rgba(243, 240, 232, 0.13);
+  position: absolute; right: 16px; top: 10px; writing-mode: vertical-rl;
+  font-size: clamp(56px, 5vw, 80px); line-height: 1; font-weight: 700; color: rgba(243, 240, 232, 0.13);
 }
-.tile h3 { position: relative; font-family: var(--f-hd); font-size: clamp(40px, 4.6vw, 64px); font-weight: 600; line-height: 1.02; text-transform: uppercase; }
-.tile p.d { position: relative; margin-top: 14px; max-width: 420px; font-size: 15px; line-height: 1.7; color: var(--on-dark-2); }
+.tile h3 { position: relative; font-family: var(--f-hd); font-size: clamp(26px, 2.8vw, 38px); font-weight: 600; line-height: 1.05; text-transform: uppercase; }
+.tile p.d { position: relative; margin-top: 10px; max-width: 420px; font-size: 15px; line-height: 1.7; color: var(--on-dark-2); }
 .tile .go {
-  position: relative; display: inline-flex; align-items: center; gap: 14px; margin-top: 24px;
+  position: relative; display: inline-flex; align-items: center; gap: 14px; margin-top: 16px;
   font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
 }
 .tile .go span { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid rgba(243, 240, 232, 0.5); border-radius: 50%; font-size: 20px; letter-spacing: 0; transition: background-color 0.25s, color 0.25s; }
 .tile:hover .go span { background: var(--verde); border-color: var(--verde); color: var(--ink); }
 
-/* ---------- Ubicación ---------- */
-.where { display: flex; flex-wrap: wrap; align-items: center; gap: 40px clamp(40px, 8vw, 120px); }
-.where__head { flex: 1 1 380px; min-width: 0; }
-.where__head .h2 { --fs: clamp(44px, 5.6vw, 84px); }
-.where__txt { flex: 1 1 380px; min-width: 0; max-width: 560px; }
-.where__txt .lede { margin-bottom: 14px; }
-.where__txt .copy { margin-bottom: 30px; font-size: 15px; }
-.where__go { display: flex; flex-wrap: wrap; gap: 14px; }
+/* ---------- Horarios y ubicación en un mismo bloque (.start): la sede es una tarjeta junto a la tabla ---------- */
+.start { display: grid; grid-template-columns: minmax(0, 1fr); }
+.where { margin-top: 28px; padding: clamp(22px, 3vw, 32px); background: var(--paper); border-top: 4px solid var(--azul); }
+.where h3 { margin-bottom: 14px; font-family: var(--f-hd); font-size: clamp(28px, 2.6vw, 36px); font-weight: 600; line-height: 1.05; text-transform: uppercase; color: var(--azul); }
+.where .lede { margin-bottom: 10px; font-size: 18px; }
+.where .copy { margin-bottom: 22px; font-size: 15px; }
+.where__go { display: flex; flex-wrap: wrap; gap: 12px; }
 .where__go .btn-main { flex: 1 1 200px; }
-.sede-next { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 17px; line-height: 1.6; }
+.sede-next { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 17px; line-height: 1.6; }
 .sede-next span { font-weight: 600; }
 .sede-next strong { font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; overflow-wrap: anywhere; }
 
@@ -198,6 +187,7 @@
   .contact__l .h2 { --fs: clamp(56px, 25cqi, 200px); }
 }
 .contact__l .h2 .dot { color: var(--verde); }
+.contact__l > .eyebrow { max-width: none; letter-spacing: 0.14em; }
 .contact__l > p { margin-top: 24px; max-width: 420px; font-size: 20px; line-height: 1.5; font-weight: 500; }
 .checks { margin: 24px 0 0; display: flex; flex-direction: column; gap: 16px; font-size: 14px; font-weight: 700; }
 .checks li { display: flex; align-items: center; gap: 12px; }
@@ -268,12 +258,22 @@
 .foot-bot .links img { display: block; width: 20px; height: 20px; }
 
 /* ---------- Responsive ---------- */
+/* Computadora: horarios a la izquierda y la sede a la derecha, desde la altura del título */
+@media (min-width: 1200px) {
+  .start { grid-template-columns: minmax(0, 1fr) 360px; grid-template-rows: auto 1fr; column-gap: clamp(40px, 4vw, 56px); align-items: start; }
+  .start > * { grid-column: 1; }
+  .start > .start__side { grid-column: 2; grid-row: 1 / span 2; }
+  .start__side .where { margin-top: 0; }
+  .start__side .free-row .btn-main { flex: 1 1 100%; }
+  /* la tabla comparte fila con la sede: un poco más de sitio para la hora */
+  .start .board-row { grid-template-columns: 1.2fr 0.8fr 1.4fr 48px; }
+  .start .board__time { font-size: clamp(28px, 2.6vw, 38px); }
+}
 @media (max-width: 860px) {
   .g3, .g3b, .explore { grid-template-columns: 1fr; }
   /* En una columna las tarjetas miden lo que su texto; el kanji queda de marca de agua en la esquina */
-  .feat, .pillar { min-height: 0; }
+  .pillar { min-height: 0; }
   .feat__kanji, .pillar__kanji { font-size: 56px; }
-  .tile { min-height: 240px; }
 }
 @media (max-width: 700px) {
   .trio { grid-template-columns: 1fr; }

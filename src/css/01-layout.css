@@ -9,6 +9,7 @@
 }
 
 .sec { padding: var(--sec-y) 0; }
+.sec--tight { padding: clamp(40px, 5vw, 64px) 0; }   /* franja breve: accesos secundarios */
 .sec--cream { background: var(--cream); color: var(--ink); }
 .sec--paper { background: var(--paper); color: var(--ink); }
 .sec--ink { background: var(--ink); color: var(--cream); }
