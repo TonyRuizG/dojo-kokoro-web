@@ -108,7 +108,7 @@ for (const [label, opts] of [['escritorio', { viewport: { width: 1440, height: 9
   await pg.addStyleTag({ content: 'html{scroll-behavior:auto!important}' });
   await pg.evaluate(() => document.querySelector('#preguntas').scrollIntoView());
   const sums = pg.locator('.faq summary');
-  ck('FAQ: 6 preguntas', (await sums.count()) === 6);
+  ck('FAQ: 5 preguntas', (await sums.count()) === 5);
   await sums.nth(0).focus();
   await pg.keyboard.press('Enter');
   ck('FAQ: Enter abre la 1', await pg.evaluate(() => document.querySelectorAll('.faq details')[0].open));

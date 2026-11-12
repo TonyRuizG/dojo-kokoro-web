@@ -55,7 +55,7 @@ El sitio público **no muestra avisos de «pendiente»**: solo publica informaci
 ## Qué no se puede verificar desde el entorno de desarrollo
 
 - La **publicación real en Cloudflare** (hay que abrir el sitio tras cada commit).
-- La **identidad 4.0 y la compactación 4.3 en celulares y tabletas reales** (el pulso del botón, los colores en pantallas de distinto brillo, la comodidad de lectura); se probó en el navegador con tamaños de celular y tableta.
+- La **identidad 4.0, la compactación 4.3 y el nuevo Inicio 4.4 en celulares y tabletas reales** (el pulso del botón, los colores en pantallas de distinto brillo, la comodidad de lectura); se probó en el navegador con tamaños de celular y tableta.
 - La apariencia exacta con **Oswald y DM Sans** (el entorno de pruebas no puede descargar Google Fonts; se usó una tipografía de reemplazo más ancha).
 - El comportamiento de WhatsApp y de los botones de Google Maps y Waze en dispositivos reales.
 - **Pruebas con usuarios reales.**

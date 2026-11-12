@@ -117,6 +117,11 @@ html:not(.js) .valor__pop-in { border-top-width: 1px; box-shadow: none; }
 .sensei__extra p { display: flex; align-items: flex-start; gap: 10px; font-size: clamp(12px, 1.15vw, 14px); line-height: 1.5; }
 .sensei__extra svg { flex: 0 0 auto; display: block; margin-top: 3px; border-radius: 2px; }
 .sensei__extra a { align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; padding: 4px 0; font-size: clamp(11.5px, 1.1vw, 13px); font-weight: 700; color: var(--verde); text-decoration: underline; overflow-wrap: anywhere; }
+/* Senseis en versión breve (Inicio): tarjeta horizontal en todos los anchos, sin biografía */
+.gs--mini { max-width: none; }
+.gs--mini .sensei { flex-direction: row; }
+.gs--mini .sensei__ph { flex: 0 0 clamp(120px, 34%, 210px); }
+.gs--mini .sensei__body { justify-content: center; }
 .teach { max-width: 880px; margin: clamp(24px, 3vw, 36px) auto 0; padding: clamp(22px, 3vw, 34px) clamp(22px, 3vw, 38px); background: var(--paper); border-left: 4px solid var(--azul); }
 .teach__k { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--azul); }
 .teach__t { margin-top: 12px; max-width: 62ch; font-size: clamp(16px, 1.4vw, 18px); line-height: 1.75; font-weight: 500; }
@@ -259,6 +264,7 @@ html:not(.js) .valor__pop-in { border-top-width: 1px; box-shadow: none; }
 }
 @media (max-width: 860px) {
   .ident { grid-template-columns: 1fr; }
+  .gs--mini { grid-template-columns: 1fr; }
   .belts__track { grid-template-columns: 1fr; gap: 28px; }
   .belts__track::before { left: 11px; right: auto; top: 11px; bottom: 40px; width: 2px; height: auto; }
   .belt { padding: 0 0 0 52px; }
