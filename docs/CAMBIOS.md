@@ -203,7 +203,9 @@ Reorganización estratégica de la página Inicio para mejorar la experiencia de
 - **Filosofía y beneficios, juntos:** «El verdadero combate es interior», la introducción y las tres tarjetas (cuerpo, mente, espíritu) en una sola sección, con los enlaces «Conoce nuestra filosofía» (a `#kokoro` de Nuestro dojo) y «Descubre cómo entrenamos» (a `#metodologia`). Salen el segundo título («Formar el cuerpo. Fortalecer el espíritu.») y la fila de palabras sueltas, que repetían lo mismo.
 - **Senseis en resumen (`#senseis`):** foto, años de experiencia, grado y selección nacional de Anthony y Camila, con los mismos datos de Nuestro dojo, y el enlace «Conoce a nuestros instructores». Los perfiles completos siguen solo en Nuestro dojo.
 - **Sale de Inicio «Tres pilares»** (Kihon, Kata, Kumite): ya está completo en Nuestro dojo. El texto «空手道 significa "el camino de la mano vacía"…», que solo estaba en Inicio, pasó a la cabecera de «Cómo entrenamos».
-- **Horarios y ubicación en un mismo bloque:** en computadora (desde 1200 px) la tabla va a la izquierda y, a la derecha, la tarjeta de la sede con Google Maps, Waze y la invitación a la primera clase. En tableta y celular el orden es grupos, horarios, sede, mapas e invitación. Los datos no cambian. `#ubicacion` sigue existiendo, ahora dentro de `#horarios`.
+- **Horarios y ubicación en un mismo bloque:** en computadora (desde 1200 px) la tabla va a la izquierda y, a la derecha, la tarjeta de la sede con Google Maps y Waze, que ocupa todo el alto del bloque. La invitación «Primera clase gratis» va debajo de la tabla, en una sola fila con su botón a la derecha. En tableta y celular el orden es grupos, horarios, sede, mapas e invitación. Los datos no cambian. `#ubicacion` sigue existiendo, ahora dentro de `#horarios`.
+- **Secciones de Inicio más juntas:** Inicio usa un espacio vertical propio y menor (`--sec-y` de `clamp(44px, 5vw, 68px)` mediante la clase `pg-inicio`, que `src/layout.html` pone en `<body>` con el nombre de cada página). La banda de la frase azul es más baja. Las otras dos páginas conservan su espaciado.
+- **Portada en pantallas bajas (las tres páginas):** el título y el aire superior también se limitan por la altura de la pantalla (`vh`). En un portátil de 14" (unos 1280 × 600 px útiles) el título de Inicio pasa de 121/179 a 90/133 px y caben el título, el texto y «Ver horarios» sin bajar. En pantallas altas, tabletas y celulares en vertical el título mide lo mismo que antes.
 - **Preguntas frecuentes:** quedan cinco. La de cinturones sale de Inicio (sigue en Nuestro dojo) y «¿La primera clase tiene algún costo?» pasa a «¿La primera clase es gratuita?».
 - **Accesos a las otras páginas:** dos tarjetas compactas, «Conoce Kokoro por dentro» y «Kokoro en instituciones educativas», sin título grande de sección.
 - **Contacto:** la etiqueta pasa a «El primer paso es conocernos» y el párrafo a un mensaje de bienvenida. El formulario, sus validaciones y WhatsApp no cambian.
@@ -214,12 +216,12 @@ Reorganización estratégica de la página Inicio para mejorar la experiencia de
 
 | Tamaño | Alto total | Hasta los horarios | Hasta el formulario |
 |---|---|---|---|
-| 1920 × 1080 | 7836 → 6578 | 3764 → 3177 | 6772 → 5515 |
-| 1440 × 900 | 7707 → 6475 | 3696 → 3119 | 6647 → 5416 |
-| 1366 × 768 | 7617 → 6401 | 3641 → 3070 | 6570 → 5354 |
-| 1024 × 768 | 7149 → 6179 | 3513 → 2985 | 6166 → 5196 |
-| 768 × 1024 | 9362 → 7967 | 4391 → 3601 | 8403 → 7008 |
-| 390 × 844 | 10264 → 8721 | 4914 → 3901 | 9216 → 7672 |
-| 375 × 812 | 10525 → 8915 | 5083 → 4035 | 9477 → 7867 |
+| 1920 × 1080 | 7836 → 6073 | 3764 → 2966 | 6772 → 5037 |
+| 1440 × 900 | 7707 → 5943 | 3696 → 2890 | 6647 → 4911 |
+| 1366 × 768 | 7617 → 5832 | 3641 → 2812 | 6570 → 4812 |
+| 1024 × 768 | 7149 → 5881 | 3513 → 2820 | 6166 → 4918 |
+| 768 × 1024 | 9362 → 7638 | 4391 → 3485 | 8403 → 6691 |
+| 390 × 844 | 10264 → 8514 | 4914 → 3781 | 9216 → 7478 |
+| 375 × 812 | 10525 → 8708 | 5083 → 3915 | 9477 → 7672 |
 
-- **Verificación:** compilación y revisor del sitio sin errores; pruebas `final` y `valores` sin fallas; `layout` sin avisos; `contraste` solo con los avisos de siempre del encabezado transparente; la revisión de 187 comprobaciones sin fallas; 93 comprobaciones de anclas y desplazamiento horizontal; 91 de «Criterios de evaluación»; y 114 propias de la 4.4 en siete tamaños (estructura, navegación lateral, fotos, enlaces hacia las otras páginas, «Ver horarios», pulso, datos vigentes, sin información económica ni fechas, y Nuestro dojo y Programa educativo con todo su texto de la 4.3).
+- **Verificación:** compilación y revisor del sitio sin errores; pruebas `final` y `valores` sin fallas; `layout` sin avisos; `contraste` solo con los avisos de siempre del encabezado transparente; la revisión de 187 comprobaciones sin fallas; 93 comprobaciones de anclas y desplazamiento horizontal; 91 de «Criterios de evaluación»; 114 propias de la 4.4 en siete tamaños (estructura, navegación lateral, fotos, enlaces hacia las otras páginas, «Ver horarios», pulso, datos vigentes, sin información económica ni fechas, y Nuestro dojo y Programa educativo con todo su texto de la 4.3); y 135 de las tres portadas en nueve tamaños, incluido 1277 × 603 (título completo, botón a la vista, título igual que antes en pantallas altas).

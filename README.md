@@ -140,7 +140,7 @@ Cuando compres el dominio (previsto: `dojokokorocr.com`, **aún no configurado**
 | Fotos de la galería | `src/data/galeria.json` y `src/assets/img/galeria/` |
 | Título y descripción para buscadores | comentario `<!--page {...}-->` al inicio de cada archivo de `src/pages/` |
 | Colores y tipografías | `src/css/00-base.css` (variables al inicio) |
-| Espacio entre secciones y tamaño de los títulos de sección | `src/css/00-base.css`: `--sec-y` (espacio arriba y abajo de cada sección) y `--h2-k` (escala de todos los títulos `.h2`) |
+| Espacio entre secciones y tamaño de los títulos de sección | `src/css/00-base.css`: `--sec-y` (espacio arriba y abajo de cada sección) y `--h2-k` (escala de todos los títulos `.h2`). Inicio tiene su propio `--sec-y`, más corto, en `src/css/01-layout.css` (`.pg-inicio`) |
 
 Después de cualquier cambio: `node build.mjs && node tools/revisar-sitio.mjs dist`.
 
