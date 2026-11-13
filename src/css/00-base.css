@@ -49,7 +49,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 84px;
+  scroll-padding-top: 71px;   /* alto del encabezado compacto (70 px + borde), que es el que se ve sobre las secciones */
   -webkit-text-size-adjust: 100%;
 }
 

@@ -21,6 +21,10 @@
     var panel = hdr.querySelector('.mnav');
     var lastY = window.pageYOffset || 0;
     var raf = 0;
+    // Al saltar a una sección (barra lateral, botones, enlaces con #) el encabezado se queda visible mientras dura
+    // el salto: la sección termina justo debajo de él y no asoma una franja de la anterior.
+    var jumpFrom = 0, jumpUntil = 0;
+    function jump() { jumpFrom = Date.now(); jumpUntil = jumpFrom + 1200; if (!raf) raf = requestAnimationFrame(tick); }
 
     function setMenu(open) {
       hdr.classList.toggle('menu-open', open);
@@ -35,13 +39,23 @@
       var y = window.pageYOffset || 0;
       hdr.classList.toggle('is-solid', y > 30);
       var menuOpen = hdr.classList.contains('menu-open');
-      if (y > 380 && y > lastY + 6 && !menuOpen) hdr.classList.add('is-hidden');
-      else if (y < lastY - 6 || y <= 380) hdr.classList.remove('is-hidden');
+      var now = Date.now();
+      var jumping = now < jumpUntil;
+      // mientras la página siga moviéndose se alarga un poco (hasta 3 s): los saltos largos tardan más
+      if (jumping) jumpUntil = Math.min(jumpFrom + 3000, Math.max(jumpUntil, now + 250));
+      if (!jumping && y > 380 && y > lastY + 6 && !menuOpen) hdr.classList.add('is-hidden');
+      else if (jumping || y < lastY - 6 || y <= 380) hdr.classList.remove('is-hidden');
       lastY = y;
     }
     function onScroll() { if (!raf) raf = requestAnimationFrame(tick); }
 
     window.addEventListener('scroll', onScroll, { passive: true });
+    doc.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href*="#"]');
+      if (a && a.hash && a.pathname === location.pathname) jump();
+    }, true);
+    window.addEventListener('hashchange', jump);
+    if (location.hash) jump();   // llegada desde otra página a una sección
     tick();
 
     if (btn && panel) {
