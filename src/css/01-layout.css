@@ -12,6 +12,14 @@
 .sec--tight { padding: clamp(40px, 5vw, 64px) 0; }   /* franja breve: accesos secundarios */
 /* Inicio es la página más directa: sus secciones van un poco más juntas que en las otras dos (V4.4) */
 .pg-inicio { --sec-y: clamp(44px, 5vw, 68px); }
+/* Inicio: ajuste suave del desplazamiento (V4.4.1). «proximity» solo acomoda la vista cuando se llega cerca del comienzo
+   de una sección, debajo del encabezado (scroll-padding-top de 00-base.css); dentro de una sección larga se lee libre.
+   No se aplica con movimiento reducido ni mientras se escribe en el formulario (el teclado del celular movería la vista). */
+.pg-inicio main > section[id] { scroll-snap-align: start; }
+@media (prefers-reduced-motion: no-preference) {
+  html:has(> body.pg-inicio) { scroll-snap-type: y proximity; }
+  html:has(> body.pg-inicio):has(.ask input:focus) { scroll-snap-type: none; }
+}
 .sec--cream { background: var(--cream); color: var(--ink); }
 .sec--paper { background: var(--paper); color: var(--ink); }
 .sec--ink { background: var(--ink); color: var(--cream); }

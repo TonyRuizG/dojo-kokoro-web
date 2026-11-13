@@ -177,19 +177,20 @@
 
 /* ---------- Contacto (WhatsApp) ---------- */
 .contact { position: relative; overflow: hidden; }
-.contact__in { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 40px clamp(40px, 7vw, 110px); position: relative; }
+.contact__in { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 28px clamp(40px, 7vw, 110px); position: relative; }
 .contact__l { flex: 1 1 440px; min-width: 0; container-type: inline-size; }
 /* Título «EMPIEZA / HOY.»: cada palabra va en su línea y el tamaño sigue el ancho de la columna
    (cqi = 1% del ancho de .contact__l), así nunca se corta en ninguna pantalla.
    El valor en vw es el respaldo para navegadores sin unidades de contenedor. */
 .contact__l .h2 { --fs: clamp(56px, 11vw, 190px); font-weight: 700; line-height: 0.94; letter-spacing: -0.02em; white-space: nowrap; overflow-wrap: normal; }
 @supports (width: 1cqi) {
-  .contact__l .h2 { --fs: clamp(56px, 25cqi, 200px); }
+  .contact__l .h2 { --fs: clamp(52px, 22cqi, 120px); }
 }
 .contact__l .h2 .dot { color: var(--verde); }
-.contact__l > .eyebrow { max-width: none; letter-spacing: 0.14em; }
-.contact__l > p { margin-top: 24px; max-width: 420px; font-size: 20px; line-height: 1.5; font-weight: 500; }
-.checks { margin: 24px 0 0; display: flex; flex-direction: column; gap: 16px; font-size: 14px; font-weight: 700; }
+.contact__l > .eyebrow { margin-top: 0; max-width: none; letter-spacing: 0.14em; }
+@media (max-width: 480px) { .contact__l > .eyebrow { font-size: 15px; letter-spacing: 0.08em; } }   /* cabe en una línea */
+.contact__l > p { margin-top: 18px; max-width: 440px; font-size: 18px; line-height: 1.5; font-weight: 500; }
+.checks { margin: 18px 0 0; display: flex; flex-direction: column; gap: 10px; font-size: 14px; font-weight: 700; }
 .checks li { display: flex; align-items: center; gap: 12px; }
 .checks li::before {
   content: '✓'; display: grid; place-items: center; flex: 0 0 auto; width: 22px; height: 22px;
@@ -197,16 +198,16 @@
 }
 .contact__card {
   flex: 1 1 420px; min-width: 0; max-width: 600px; background: var(--cream); color: var(--ink);
-  padding: clamp(28px, 4vw, 44px); box-shadow: 0 20px 52px rgba(0, 0, 0, 0.18);
+  padding: clamp(22px, 2.8vw, 34px); box-shadow: 0 20px 52px rgba(0, 0, 0, 0.18);
 }
 .contact__card .k { font-size: 10px; font-weight: 700; letter-spacing: 0.17em; color: var(--azul); }
-.contact__card h3 { margin: 18px 0 14px; font-family: var(--f-hd); font-size: clamp(32px, 3.6vw, 44px); font-weight: 600; line-height: 1.1; text-transform: uppercase; }
-.contact__card .q { margin-bottom: 24px; font-size: 14px; line-height: 1.7; color: var(--muted); }
-.ask { display: flex; flex-direction: column; gap: 20px; }
-.field { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.contact__card h3 { margin: 10px 0 8px; font-family: var(--f-hd); font-size: clamp(26px, 2.5vw, 34px); font-weight: 600; line-height: 1.1; text-transform: uppercase; }
+.contact__card .q { margin-bottom: 16px; font-size: 14px; line-height: 1.7; color: var(--muted); }
+.ask { display: flex; flex-direction: column; gap: 14px; }
+.field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .field label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.4; }
 .field input {
-  width: 100%; min-height: 56px; padding: 0 16px; border: 2px solid #8f8e86; border-radius: 0;
+  width: 100%; min-height: 50px; padding: 0 16px; border: 2px solid #8f8e86; border-radius: 0;
   background: #fff; color: var(--ink); font-family: inherit; font-size: 16px; font-weight: 500;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
@@ -222,14 +223,14 @@
 .ask__status { font-size: 13px; line-height: 1.6; color: var(--muted); }
 .ask__status:empty { margin: 0; }
 .ask__status a { font-weight: 700; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
-.contact__card .btn-main { margin-top: 4px; display: flex; width: 100%; border: 0; font-family: inherit; cursor: pointer; text-align: left; }
-.contact__card .fine { margin-top: 14px; font-size: 11px; line-height: 1.6; color: var(--muted-2); }
+.contact__card .btn-main { margin-top: 0; display: flex; width: 100%; border: 0; font-family: inherit; cursor: pointer; text-align: left; }
+.contact__card .fine { margin-top: 10px; font-size: 11px; line-height: 1.6; color: var(--muted-2); }
 .contact__card .direct {
-  margin-top: 24px; border-top: 1px solid #bdbbb1; padding-top: 20px;
+  margin-top: 14px; border-top: 1px solid #bdbbb1; padding-top: 8px;
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px;
 }
 .contact__card .direct span { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: var(--muted-2); }
-.contact__card .direct a { display: inline-block; padding: 10px 0; font-family: var(--f-hd); font-size: 22px; font-weight: 600; white-space: nowrap; }
+.contact__card .direct a { display: inline-block; padding: 8px 0; font-family: var(--f-hd); font-size: 22px; font-weight: 600; white-space: nowrap; }
 .contact__ghost {
   position: absolute; right: 2%; bottom: -6%; font-size: clamp(160px, 24vw, 340px); line-height: 1; font-weight: 700;
   color: rgba(15, 16, 25, 0.1); pointer-events: none;

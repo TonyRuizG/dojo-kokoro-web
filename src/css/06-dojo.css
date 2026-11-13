@@ -166,6 +166,39 @@ html:not(.js) .valor__pop-in { border-top-width: 1px; box-shadow: none; }
 .crit__big { font-family: var(--f-hd); font-size: clamp(22px, 3vw, 40px); font-weight: 600; line-height: 1.1; text-transform: uppercase; text-wrap: balance; }
 .crit__end p:last-child { margin-top: 12px; font-size: clamp(14px, 1.4vw, 17px); line-height: 1.6; color: var(--on-dark-2); }
 
+/* Cinturones y su significado: tarjetas marfil sobre azul noche que se amplían por dentro (cursor, toque o teclado) */
+.obis { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; align-items: start; }
+.obi { grid-column: span 2; min-width: 0; background: var(--cream); color: var(--ink); border-top: 4px solid var(--azul); transition: border-color 0.3s; }
+.obi:nth-child(7) { grid-column: 2 / span 2; }   /* tercera fila: café y negro, centrados */
+.obi:nth-child(8) { grid-column: 4 / span 2; }
+.obi.is-open { border-top-color: var(--verde); }
+.obi__btn {
+  position: relative; display: grid; grid-template-columns: minmax(0, 1fr); justify-items: start; gap: 4px; width: 100%;
+  padding: 20px 22px 18px; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; -webkit-tap-highlight-color: transparent;
+}
+.obi__btn:focus-visible { outline: 3px solid var(--verde); outline-offset: 3px; }
+.obi__ico { display: block; width: 84px; height: 35px; margin-bottom: 12px; overflow: visible; color: var(--obi); fill: currentColor; stroke: var(--ink); stroke-width: 1.5; stroke-linejoin: round; }
+.obi__name { font-size: clamp(22px, 2vw, 26px); font-weight: 600; line-height: 1.1; text-transform: uppercase; color: var(--azul); }
+.obi__jp { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-2); }
+.obi__d { margin-top: 8px; min-height: 3.2em; font-size: 15px; line-height: 1.6; }   /* dos líneas: la fila queda pareja */
+@media (min-width: 1200px) { .obi__d { min-height: 0; } }   /* aquí todas caben en una línea */
+.obi__more { position: absolute; top: 18px; right: 18px; width: 28px; height: 28px; border: 1.5px solid currentColor; border-radius: 50%; color: var(--muted); transition: transform 0.3s var(--ease); }
+.obi__more::before, .obi__more::after { content: ''; position: absolute; left: 50%; top: 50%; width: 10px; height: 1.5px; background: currentColor; transform: translate(-50%, -50%); }
+.obi__more::after { transform: translate(-50%, -50%) rotate(90deg); }
+.obi.is-open .obi__more { transform: rotate(45deg); }
+/* Texto ampliado: se despliega dentro de la tarjeta (0fr → 1fr). Sin JavaScript queda siempre visible. */
+.obi__mas { display: grid; grid-template-rows: 1fr; }
+.obi__mas > div { min-height: 0; overflow: hidden; }
+html.js .obi__mas { grid-template-rows: 0fr; transition: grid-template-rows 0.32s var(--ease); }
+html.js .obi__mas > div { visibility: hidden; transition: visibility 0s linear 0.32s; }
+html.js .obi.is-open .obi__mas { grid-template-rows: 1fr; }
+html.js .obi.is-open .obi__mas > div { visibility: visible; transition-delay: 0s; }
+.obi__mas p { margin: 0 22px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 15px; line-height: 1.7; color: var(--muted); }
+.obi__mas p:last-child { margin-bottom: 20px; }
+.obi__mas .obi__nota { padding-top: 8px; border-top: 0; font-weight: 700; color: var(--azul); }
+html:not(.js) .obi__btn { pointer-events: none; }
+html:not(.js) .obi__more { display: none; }
+
 /* Desarrollo deportivo */
 .stages { display: flex; flex-wrap: wrap; gap: 32px 40px; }
 .stage { flex: 1 1 200px; min-width: 0; border-top: 4px solid rgba(243, 240, 232, 0.35); padding-top: 20px; }
@@ -215,6 +248,17 @@ html:not(.js) .valor__pop-in { border-top-width: 1px; box-shadow: none; }
 .backer__logo--kokoro img { height: 80px; }
 .backer h3 { font-family: var(--f-hd); font-size: 24px; font-weight: 600; text-transform: uppercase; }
 .backer p { margin-top: 8px; font-size: 15px; line-height: 1.6; color: var(--on-dark-2); }
+/* Enlaces para que cualquiera pueda verificar el respaldo (sitio, Facebook o correo de cada organización) */
+.backer__links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.backer__links a {
+  display: inline-flex; align-items: center; gap: 8px; min-width: 0; min-height: 40px; padding: 8px 14px;
+  border: 1px solid rgba(243, 240, 232, 0.35); color: var(--cream);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  transition: border-color 0.2s, color 0.2s;
+}
+.backer__links a:hover { border-color: var(--verde); color: var(--verde); }
+.backer__links img { display: block; flex: 0 0 auto; width: 18px; height: 18px; }
+.backer__links .mail { font-size: 13px; letter-spacing: 0.01em; text-transform: none; overflow-wrap: anywhere; }
 
 /* Galería */
 .gal { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
@@ -255,6 +299,10 @@ html:not(.js) .valor__pop-in { border-top-width: 1px; box-shadow: none; }
   .sensei__ph { flex: 0 0 44%; }
   .sensei__body > .jp { display: none; }
 }
+@media (max-width: 900px) {
+  .obis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .obi, .obi:nth-child(n) { grid-column: auto; }
+}
 @media (max-width: 1000px) {
   .g5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .g5 > *:last-child { grid-column: 1 / -1; }
@@ -285,6 +333,16 @@ html:not(.js) .valor__pop-in { border-top-width: 1px; box-shadow: none; }
   .valor__num { right: 54px; top: 20px; }
   .valor__more { top: 16px; right: 14px; }
   .method-cols { grid-template-columns: 1fr; }
+  /* Cinturones en celular: una fila por cinturón, ilustración a la izquierda y textos a la derecha */
+  .obis { grid-template-columns: 1fr; gap: 8px; }
+  .obi__btn { grid-template-columns: 64px minmax(0, 1fr); column-gap: 16px; row-gap: 2px; align-items: center; padding: 16px 54px 16px 16px; }
+  .obi__ico { grid-row: 1 / span 3; width: 64px; height: 27px; margin: 0; }
+  .obi__name, .obi__jp, .obi__d { grid-column: 2; }
+  .obi__name { font-size: 20px; }
+  .obi__d { margin-top: 2px; min-height: 0; }
+  .obi__more { top: 50%; right: 14px; margin-top: -14px; }
+  .obi__mas p { margin: 0 16px; }
+  .obi__mas p:last-child { margin-bottom: 16px; }
   /* Dojo Kun y etapas deportivas se quedan en dos columnas en celular */
   .plaque--kun { min-height: 0; padding: 18px 16px 20px; }
   .plaque--kun .jp { font-size: 44px; }
@@ -311,4 +369,5 @@ html:not(.js) .valor__pop-in { border-top-width: 1px; box-shadow: none; }
   .valor__btn, .valor__ico, .valor__more { transition: none; }
   html.js .valor__pop, html.js .valor.is-up .valor__pop { transform: none; transition: none; }
   .plaque--kun, .sensei { transition: none; }
+  .obi, .obi__more, html.js .obi__mas, html.js .obi__mas > div { transition: none; }
 }

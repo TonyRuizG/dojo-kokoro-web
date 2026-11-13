@@ -22,6 +22,15 @@
   --on-dark: #aab6cc;     /* azul grisáceo: texto secundario sobre fondo oscuro */
   --on-dark-2: #d6d9f0;
   --focus: var(--azul);   /* sobre fondos oscuros pasa a verde (01-layout.css) */
+  /* Colores de los cinturones (solo para sus ilustraciones en Nuestro dojo, como los logos de terceros) */
+  --obi-blanco: #ffffff;
+  --obi-amarillo: #f2c230;
+  --obi-naranja: #e8812a;
+  --obi-verde: #3f9a52;
+  --obi-azul: #2f63b8;
+  --obi-morado: #7a4fa3;
+  --obi-cafe: #7a4a2b;
+  --obi-negro: #111111;
 
   --pad-x: clamp(20px, 4.5vw, 64px);
   --sec-y: clamp(56px, 7vw, 96px);   /* V4.3: antes clamp(80px, 10vw, 130px) */
@@ -40,7 +49,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 84px;
+  scroll-padding-top: 71px;   /* alto del encabezado compacto (70 px + borde), que es el que se ve sobre las secciones */
   -webkit-text-size-adjust: 100%;
 }
 
