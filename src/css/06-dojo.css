@@ -248,6 +248,17 @@ html:not(.js) .obi__more { display: none; }
 .backer__logo--kokoro img { height: 80px; }
 .backer h3 { font-family: var(--f-hd); font-size: 24px; font-weight: 600; text-transform: uppercase; }
 .backer p { margin-top: 8px; font-size: 15px; line-height: 1.6; color: var(--on-dark-2); }
+/* Enlaces para que cualquiera pueda verificar el respaldo (sitio, Facebook o correo de cada organización) */
+.backer__links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.backer__links a {
+  display: inline-flex; align-items: center; gap: 8px; min-width: 0; min-height: 40px; padding: 8px 14px;
+  border: 1px solid rgba(243, 240, 232, 0.35); color: var(--cream);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  transition: border-color 0.2s, color 0.2s;
+}
+.backer__links a:hover { border-color: var(--verde); color: var(--verde); }
+.backer__links img { display: block; flex: 0 0 auto; width: 18px; height: 18px; }
+.backer__links .mail { font-size: 13px; letter-spacing: 0.01em; text-transform: none; overflow-wrap: anywhere; }
 
 /* Galería */
 .gal { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }

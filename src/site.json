@@ -16,6 +16,16 @@
     "facebook": "https://www.facebook.com/profile.php?id=61595614032952",
     "kataEquipo": "https://www.instagram.com/kataequipocrc/"
   },
+  "respaldo": {
+    "iskf": {
+      "web": "https://iskf-cr.com/",
+      "facebook": "https://www.facebook.com/IskfCostaRica"
+    },
+    "ccdr": {
+      "correo": "ccdrsb@santabarbara.go.cr",
+      "facebook": "https://www.facebook.com/p/Comit%C3%A9-Cantonal-de-Deportes-y-Recreaci%C3%B3n-Santa-B%C3%A1rbara-61575519275536/"
+    }
+  },
   "maps": "https://maps.app.goo.gl/wjCoEnb7eMJgkQgW7",
   "waze": "https://ul.waze.com/ul?ll=10.05705377%2C-84.13793789&navigate=yes&zoom=17&utm_campaign=live_map&utm_source=waze_website&utm_medium=lm_share_location",
   "geo": {

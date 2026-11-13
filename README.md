@@ -127,6 +127,7 @@ Cuando compres el dominio (previsto: `dojokokorocr.com`, **aún no configurado**
 | Teléfono, Instagram, Facebook, dirección del sitio | `src/site.json` |
 | Enlaces de Google Maps y Waze | `src/site.json` → `maps`, `waze`, `geo` |
 | Mensajes de WhatsApp de los botones | `src/site.json` → `wa` |
+| Enlaces de respaldo (sitio y Facebook de ISKF Costa Rica; correo y Facebook del CCDR) | `src/site.json` → `respaldo`. Los botones están en `src/partials/backers.html`, que aparece en Nuestro dojo y en Programa educativo |
 | Mensaje del formulario (usa `{nombre}` y `{edad}`) | `src/site.json` → `formulario.mensaje` |
 | Días, horarios y grupos (edades) | `src/pages/index.html` (portada, cinta de lemas, `#horarios`, preguntas, lista de «Empieza hoy» y nota del formulario), `src/pages/nuestro-dojo.html` (Entrenamientos), `src/pages/programa-educativo.html` (edades del programa) y `src/site.json` → `wa.ninos`, `wa.adultos` |
 | Preguntas frecuentes | `src/pages/index.html` (sección `#preguntas`, un `<details>` por pregunta) |

@@ -30,7 +30,7 @@ El dominio propio previsto (dojokokorocr.com) todavía NO está comprado ni conf
 
 ## Reglas de contenido (decisiones de Tony)
 Privacidad (el repositorio es PÚBLICO):
-- No publicar precios, tarifas, inversiones ni condiciones económicas, ni teléfonos o correos personales, ni el nombre legal completo (usar «Sensei Anthony Ruiz»). El único contacto público es el WhatsApp oficial +506 8514-5922 (`src/site.json`).
+- No publicar precios, tarifas, inversiones ni condiciones económicas, ni teléfonos o correos personales, ni el nombre legal completo (usar «Sensei Anthony Ruiz»). El único contacto público es el WhatsApp oficial +506 8514-5922 (`src/site.json`). Excepción aprobada por Tony (4.4.1): en «Respaldo» se enlazan los canales oficiales de ISKF Costa Rica (sitio y Facebook) y del CCDR de Santa Bárbara (correo institucional y Facebook), guardados en `src/site.json` → `respaldo`, para que cualquiera pueda verificar ese respaldo; `tools/revisar-sitio.mjs` solo acepta esos correos.
 - Tampoco se publican mensualidades, matrículas, descuentos, becas, promociones ni diferencias de costo entre sedes, ni preguntas frecuentes o campos de formulario sobre dinero: las condiciones se conversan con cada persona. Lo único económico que se publica es que la primera clase es gratis.
 - No publicar fechas de apertura o inauguración que Tony no haya confirmado, ni cuentas regresivas o campañas de lanzamiento. La sede Sta. Bárbara Centro sigue como «PRÓXIMAMENTE».
 - `respaldo-original/` es PRIVADO (versión original, presentación comercial, lista de datos prohibidos). Está en `.gitignore`, vive solo en la computadora de Tony y no se sube nunca. Si existe, `tools/revisar-sitio.mjs` la usa para buscar fugas.

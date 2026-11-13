@@ -125,7 +125,9 @@ for (const file of htmlFiles) {
   // reglas de contenido (sobre el texto visible y los datos estructurados)
   {
     const ld = (html.match(/<script type="application\/ld\+json">[\s\S]*?<\/script>/) || [''])[0];
-    const text = (visible.replace(/<[^>]+>/g, ' ') + ' ' + ld).replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ');
+    let text = (visible.replace(/<[^>]+>/g, ' ') + ' ' + ld).replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ');
+    // Única excepción a «sin correos»: los correos institucionales de respaldo aprobados en site.json → respaldo
+    for (const o of Object.values(site.respaldo || {})) if (o.correo) text = text.split(o.correo).join(' ');
     const banned = [
       [/texto propuesto|a la espera de (su )?aprobaci[oó]n|\bpendiente\b|provisional|lorem ipsum|REEMPLAZAR|por confirmar/i, 'texto interno o provisional visible'],
       [/[₡¢]\s?\d|\$\s?\d|\d\s?(colones|d[oó]lares)/i, 'precio o monto económico'],
